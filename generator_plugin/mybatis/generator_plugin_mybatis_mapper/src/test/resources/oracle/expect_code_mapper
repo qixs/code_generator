@@ -1,0 +1,805 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace=".ITestDAO">
+	<resultMap type="test" id="testMap">
+		<id column="C_NUMBER_COL" property="numberCol" jdbcType="NUMERIC"/><!-- C_NUMBER 注释 -->
+		<result column="C_VARCHAR_COL" property="varcharCol" jdbcType="VARCHAR"/><!-- C_VARCHAR 主键 注释 -->
+		<result column="C_NUMERIC_COL" property="numericCol" jdbcType="NUMERIC"/><!-- C_NUMERIC 注释 -->
+		<result column="C_BLOB_COL" property="blobCol" jdbcType="BLOB"/><!-- C_BLOB 注释 -->
+		<result column="C_DOUBLE_PRECISION_COL" property="doublePrecisionCol" jdbcType="FLOAT"/><!-- C_DOUBLE_PRECISION 注释 -->
+		<result column="C_NCHAR_VARYING_COL" property="ncharVaryingCol" jdbcType="VARCHAR"/><!-- C_NCHAR_VARYING 注释 -->
+		<result column="C_NVARCHAR2_COL" property="nvarchar2Col" jdbcType="VARCHAR"/><!-- C_NVARCHAR2 注释 -->
+		<result column="C_UROWID_COL" property="urowidCol" jdbcType="ROWID"/><!-- C_UROWID 注释 -->
+		<result column="C_SMALLINT_COL" property="smallintCol" jdbcType="NUMERIC"/><!-- C_SMALLINT 注释 -->
+		<result column="C_FLOAT_COL" property="floatCol" jdbcType="FLOAT"/><!-- C_FLOAT 注释 -->
+		<result column="C_ROWID_COL" property="rowidCol" jdbcType="ROWID"/><!-- C_ROWID 注释 -->
+		<result column="C_VARCHAR2_COL" property="varchar2Col" jdbcType="VARCHAR"/><!-- C_VARCHAR2 注释 -->
+		<result column="C_INTEGER_COL" property="integerCol" jdbcType="NUMERIC"/><!-- C_INTEGER 注释 -->
+		<result column="C_CHAR_COL" property="charCol" jdbcType="CHAR"/><!-- C_CHAR 注释 -->
+		<result column="C_NCHAR_COL" property="ncharCol" jdbcType="CHAR"/><!-- C_NCHAR 注释 -->
+		<result column="C_CHARACTER_VARYING" property="characterVarying" jdbcType="VARCHAR"/><!-- C_CHARACTER_VARYING 注释 -->
+		<result column="C_NATIONAL_CHARACTER_VARYING" property="nationalCharacterVarying" jdbcType="VARCHAR"/><!-- C_NATIONAL_CHARACTER_VARYING 注释 -->
+		<result column="C_DATE_COL" property="dateCol" jdbcType="DATE"/><!-- C_DATE 注释 -->
+		<result column="C_BINARY_FLOAT_COL" property="binaryFloatCol" jdbcType="FLOAT"/><!-- C_BINARY_FLOAT 注释 -->
+		<result column="C_TIME_WITH_LOCAL_TIME_ZONE" property="timeWithLocalTimeZone" jdbcType="TIMESTAMP"/><!-- C_TIMESTAMP_WITH_LOCAL_TIME_ZONE 注释 -->
+		<result column="C_RAW_COL" property="rawCol" jdbcType="VARBINARY"/><!-- C_RAW 注释 -->
+		<result column="C_NATIONAL_CHARACTER_COL" property="nationalCharacterCol" jdbcType="CHAR"/><!-- C_NATIONAL_CHARACTER 注释 -->
+		<result column="C_CHAR_VARYING_COL" property="charVaryingCol" jdbcType="VARCHAR"/><!-- C_CHAR_VARYING 注释 -->
+		<result column="C_DECIMAL_COL" property="decimalCol" jdbcType="NUMERIC"/><!-- C_DECIMAL 注释 -->
+		<result column="C_NATIONAL_CHAR_COL" property="nationalCharCol" jdbcType="CHAR"/><!-- C_NATIONAL_CHAR 注释 -->
+		<result column="C_CLOB_COL" property="clobCol" jdbcType="CLOB"/><!-- C_CLOB 注释 -->
+		<result column="C_NATIONAL_CHAR_VARYING" property="nationalCharVarying" jdbcType="VARCHAR"/><!-- C_NATIONAL_CHAR_VARYING 注释 -->
+		<result column="C_REAL_COL" property="realCol" jdbcType="FLOAT"/><!-- C_REAL 注释 -->
+		<result column="C_TIMESTAMP_COL" property="timestampCol" jdbcType="TIMESTAMP"/><!-- C_TIMESTAMP 注释 -->
+		<result column="C_INT_COL" property="intCol" jdbcType="NUMERIC"/><!-- C_INT 注释 -->
+		<result column="C_NCLOB_COL" property="nclobCol" jdbcType="CLOB"/><!-- C_NCLOB 注释 -->
+		<result column="C_BINARY_DOUBLE_COL" property="binaryDoubleCol" jdbcType="DOUBLE"/><!-- C_BINARY_DOUBLE 注释 -->
+		<result column="C_CHARACTER_COL" property="characterCol" jdbcType="CHAR"/><!-- C_CHARACTER 注释 -->
+		<result column="C_TIMESTAMP_WITH_TIME_ZONE" property="timestampWithTimeZone" jdbcType="TIMESTAMP"/><!-- C_TIMESTAMP_WITH_TIME_ZONE 注释 -->
+	</resultMap>
+
+    <!-- 新增 -->
+    <insert id="insert" parameterType="test" >
+		<selectKey keyProperty="numberCol" resultType="java.math.BigDecimal" order="BEFORE">
+        <![CDATA[
+            SELECT SEQ_T_TEST.NEXTVAL FROM DUAL 
+        ]]>
+        </selectKey>
+    <![CDATA[
+        INSERT INTO T_TEST (
+			C_NUMBER_COL,
+			C_VARCHAR_COL,
+			C_NUMERIC_COL,
+			C_BLOB_COL,
+			C_DOUBLE_PRECISION_COL,
+			C_NCHAR_VARYING_COL,
+			C_NVARCHAR2_COL,
+			C_UROWID_COL,
+			C_SMALLINT_COL,
+			C_FLOAT_COL,
+			C_ROWID_COL,
+			C_VARCHAR2_COL,
+			C_INTEGER_COL,
+			C_CHAR_COL,
+			C_NCHAR_COL,
+			C_CHARACTER_VARYING,
+			C_NATIONAL_CHARACTER_VARYING,
+			C_DATE_COL,
+			C_BINARY_FLOAT_COL,
+			C_TIME_WITH_LOCAL_TIME_ZONE,
+			C_RAW_COL,
+			C_NATIONAL_CHARACTER_COL,
+			C_CHAR_VARYING_COL,
+			C_DECIMAL_COL,
+			C_NATIONAL_CHAR_COL,
+			C_CLOB_COL,
+			C_NATIONAL_CHAR_VARYING,
+			C_REAL_COL,
+			C_TIMESTAMP_COL,
+			C_INT_COL,
+			C_NCLOB_COL,
+			C_BINARY_DOUBLE_COL,
+			C_CHARACTER_COL,
+			C_TIMESTAMP_WITH_TIME_ZONE
+		) 
+		VALUES (
+			#{numberCol,jdbcType=NUMERIC},
+			#{varcharCol,jdbcType=VARCHAR},
+			#{numericCol,jdbcType=NUMERIC},
+			#{blobCol,jdbcType=BLOB},
+			#{doublePrecisionCol,jdbcType=FLOAT},
+			#{ncharVaryingCol,jdbcType=VARCHAR},
+			#{nvarchar2Col,jdbcType=VARCHAR},
+			#{urowidCol,jdbcType=ROWID},
+			#{smallintCol,jdbcType=NUMERIC},
+			#{floatCol,jdbcType=FLOAT},
+			#{rowidCol,jdbcType=ROWID},
+			#{varchar2Col,jdbcType=VARCHAR},
+			#{integerCol,jdbcType=NUMERIC},
+			#{charCol,jdbcType=CHAR},
+			#{ncharCol,jdbcType=CHAR},
+			#{characterVarying,jdbcType=VARCHAR},
+			#{nationalCharacterVarying,jdbcType=VARCHAR},
+			#{dateCol,jdbcType=DATE},
+			#{binaryFloatCol,jdbcType=FLOAT},
+			#{timeWithLocalTimeZone,jdbcType=TIMESTAMP},
+			#{rawCol,jdbcType=VARBINARY},
+			#{nationalCharacterCol,jdbcType=CHAR},
+			#{charVaryingCol,jdbcType=VARCHAR},
+			#{decimalCol,jdbcType=NUMERIC},
+			#{nationalCharCol,jdbcType=CHAR},
+			#{clobCol,jdbcType=CLOB},
+			#{nationalCharVarying,jdbcType=VARCHAR},
+			#{realCol,jdbcType=FLOAT},
+			#{timestampCol,jdbcType=TIMESTAMP},
+			#{intCol,jdbcType=NUMERIC},
+			#{nclobCol,jdbcType=CLOB},
+			#{binaryDoubleCol,jdbcType=DOUBLE},
+			#{characterCol,jdbcType=CHAR},
+			#{timestampWithTimeZone,jdbcType=TIMESTAMP}
+		) 
+    ]]>
+    </insert>
+    <!-- 批量新增 -->
+    <insert id="batchInsert" parameterType="java.util.List" useGeneratedKeys="false">
+        INSERT INTO T_TEST (
+			C_NUMBER_COL,
+			C_VARCHAR_COL,
+			C_NUMERIC_COL,
+			C_BLOB_COL,
+			C_DOUBLE_PRECISION_COL,
+			C_NCHAR_VARYING_COL,
+			C_NVARCHAR2_COL,
+			C_UROWID_COL,
+			C_SMALLINT_COL,
+			C_FLOAT_COL,
+			C_ROWID_COL,
+			C_VARCHAR2_COL,
+			C_INTEGER_COL,
+			C_CHAR_COL,
+			C_NCHAR_COL,
+			C_CHARACTER_VARYING,
+			C_NATIONAL_CHARACTER_VARYING,
+			C_DATE_COL,
+			C_BINARY_FLOAT_COL,
+			C_TIME_WITH_LOCAL_TIME_ZONE,
+			C_RAW_COL,
+			C_NATIONAL_CHARACTER_COL,
+			C_CHAR_VARYING_COL,
+			C_DECIMAL_COL,
+			C_NATIONAL_CHAR_COL,
+			C_CLOB_COL,
+			C_NATIONAL_CHAR_VARYING,
+			C_REAL_COL,
+			C_TIMESTAMP_COL,
+			C_INT_COL,
+			C_NCLOB_COL,
+			C_BINARY_DOUBLE_COL,
+			C_CHARACTER_COL,
+			C_TIMESTAMP_WITH_TIME_ZONE
+		) 
+        SELECT SEQ_T_TEST.NEXTVAL as C_NUMBER_COL, t.*
+        FROM(
+        <foreach collection="list" item="item" index="index" separator="UNION ALL">
+            SELECT
+                				#{item.varcharCol,jdbcType=VARCHAR} C_VARCHAR_COL,
+				#{item.numericCol,jdbcType=NUMERIC} C_NUMERIC_COL,
+				#{item.blobCol,jdbcType=BLOB} C_BLOB_COL,
+				#{item.doublePrecisionCol,jdbcType=FLOAT} C_DOUBLE_PRECISION_COL,
+				#{item.ncharVaryingCol,jdbcType=VARCHAR} C_NCHAR_VARYING_COL,
+				#{item.nvarchar2Col,jdbcType=VARCHAR} C_NVARCHAR2_COL,
+				#{item.urowidCol,jdbcType=ROWID} C_UROWID_COL,
+				#{item.smallintCol,jdbcType=NUMERIC} C_SMALLINT_COL,
+				#{item.floatCol,jdbcType=FLOAT} C_FLOAT_COL,
+				#{item.rowidCol,jdbcType=ROWID} C_ROWID_COL,
+				#{item.varchar2Col,jdbcType=VARCHAR} C_VARCHAR2_COL,
+				#{item.integerCol,jdbcType=NUMERIC} C_INTEGER_COL,
+				#{item.charCol,jdbcType=CHAR} C_CHAR_COL,
+				#{item.ncharCol,jdbcType=CHAR} C_NCHAR_COL,
+				#{item.characterVarying,jdbcType=VARCHAR} C_CHARACTER_VARYING,
+				#{item.nationalCharacterVarying,jdbcType=VARCHAR} C_NATIONAL_CHARACTER_VARYING,
+				#{item.dateCol,jdbcType=DATE} C_DATE_COL,
+				#{item.binaryFloatCol,jdbcType=FLOAT} C_BINARY_FLOAT_COL,
+				#{item.timeWithLocalTimeZone,jdbcType=TIMESTAMP} C_TIME_WITH_LOCAL_TIME_ZONE,
+				#{item.rawCol,jdbcType=VARBINARY} C_RAW_COL,
+				#{item.nationalCharacterCol,jdbcType=CHAR} C_NATIONAL_CHARACTER_COL,
+				#{item.charVaryingCol,jdbcType=VARCHAR} C_CHAR_VARYING_COL,
+				#{item.decimalCol,jdbcType=NUMERIC} C_DECIMAL_COL,
+				#{item.nationalCharCol,jdbcType=CHAR} C_NATIONAL_CHAR_COL,
+				#{item.clobCol,jdbcType=CLOB} C_CLOB_COL,
+				#{item.nationalCharVarying,jdbcType=VARCHAR} C_NATIONAL_CHAR_VARYING,
+				#{item.realCol,jdbcType=FLOAT} C_REAL_COL,
+				#{item.timestampCol,jdbcType=TIMESTAMP} C_TIMESTAMP_COL,
+				#{item.intCol,jdbcType=NUMERIC} C_INT_COL,
+				#{item.nclobCol,jdbcType=CLOB} C_NCLOB_COL,
+				#{item.binaryDoubleCol,jdbcType=DOUBLE} C_BINARY_DOUBLE_COL,
+				#{item.characterCol,jdbcType=CHAR} C_CHARACTER_COL,
+				#{item.timestampWithTimeZone,jdbcType=TIMESTAMP} C_TIMESTAMP_WITH_TIME_ZONE
+
+			from dual
+        </foreach>
+        ) t
+    </insert>
+    <!-- 更新 -->
+    <update id="update" parameterType="test">
+    <![CDATA[
+	    UPDATE T_TEST SET 
+			C_VARCHAR_COL = #{varcharCol,jdbcType=VARCHAR},
+			C_NUMERIC_COL = #{numericCol,jdbcType=NUMERIC},
+			C_BLOB_COL = #{blobCol,jdbcType=BLOB},
+			C_DOUBLE_PRECISION_COL = #{doublePrecisionCol,jdbcType=FLOAT},
+			C_NCHAR_VARYING_COL = #{ncharVaryingCol,jdbcType=VARCHAR},
+			C_NVARCHAR2_COL = #{nvarchar2Col,jdbcType=VARCHAR},
+			C_UROWID_COL = #{urowidCol,jdbcType=ROWID},
+			C_SMALLINT_COL = #{smallintCol,jdbcType=NUMERIC},
+			C_FLOAT_COL = #{floatCol,jdbcType=FLOAT},
+			C_ROWID_COL = #{rowidCol,jdbcType=ROWID},
+			C_VARCHAR2_COL = #{varchar2Col,jdbcType=VARCHAR},
+			C_INTEGER_COL = #{integerCol,jdbcType=NUMERIC},
+			C_CHAR_COL = #{charCol,jdbcType=CHAR},
+			C_NCHAR_COL = #{ncharCol,jdbcType=CHAR},
+			C_CHARACTER_VARYING = #{characterVarying,jdbcType=VARCHAR},
+			C_NATIONAL_CHARACTER_VARYING = #{nationalCharacterVarying,jdbcType=VARCHAR},
+			C_DATE_COL = #{dateCol,jdbcType=DATE},
+			C_BINARY_FLOAT_COL = #{binaryFloatCol,jdbcType=FLOAT},
+			C_TIME_WITH_LOCAL_TIME_ZONE = #{timeWithLocalTimeZone,jdbcType=TIMESTAMP},
+			C_RAW_COL = #{rawCol,jdbcType=VARBINARY},
+			C_NATIONAL_CHARACTER_COL = #{nationalCharacterCol,jdbcType=CHAR},
+			C_CHAR_VARYING_COL = #{charVaryingCol,jdbcType=VARCHAR},
+			C_DECIMAL_COL = #{decimalCol,jdbcType=NUMERIC},
+			C_NATIONAL_CHAR_COL = #{nationalCharCol,jdbcType=CHAR},
+			C_CLOB_COL = #{clobCol,jdbcType=CLOB},
+			C_NATIONAL_CHAR_VARYING = #{nationalCharVarying,jdbcType=VARCHAR},
+			C_REAL_COL = #{realCol,jdbcType=FLOAT},
+			C_TIMESTAMP_COL = #{timestampCol,jdbcType=TIMESTAMP},
+			C_INT_COL = #{intCol,jdbcType=NUMERIC},
+			C_NCLOB_COL = #{nclobCol,jdbcType=CLOB},
+			C_BINARY_DOUBLE_COL = #{binaryDoubleCol,jdbcType=DOUBLE},
+			C_CHARACTER_COL = #{characterCol,jdbcType=CHAR},
+			C_TIMESTAMP_WITH_TIME_ZONE = #{timestampWithTimeZone,jdbcType=TIMESTAMP}
+		WHERE C_NUMBER_COL = #{numberCol,jdbcType=NUMERIC} 
+    ]]>
+    </update>
+    <!-- 批量更新 -->
+    <update id="batchUpdate" parameterType="java.util.List">
+        update T_TEST
+        <trim prefix="set" suffixOverrides=",">
+            <trim prefix="C_VARCHAR_COL = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.varcharCol != null">
+                        when T_TEST.C_NUMBER_COL = #{item.numberCol} then #{item.varcharCol,jdbcType=VARCHAR}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="C_NUMERIC_COL = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.numericCol != null">
+                        when T_TEST.C_NUMBER_COL = #{item.numberCol} then #{item.numericCol,jdbcType=NUMERIC}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="C_BLOB_COL = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.blobCol != null">
+                        when T_TEST.C_NUMBER_COL = #{item.numberCol} then #{item.blobCol,jdbcType=BLOB}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="C_DOUBLE_PRECISION_COL = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.doublePrecisionCol != null">
+                        when T_TEST.C_NUMBER_COL = #{item.numberCol} then #{item.doublePrecisionCol,jdbcType=FLOAT}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="C_NCHAR_VARYING_COL = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.ncharVaryingCol != null">
+                        when T_TEST.C_NUMBER_COL = #{item.numberCol} then #{item.ncharVaryingCol,jdbcType=VARCHAR}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="C_NVARCHAR2_COL = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.nvarchar2Col != null">
+                        when T_TEST.C_NUMBER_COL = #{item.numberCol} then #{item.nvarchar2Col,jdbcType=VARCHAR}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="C_UROWID_COL = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.urowidCol != null">
+                        when T_TEST.C_NUMBER_COL = #{item.numberCol} then #{item.urowidCol,jdbcType=ROWID}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="C_SMALLINT_COL = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.smallintCol != null">
+                        when T_TEST.C_NUMBER_COL = #{item.numberCol} then #{item.smallintCol,jdbcType=NUMERIC}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="C_FLOAT_COL = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.floatCol != null">
+                        when T_TEST.C_NUMBER_COL = #{item.numberCol} then #{item.floatCol,jdbcType=FLOAT}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="C_ROWID_COL = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.rowidCol != null">
+                        when T_TEST.C_NUMBER_COL = #{item.numberCol} then #{item.rowidCol,jdbcType=ROWID}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="C_VARCHAR2_COL = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.varchar2Col != null">
+                        when T_TEST.C_NUMBER_COL = #{item.numberCol} then #{item.varchar2Col,jdbcType=VARCHAR}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="C_INTEGER_COL = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.integerCol != null">
+                        when T_TEST.C_NUMBER_COL = #{item.numberCol} then #{item.integerCol,jdbcType=NUMERIC}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="C_CHAR_COL = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.charCol != null">
+                        when T_TEST.C_NUMBER_COL = #{item.numberCol} then #{item.charCol,jdbcType=CHAR}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="C_NCHAR_COL = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.ncharCol != null">
+                        when T_TEST.C_NUMBER_COL = #{item.numberCol} then #{item.ncharCol,jdbcType=CHAR}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="C_CHARACTER_VARYING = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.characterVarying != null">
+                        when T_TEST.C_NUMBER_COL = #{item.numberCol} then #{item.characterVarying,jdbcType=VARCHAR}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="C_NATIONAL_CHARACTER_VARYING = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.nationalCharacterVarying != null">
+                        when T_TEST.C_NUMBER_COL = #{item.numberCol} then #{item.nationalCharacterVarying,jdbcType=VARCHAR}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="C_DATE_COL = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.dateCol != null">
+                        when T_TEST.C_NUMBER_COL = #{item.numberCol} then #{item.dateCol,jdbcType=DATE}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="C_BINARY_FLOAT_COL = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.binaryFloatCol != null">
+                        when T_TEST.C_NUMBER_COL = #{item.numberCol} then #{item.binaryFloatCol,jdbcType=FLOAT}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="C_TIME_WITH_LOCAL_TIME_ZONE = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.timeWithLocalTimeZone != null">
+                        when T_TEST.C_NUMBER_COL = #{item.numberCol} then #{item.timeWithLocalTimeZone,jdbcType=TIMESTAMP}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="C_RAW_COL = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.rawCol != null">
+                        when T_TEST.C_NUMBER_COL = #{item.numberCol} then #{item.rawCol,jdbcType=VARBINARY}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="C_NATIONAL_CHARACTER_COL = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.nationalCharacterCol != null">
+                        when T_TEST.C_NUMBER_COL = #{item.numberCol} then #{item.nationalCharacterCol,jdbcType=CHAR}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="C_CHAR_VARYING_COL = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.charVaryingCol != null">
+                        when T_TEST.C_NUMBER_COL = #{item.numberCol} then #{item.charVaryingCol,jdbcType=VARCHAR}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="C_DECIMAL_COL = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.decimalCol != null">
+                        when T_TEST.C_NUMBER_COL = #{item.numberCol} then #{item.decimalCol,jdbcType=NUMERIC}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="C_NATIONAL_CHAR_COL = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.nationalCharCol != null">
+                        when T_TEST.C_NUMBER_COL = #{item.numberCol} then #{item.nationalCharCol,jdbcType=CHAR}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="C_CLOB_COL = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.clobCol != null">
+                        when T_TEST.C_NUMBER_COL = #{item.numberCol} then #{item.clobCol,jdbcType=CLOB}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="C_NATIONAL_CHAR_VARYING = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.nationalCharVarying != null">
+                        when T_TEST.C_NUMBER_COL = #{item.numberCol} then #{item.nationalCharVarying,jdbcType=VARCHAR}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="C_REAL_COL = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.realCol != null">
+                        when T_TEST.C_NUMBER_COL = #{item.numberCol} then #{item.realCol,jdbcType=FLOAT}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="C_TIMESTAMP_COL = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.timestampCol != null">
+                        when T_TEST.C_NUMBER_COL = #{item.numberCol} then #{item.timestampCol,jdbcType=TIMESTAMP}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="C_INT_COL = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.intCol != null">
+                        when T_TEST.C_NUMBER_COL = #{item.numberCol} then #{item.intCol,jdbcType=NUMERIC}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="C_NCLOB_COL = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.nclobCol != null">
+                        when T_TEST.C_NUMBER_COL = #{item.numberCol} then #{item.nclobCol,jdbcType=CLOB}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="C_BINARY_DOUBLE_COL = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.binaryDoubleCol != null">
+                        when T_TEST.C_NUMBER_COL = #{item.numberCol} then #{item.binaryDoubleCol,jdbcType=DOUBLE}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="C_CHARACTER_COL = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.characterCol != null">
+                        when T_TEST.C_NUMBER_COL = #{item.numberCol} then #{item.characterCol,jdbcType=CHAR}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="C_TIMESTAMP_WITH_TIME_ZONE = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.timestampWithTimeZone != null">
+                        when T_TEST.C_NUMBER_COL = #{item.numberCol} then #{item.timestampWithTimeZone,jdbcType=TIMESTAMP}
+                    </if>
+                </foreach>
+            </trim>
+        </trim>
+        where C_NUMBER_COL in
+        <foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+        	#{item.numberCol,jdbcType=NUMERIC}
+        </foreach>
+    </update>
+    <!-- 删除 -->
+    <delete id="deleteById" parameterType="java.math.BigDecimal">
+    <![CDATA[
+        delete from T_TEST where C_NUMBER_COL = #{numberCol,jdbcType=NUMERIC}
+    ]]>
+    </delete>
+    <!-- 根据对象删除 -->
+    <delete id="delete" parameterType="test">
+        delete from T_TEST
+        <include refid="whereCondition"/>
+    </delete>
+    <!-- 根据id查询 -->
+    <select id="findById" parameterType="java.math.BigDecimal" resultMap="testMap" >
+    <![CDATA[
+	    SELECT 
+			T_TEST.C_NUMBER_COL, 
+			T_TEST.C_VARCHAR_COL, 
+			T_TEST.C_NUMERIC_COL, 
+			T_TEST.C_BLOB_COL, 
+			T_TEST.C_DOUBLE_PRECISION_COL, 
+			T_TEST.C_NCHAR_VARYING_COL, 
+			T_TEST.C_NVARCHAR2_COL, 
+			T_TEST.C_UROWID_COL, 
+			T_TEST.C_SMALLINT_COL, 
+			T_TEST.C_FLOAT_COL, 
+			T_TEST.C_ROWID_COL, 
+			T_TEST.C_VARCHAR2_COL, 
+			T_TEST.C_INTEGER_COL, 
+			T_TEST.C_CHAR_COL, 
+			T_TEST.C_NCHAR_COL, 
+			T_TEST.C_CHARACTER_VARYING, 
+			T_TEST.C_NATIONAL_CHARACTER_VARYING, 
+			T_TEST.C_DATE_COL, 
+			T_TEST.C_BINARY_FLOAT_COL, 
+			T_TEST.C_TIME_WITH_LOCAL_TIME_ZONE, 
+			T_TEST.C_RAW_COL, 
+			T_TEST.C_NATIONAL_CHARACTER_COL, 
+			T_TEST.C_CHAR_VARYING_COL, 
+			T_TEST.C_DECIMAL_COL, 
+			T_TEST.C_NATIONAL_CHAR_COL, 
+			T_TEST.C_CLOB_COL, 
+			T_TEST.C_NATIONAL_CHAR_VARYING, 
+			T_TEST.C_REAL_COL, 
+			T_TEST.C_TIMESTAMP_COL, 
+			T_TEST.C_INT_COL, 
+			T_TEST.C_NCLOB_COL, 
+			T_TEST.C_BINARY_DOUBLE_COL, 
+			T_TEST.C_CHARACTER_COL, 
+			T_TEST.C_TIMESTAMP_WITH_TIME_ZONE
+		FROM T_TEST
+        where T_TEST.C_NUMBER_COL = #{numberCol,jdbcType=NUMERIC}
+    ]]>
+    </select>
+    <!-- 根据对象查询 -->
+    <select id="find" parameterType="test" resultMap="testMap" >
+    <![CDATA[
+	    SELECT 
+			T_TEST.C_NUMBER_COL, 
+			T_TEST.C_VARCHAR_COL, 
+			T_TEST.C_NUMERIC_COL, 
+			T_TEST.C_BLOB_COL, 
+			T_TEST.C_DOUBLE_PRECISION_COL, 
+			T_TEST.C_NCHAR_VARYING_COL, 
+			T_TEST.C_NVARCHAR2_COL, 
+			T_TEST.C_UROWID_COL, 
+			T_TEST.C_SMALLINT_COL, 
+			T_TEST.C_FLOAT_COL, 
+			T_TEST.C_ROWID_COL, 
+			T_TEST.C_VARCHAR2_COL, 
+			T_TEST.C_INTEGER_COL, 
+			T_TEST.C_CHAR_COL, 
+			T_TEST.C_NCHAR_COL, 
+			T_TEST.C_CHARACTER_VARYING, 
+			T_TEST.C_NATIONAL_CHARACTER_VARYING, 
+			T_TEST.C_DATE_COL, 
+			T_TEST.C_BINARY_FLOAT_COL, 
+			T_TEST.C_TIME_WITH_LOCAL_TIME_ZONE, 
+			T_TEST.C_RAW_COL, 
+			T_TEST.C_NATIONAL_CHARACTER_COL, 
+			T_TEST.C_CHAR_VARYING_COL, 
+			T_TEST.C_DECIMAL_COL, 
+			T_TEST.C_NATIONAL_CHAR_COL, 
+			T_TEST.C_CLOB_COL, 
+			T_TEST.C_NATIONAL_CHAR_VARYING, 
+			T_TEST.C_REAL_COL, 
+			T_TEST.C_TIMESTAMP_COL, 
+			T_TEST.C_INT_COL, 
+			T_TEST.C_NCLOB_COL, 
+			T_TEST.C_BINARY_DOUBLE_COL, 
+			T_TEST.C_CHARACTER_COL, 
+			T_TEST.C_TIMESTAMP_WITH_TIME_ZONE
+		FROM T_TEST
+    ]]>
+        <include refid="whereCondition"/>
+    </select>
+    <!-- 根据对象查询对象列表 -->
+    <select id="findList" parameterType="map" resultMap="testMap" >
+    <![CDATA[
+	    SELECT 
+			T_TEST.C_NUMBER_COL, 
+			T_TEST.C_VARCHAR_COL, 
+			T_TEST.C_NUMERIC_COL, 
+			T_TEST.C_BLOB_COL, 
+			T_TEST.C_DOUBLE_PRECISION_COL, 
+			T_TEST.C_NCHAR_VARYING_COL, 
+			T_TEST.C_NVARCHAR2_COL, 
+			T_TEST.C_UROWID_COL, 
+			T_TEST.C_SMALLINT_COL, 
+			T_TEST.C_FLOAT_COL, 
+			T_TEST.C_ROWID_COL, 
+			T_TEST.C_VARCHAR2_COL, 
+			T_TEST.C_INTEGER_COL, 
+			T_TEST.C_CHAR_COL, 
+			T_TEST.C_NCHAR_COL, 
+			T_TEST.C_CHARACTER_VARYING, 
+			T_TEST.C_NATIONAL_CHARACTER_VARYING, 
+			T_TEST.C_DATE_COL, 
+			T_TEST.C_BINARY_FLOAT_COL, 
+			T_TEST.C_TIME_WITH_LOCAL_TIME_ZONE, 
+			T_TEST.C_RAW_COL, 
+			T_TEST.C_NATIONAL_CHARACTER_COL, 
+			T_TEST.C_CHAR_VARYING_COL, 
+			T_TEST.C_DECIMAL_COL, 
+			T_TEST.C_NATIONAL_CHAR_COL, 
+			T_TEST.C_CLOB_COL, 
+			T_TEST.C_NATIONAL_CHAR_VARYING, 
+			T_TEST.C_REAL_COL, 
+			T_TEST.C_TIMESTAMP_COL, 
+			T_TEST.C_INT_COL, 
+			T_TEST.C_NCLOB_COL, 
+			T_TEST.C_BINARY_DOUBLE_COL, 
+			T_TEST.C_CHARACTER_COL, 
+			T_TEST.C_TIMESTAMP_WITH_TIME_ZONE
+		FROM T_TEST
+    ]]>
+        <include refid="whereCondition"/>
+    </select>
+    <!-- 根据对象查询对象列表总数 -->
+    <select id="findCount" parameterType="test" resultType="long">
+    <![CDATA[
+        select count(*) from T_TEST
+    ]]>
+        <include refid="whereCondition"/>
+    </select>
+
+    <!-- 公用的where条件 -->
+    <sql id="whereCondition">
+        <where>
+             <if test="numberCol != null">
+             <![CDATA[
+                 AND T_TEST.C_NUMBER_COL = #{numberCol,jdbcType=NUMERIC}
+             ]]>
+             </if>
+             <if test="varcharCol != null and varcharCol != ''">
+             <![CDATA[
+                 AND T_TEST.C_VARCHAR_COL = #{varcharCol,jdbcType=VARCHAR}
+             ]]>
+             </if>
+             <if test="numericCol != null">
+             <![CDATA[
+                 AND T_TEST.C_NUMERIC_COL = #{numericCol,jdbcType=NUMERIC}
+             ]]>
+             </if>
+             <if test="blobCol != null">
+             <![CDATA[
+                 AND T_TEST.C_BLOB_COL = #{blobCol,jdbcType=BLOB}
+             ]]>
+             </if>
+             <if test="doublePrecisionCol != null">
+             <![CDATA[
+                 AND T_TEST.C_DOUBLE_PRECISION_COL = #{doublePrecisionCol,jdbcType=FLOAT}
+             ]]>
+             </if>
+             <if test="ncharVaryingCol != null and ncharVaryingCol != ''">
+             <![CDATA[
+                 AND T_TEST.C_NCHAR_VARYING_COL = #{ncharVaryingCol,jdbcType=VARCHAR}
+             ]]>
+             </if>
+             <if test="nvarchar2Col != null and nvarchar2Col != ''">
+             <![CDATA[
+                 AND T_TEST.C_NVARCHAR2_COL = #{nvarchar2Col,jdbcType=VARCHAR}
+             ]]>
+             </if>
+             <if test="urowidCol != null and urowidCol != ''">
+             <![CDATA[
+                 AND T_TEST.C_UROWID_COL = #{urowidCol,jdbcType=ROWID}
+             ]]>
+             </if>
+             <if test="smallintCol != null">
+             <![CDATA[
+                 AND T_TEST.C_SMALLINT_COL = #{smallintCol,jdbcType=NUMERIC}
+             ]]>
+             </if>
+             <if test="floatCol != null">
+             <![CDATA[
+                 AND T_TEST.C_FLOAT_COL = #{floatCol,jdbcType=FLOAT}
+             ]]>
+             </if>
+             <if test="rowidCol != null and rowidCol != ''">
+             <![CDATA[
+                 AND T_TEST.C_ROWID_COL = #{rowidCol,jdbcType=ROWID}
+             ]]>
+             </if>
+             <if test="varchar2Col != null and varchar2Col != ''">
+             <![CDATA[
+                 AND T_TEST.C_VARCHAR2_COL = #{varchar2Col,jdbcType=VARCHAR}
+             ]]>
+             </if>
+             <if test="integerCol != null">
+             <![CDATA[
+                 AND T_TEST.C_INTEGER_COL = #{integerCol,jdbcType=NUMERIC}
+             ]]>
+             </if>
+             <if test="charCol != null and charCol != ''">
+             <![CDATA[
+                 AND T_TEST.C_CHAR_COL = #{charCol,jdbcType=CHAR}
+             ]]>
+             </if>
+             <if test="ncharCol != null and ncharCol != ''">
+             <![CDATA[
+                 AND T_TEST.C_NCHAR_COL = #{ncharCol,jdbcType=CHAR}
+             ]]>
+             </if>
+             <if test="characterVarying != null and characterVarying != ''">
+             <![CDATA[
+                 AND T_TEST.C_CHARACTER_VARYING = #{characterVarying,jdbcType=VARCHAR}
+             ]]>
+             </if>
+             <if test="nationalCharacterVarying != null and nationalCharacterVarying != ''">
+             <![CDATA[
+                 AND T_TEST.C_NATIONAL_CHARACTER_VARYING = #{nationalCharacterVarying,jdbcType=VARCHAR}
+             ]]>
+             </if>
+             <if test="dateCol != null">
+             <![CDATA[
+                 AND T_TEST.C_DATE_COL = #{dateCol,jdbcType=DATE}
+             ]]>
+             </if>
+             <if test="binaryFloatCol != null">
+             <![CDATA[
+                 AND T_TEST.C_BINARY_FLOAT_COL = #{binaryFloatCol,jdbcType=FLOAT}
+             ]]>
+             </if>
+             <if test="timeWithLocalTimeZone != null">
+             <![CDATA[
+                 AND T_TEST.C_TIME_WITH_LOCAL_TIME_ZONE = #{timeWithLocalTimeZone,jdbcType=TIMESTAMP}
+             ]]>
+             </if>
+             <if test="rawCol != null">
+             <![CDATA[
+                 AND T_TEST.C_RAW_COL = #{rawCol,jdbcType=VARBINARY}
+             ]]>
+             </if>
+             <if test="nationalCharacterCol != null and nationalCharacterCol != ''">
+             <![CDATA[
+                 AND T_TEST.C_NATIONAL_CHARACTER_COL = #{nationalCharacterCol,jdbcType=CHAR}
+             ]]>
+             </if>
+             <if test="charVaryingCol != null and charVaryingCol != ''">
+             <![CDATA[
+                 AND T_TEST.C_CHAR_VARYING_COL = #{charVaryingCol,jdbcType=VARCHAR}
+             ]]>
+             </if>
+             <if test="decimalCol != null">
+             <![CDATA[
+                 AND T_TEST.C_DECIMAL_COL = #{decimalCol,jdbcType=NUMERIC}
+             ]]>
+             </if>
+             <if test="nationalCharCol != null and nationalCharCol != ''">
+             <![CDATA[
+                 AND T_TEST.C_NATIONAL_CHAR_COL = #{nationalCharCol,jdbcType=CHAR}
+             ]]>
+             </if>
+             <if test="clobCol != null and clobCol != ''">
+             <![CDATA[
+                 AND T_TEST.C_CLOB_COL = #{clobCol,jdbcType=CLOB}
+             ]]>
+             </if>
+             <if test="nationalCharVarying != null and nationalCharVarying != ''">
+             <![CDATA[
+                 AND T_TEST.C_NATIONAL_CHAR_VARYING = #{nationalCharVarying,jdbcType=VARCHAR}
+             ]]>
+             </if>
+             <if test="realCol != null">
+             <![CDATA[
+                 AND T_TEST.C_REAL_COL = #{realCol,jdbcType=FLOAT}
+             ]]>
+             </if>
+             <if test="timestampCol != null">
+             <![CDATA[
+                 AND T_TEST.C_TIMESTAMP_COL = #{timestampCol,jdbcType=TIMESTAMP}
+             ]]>
+             </if>
+             <if test="intCol != null">
+             <![CDATA[
+                 AND T_TEST.C_INT_COL = #{intCol,jdbcType=NUMERIC}
+             ]]>
+             </if>
+             <if test="nclobCol != null and nclobCol != ''">
+             <![CDATA[
+                 AND T_TEST.C_NCLOB_COL = #{nclobCol,jdbcType=CLOB}
+             ]]>
+             </if>
+             <if test="binaryDoubleCol != null">
+             <![CDATA[
+                 AND T_TEST.C_BINARY_DOUBLE_COL = #{binaryDoubleCol,jdbcType=DOUBLE}
+             ]]>
+             </if>
+             <if test="characterCol != null and characterCol != ''">
+             <![CDATA[
+                 AND T_TEST.C_CHARACTER_COL = #{characterCol,jdbcType=CHAR}
+             ]]>
+             </if>
+             <if test="timestampWithTimeZone != null">
+             <![CDATA[
+                 AND T_TEST.C_TIMESTAMP_WITH_TIME_ZONE = #{timestampWithTimeZone,jdbcType=TIMESTAMP}
+             ]]>
+             </if>
+        </where>
+    </sql>
+</mapper>

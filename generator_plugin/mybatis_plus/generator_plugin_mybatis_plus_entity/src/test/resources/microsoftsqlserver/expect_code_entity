@@ -1,0 +1,724 @@
+
+import java.io.Serializable;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import java.math.BigDecimal;
+import java.util.Date;
+import org.springframework.format.annotation.DateTimeFormat;
+
+/**
+ * t_test实体类
+ *
+ * @Description 
+ * @author qixingshen
+ * @date 2018-04-04 05:52:02
+ * @version 1.0
+ */
+public class Test implements Serializable {
+	private static final long serialVersionUID = -6327725194552579361L;
+	
+	/**
+	 * 注释  (数据库字段名:c_bigint_col) 
+	 */
+	private Long bigintCol;
+	
+	/**
+	 * 注释  (数据库字段名:c_binary_col) 
+	 */
+	private byte[] binaryCol;
+	
+	/**
+	 * 注释  (数据库字段名:c_bit_col) 
+	 */
+	private Boolean bitCol;
+	
+	/**
+	 * 注释  (数据库字段名:c_char_col) 
+	 */
+	private String charCol;
+	
+	/**
+	 * 注释  (数据库字段名:c_date_col) 
+	 */
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	private Date dateCol;
+	
+	/**
+	 * 注释  (数据库字段名:c_datetime_col) 
+	 */
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	private Date datetimeCol;
+	
+	/**
+	 * 注释  (数据库字段名:c_datetime2_col) 
+	 */
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	private Date datetime2Col;
+	
+	/**
+	 * 注释  (数据库字段名:c_datetimeoffset_col) 
+	 */
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	private Date datetimeoffsetCol;
+	
+	/**
+	 * 注释  (数据库字段名:c_decimal_col) 
+	 */
+	private BigDecimal decimalCol;
+	
+	/**
+	 * 注释  (数据库字段名:c_float_col) 
+	 */
+	private BigDecimal floatCol;
+	
+	/**
+	 * 注释  (数据库字段名:c_int_col) 
+	 */
+	private Integer intCol;
+	
+	/**
+	 * 注释  (数据库字段名:c_money_col) 
+	 */
+	private BigDecimal moneyCol;
+	
+	/**
+	 * 注释  (数据库字段名:c_nchar_col) 
+	 */
+	private String ncharCol;
+	
+	/**
+	 * 注释  (数据库字段名:c_numeric_col) 
+	 */
+	private BigDecimal numericCol;
+	
+	/**
+	 * 注释  (数据库字段名:c_nvarchar_col) 
+	 */
+	private String nvarcharCol;
+	
+	/**
+	 * 注释  (数据库字段名:c_nvarchar_max_col) 
+	 */
+	private String nvarcharMaxCol;
+	
+	/**
+	 * 注释  (数据库字段名:c_real_col) 
+	 */
+	private Double realCol;
+	
+	/**
+	 * 注释  (数据库字段名:c_smalldatetime_col) 
+	 */
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	private Date smalldatetimeCol;
+	
+	/**
+	 * 注释  (数据库字段名:c_smallint_col) 
+	 */
+	private Integer smallintCol;
+	
+	/**
+	 * 注释  (数据库字段名:c_smallmoney_col) 
+	 */
+	private BigDecimal smallmoneyCol;
+	
+	/**
+	 * 注释  (数据库字段名:c_sysname_col) 
+	 */
+	private String sysnameCol;
+	
+	/**
+	 * 注释  (数据库字段名:c_tinyint_col) 
+	 */
+	private Integer tinyintCol;
+	
+	/**
+	 * 注释  (数据库字段名:c_uniqueidentifier_col) 
+	 */
+	private byte[] uniqueidentifierCol;
+	
+	/**
+	 * 注释  (数据库字段名:c_varbinary_col) 
+	 */
+	private byte[] varbinaryCol;
+	
+	/**
+	 * 注释  (数据库字段名:c_varbinary_max_col) 
+	 */
+	private byte[] varbinaryMaxCol;
+	
+	/**
+	 * 注释  (数据库字段名:c_varchar_col) 
+	 */
+	private String varcharCol;
+	
+	/**
+	 * 注释  (数据库字段名:c_varchar_max) 
+	 */
+	private String varcharMax;
+	
+	/**
+	 * 注释  (数据库字段名:c_xml_col) 
+	 */
+	private String xmlCol;
+	
+    
+    public Test(){}
+    
+    /***
+    * @param bigintCol 注释
+    * @param binaryCol 注释
+    * @param bitCol 注释
+    * @param charCol 注释
+    * @param dateCol 注释
+    * @param datetimeCol 注释
+    * @param datetime2Col 注释
+    * @param datetimeoffsetCol 注释
+    * @param decimalCol 注释
+    * @param floatCol 注释
+    * @param intCol 注释
+    * @param moneyCol 注释
+    * @param ncharCol 注释
+    * @param numericCol 注释
+    * @param nvarcharCol 注释
+    * @param nvarcharMaxCol 注释
+    * @param realCol 注释
+    * @param smalldatetimeCol 注释
+    * @param smallintCol 注释
+    * @param smallmoneyCol 注释
+    * @param sysnameCol 注释
+    * @param tinyintCol 注释
+    * @param uniqueidentifierCol 注释
+    * @param varbinaryCol 注释
+    * @param varbinaryMaxCol 注释
+    * @param varcharCol 注释
+    * @param varcharMax 注释
+    * @param xmlCol 注释
+    **/
+    public Test(Long bigintCol, byte[] binaryCol, Boolean bitCol, String charCol, Date dateCol, Date datetimeCol, Date datetime2Col, Date datetimeoffsetCol, BigDecimal decimalCol, BigDecimal floatCol, Integer intCol, BigDecimal moneyCol, String ncharCol, BigDecimal numericCol, String nvarcharCol, String nvarcharMaxCol, Double realCol, Date smalldatetimeCol, Integer smallintCol, BigDecimal smallmoneyCol, String sysnameCol, Integer tinyintCol, byte[] uniqueidentifierCol, byte[] varbinaryCol, byte[] varbinaryMaxCol, String varcharCol, String varcharMax, String xmlCol){
+    	this.bigintCol = bigintCol;
+    	this.binaryCol = binaryCol;
+    	this.bitCol = bitCol;
+    	this.charCol = charCol;
+    	this.dateCol = dateCol;
+    	this.datetimeCol = datetimeCol;
+    	this.datetime2Col = datetime2Col;
+    	this.datetimeoffsetCol = datetimeoffsetCol;
+    	this.decimalCol = decimalCol;
+    	this.floatCol = floatCol;
+    	this.intCol = intCol;
+    	this.moneyCol = moneyCol;
+    	this.ncharCol = ncharCol;
+    	this.numericCol = numericCol;
+    	this.nvarcharCol = nvarcharCol;
+    	this.nvarcharMaxCol = nvarcharMaxCol;
+    	this.realCol = realCol;
+    	this.smalldatetimeCol = smalldatetimeCol;
+    	this.smallintCol = smallintCol;
+    	this.smallmoneyCol = smallmoneyCol;
+    	this.sysnameCol = sysnameCol;
+    	this.tinyintCol = tinyintCol;
+    	this.uniqueidentifierCol = uniqueidentifierCol;
+    	this.varbinaryCol = varbinaryCol;
+    	this.varbinaryMaxCol = varbinaryMaxCol;
+    	this.varcharCol = varcharCol;
+    	this.varcharMax = varcharMax;
+    	this.xmlCol = xmlCol;
+    }
+    
+	/**
+	 * @param bigintCol 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setBigintCol(Long bigintCol){
+    	this.bigintCol = bigintCol;
+    	return this;
+    }
+    
+	/**
+	 * @return Long 注释
+	 */
+    public Long getBigintCol(){
+    	return bigintCol;
+    }
+    
+	/**
+	 * @param binaryCol 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setBinaryCol(byte[] binaryCol){
+    	this.binaryCol = binaryCol;
+    	return this;
+    }
+    
+	/**
+	 * @return byte[] 注释
+	 */
+    public byte[] getBinaryCol(){
+    	return binaryCol;
+    }
+    
+	/**
+	 * @param bitCol 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setBitCol(Boolean bitCol){
+    	this.bitCol = bitCol;
+    	return this;
+    }
+    
+	/**
+	 * @return Boolean 注释
+	 */
+    public Boolean getBitCol(){
+    	return bitCol;
+    }
+    
+	/**
+	 * @param charCol 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setCharCol(String charCol){
+    	this.charCol = charCol;
+    	return this;
+    }
+    
+	/**
+	 * @return String 注释
+	 */
+    public String getCharCol(){
+    	return charCol;
+    }
+    
+	/**
+	 * @param dateCol 注释
+	 * 
+	 * returnTest
+	 */
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    public Test setDateCol(Date dateCol){
+    	this.dateCol = dateCol;
+    	return this;
+    }
+    
+	/**
+	 * @return Date 注释
+	 */
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    public Date getDateCol(){
+    	return dateCol;
+    }
+    
+	/**
+	 * @param datetimeCol 注释
+	 * 
+	 * returnTest
+	 */
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    public Test setDatetimeCol(Date datetimeCol){
+    	this.datetimeCol = datetimeCol;
+    	return this;
+    }
+    
+	/**
+	 * @return Date 注释
+	 */
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    public Date getDatetimeCol(){
+    	return datetimeCol;
+    }
+    
+	/**
+	 * @param datetime2Col 注释
+	 * 
+	 * returnTest
+	 */
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    public Test setDatetime2Col(Date datetime2Col){
+    	this.datetime2Col = datetime2Col;
+    	return this;
+    }
+    
+	/**
+	 * @return Date 注释
+	 */
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    public Date getDatetime2Col(){
+    	return datetime2Col;
+    }
+    
+	/**
+	 * @param datetimeoffsetCol 注释
+	 * 
+	 * returnTest
+	 */
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    public Test setDatetimeoffsetCol(Date datetimeoffsetCol){
+    	this.datetimeoffsetCol = datetimeoffsetCol;
+    	return this;
+    }
+    
+	/**
+	 * @return Date 注释
+	 */
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    public Date getDatetimeoffsetCol(){
+    	return datetimeoffsetCol;
+    }
+    
+	/**
+	 * @param decimalCol 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setDecimalCol(BigDecimal decimalCol){
+    	this.decimalCol = decimalCol;
+    	return this;
+    }
+    
+	/**
+	 * @return BigDecimal 注释
+	 */
+    public BigDecimal getDecimalCol(){
+    	return decimalCol;
+    }
+    
+	/**
+	 * @param floatCol 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setFloatCol(BigDecimal floatCol){
+    	this.floatCol = floatCol;
+    	return this;
+    }
+    
+	/**
+	 * @return BigDecimal 注释
+	 */
+    public BigDecimal getFloatCol(){
+    	return floatCol;
+    }
+    
+	/**
+	 * @param intCol 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setIntCol(Integer intCol){
+    	this.intCol = intCol;
+    	return this;
+    }
+    
+	/**
+	 * @return Integer 注释
+	 */
+    public Integer getIntCol(){
+    	return intCol;
+    }
+    
+	/**
+	 * @param moneyCol 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setMoneyCol(BigDecimal moneyCol){
+    	this.moneyCol = moneyCol;
+    	return this;
+    }
+    
+	/**
+	 * @return BigDecimal 注释
+	 */
+    public BigDecimal getMoneyCol(){
+    	return moneyCol;
+    }
+    
+	/**
+	 * @param ncharCol 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setNcharCol(String ncharCol){
+    	this.ncharCol = ncharCol;
+    	return this;
+    }
+    
+	/**
+	 * @return String 注释
+	 */
+    public String getNcharCol(){
+    	return ncharCol;
+    }
+    
+	/**
+	 * @param numericCol 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setNumericCol(BigDecimal numericCol){
+    	this.numericCol = numericCol;
+    	return this;
+    }
+    
+	/**
+	 * @return BigDecimal 注释
+	 */
+    public BigDecimal getNumericCol(){
+    	return numericCol;
+    }
+    
+	/**
+	 * @param nvarcharCol 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setNvarcharCol(String nvarcharCol){
+    	this.nvarcharCol = nvarcharCol;
+    	return this;
+    }
+    
+	/**
+	 * @return String 注释
+	 */
+    public String getNvarcharCol(){
+    	return nvarcharCol;
+    }
+    
+	/**
+	 * @param nvarcharMaxCol 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setNvarcharMaxCol(String nvarcharMaxCol){
+    	this.nvarcharMaxCol = nvarcharMaxCol;
+    	return this;
+    }
+    
+	/**
+	 * @return String 注释
+	 */
+    public String getNvarcharMaxCol(){
+    	return nvarcharMaxCol;
+    }
+    
+	/**
+	 * @param realCol 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setRealCol(Double realCol){
+    	this.realCol = realCol;
+    	return this;
+    }
+    
+	/**
+	 * @return Double 注释
+	 */
+    public Double getRealCol(){
+    	return realCol;
+    }
+    
+	/**
+	 * @param smalldatetimeCol 注释
+	 * 
+	 * returnTest
+	 */
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    public Test setSmalldatetimeCol(Date smalldatetimeCol){
+    	this.smalldatetimeCol = smalldatetimeCol;
+    	return this;
+    }
+    
+	/**
+	 * @return Date 注释
+	 */
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    public Date getSmalldatetimeCol(){
+    	return smalldatetimeCol;
+    }
+    
+	/**
+	 * @param smallintCol 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setSmallintCol(Integer smallintCol){
+    	this.smallintCol = smallintCol;
+    	return this;
+    }
+    
+	/**
+	 * @return Integer 注释
+	 */
+    public Integer getSmallintCol(){
+    	return smallintCol;
+    }
+    
+	/**
+	 * @param smallmoneyCol 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setSmallmoneyCol(BigDecimal smallmoneyCol){
+    	this.smallmoneyCol = smallmoneyCol;
+    	return this;
+    }
+    
+	/**
+	 * @return BigDecimal 注释
+	 */
+    public BigDecimal getSmallmoneyCol(){
+    	return smallmoneyCol;
+    }
+    
+	/**
+	 * @param sysnameCol 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setSysnameCol(String sysnameCol){
+    	this.sysnameCol = sysnameCol;
+    	return this;
+    }
+    
+	/**
+	 * @return String 注释
+	 */
+    public String getSysnameCol(){
+    	return sysnameCol;
+    }
+    
+	/**
+	 * @param tinyintCol 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setTinyintCol(Integer tinyintCol){
+    	this.tinyintCol = tinyintCol;
+    	return this;
+    }
+    
+	/**
+	 * @return Integer 注释
+	 */
+    public Integer getTinyintCol(){
+    	return tinyintCol;
+    }
+    
+	/**
+	 * @param uniqueidentifierCol 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setUniqueidentifierCol(byte[] uniqueidentifierCol){
+    	this.uniqueidentifierCol = uniqueidentifierCol;
+    	return this;
+    }
+    
+	/**
+	 * @return byte[] 注释
+	 */
+    public byte[] getUniqueidentifierCol(){
+    	return uniqueidentifierCol;
+    }
+    
+	/**
+	 * @param varbinaryCol 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setVarbinaryCol(byte[] varbinaryCol){
+    	this.varbinaryCol = varbinaryCol;
+    	return this;
+    }
+    
+	/**
+	 * @return byte[] 注释
+	 */
+    public byte[] getVarbinaryCol(){
+    	return varbinaryCol;
+    }
+    
+	/**
+	 * @param varbinaryMaxCol 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setVarbinaryMaxCol(byte[] varbinaryMaxCol){
+    	this.varbinaryMaxCol = varbinaryMaxCol;
+    	return this;
+    }
+    
+	/**
+	 * @return byte[] 注释
+	 */
+    public byte[] getVarbinaryMaxCol(){
+    	return varbinaryMaxCol;
+    }
+    
+	/**
+	 * @param varcharCol 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setVarcharCol(String varcharCol){
+    	this.varcharCol = varcharCol;
+    	return this;
+    }
+    
+	/**
+	 * @return String 注释
+	 */
+    public String getVarcharCol(){
+    	return varcharCol;
+    }
+    
+	/**
+	 * @param varcharMax 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setVarcharMax(String varcharMax){
+    	this.varcharMax = varcharMax;
+    	return this;
+    }
+    
+	/**
+	 * @return String 注释
+	 */
+    public String getVarcharMax(){
+    	return varcharMax;
+    }
+    
+	/**
+	 * @param xmlCol 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setXmlCol(String xmlCol){
+    	this.xmlCol = xmlCol;
+    	return this;
+    }
+    
+	/**
+	 * @return String 注释
+	 */
+    public String getXmlCol(){
+    	return xmlCol;
+    }
+    
+    @Override
+	public String toString() {
+		return String.format("Test={bigintCol = %s, binaryCol = %s, bitCol = %s, charCol = %s, dateCol = %s, datetimeCol = %s, datetime2Col = %s, datetimeoffsetCol = %s, decimalCol = %s, floatCol = %s, intCol = %s, moneyCol = %s, ncharCol = %s, numericCol = %s, nvarcharCol = %s, nvarcharMaxCol = %s, realCol = %s, smalldatetimeCol = %s, smallintCol = %s, smallmoneyCol = %s, sysnameCol = %s, tinyintCol = %s, uniqueidentifierCol = %s, varbinaryCol = %s, varbinaryMaxCol = %s, varcharCol = %s, varcharMax = %s, xmlCol = %s}", bigintCol, binaryCol, bitCol, charCol, dateCol, datetimeCol, datetime2Col, datetimeoffsetCol, decimalCol, floatCol, intCol, moneyCol, ncharCol, numericCol, nvarcharCol, nvarcharMaxCol, realCol, smalldatetimeCol, smallintCol, smallmoneyCol, sysnameCol, tinyintCol, uniqueidentifierCol, varbinaryCol, varbinaryMaxCol, varcharCol, varcharMax, xmlCol);
+	}
+}

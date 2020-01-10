@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<mysql>
+		<typeName>MySQL</typeName>
+		<driver>com.mysql.jdbc.Driver</driver>
+		<port>3306</port>
+		<username>root</username>
+		<validSql>select 1</validSql>
+		<defaultDatabaseName>information_schema</defaultDatabaseName>
+		<databaseWidgetType>SELECT</databaseWidgetType>
+		<databaseWidgetDesc>数据库名：</databaseWidgetDesc>
+	</mysql>
+	<mariadb>
+		<typeName>MariaDB</typeName>
+		<driver>org.mariadb.jdbc.Driver</driver>
+		<port>3306</port>
+		<username>root</username>
+		<validSql>select 1</validSql>
+		<defaultDatabaseName>information_schema</defaultDatabaseName>
+		<databaseWidgetType>SELECT</databaseWidgetType>
+		<databaseWidgetDesc>数据库名：</databaseWidgetDesc>
+	</mariadb>
+	<postgresql>
+		<typeName>PostgreSQL</typeName>
+		<driver>org.postgresql.Driver</driver>
+		<port>5432</port>
+		<username>postgres</username>
+		<validSql>select 1</validSql>
+		<defaultDatabaseName></defaultDatabaseName>
+		<databaseWidgetType>SELECT</databaseWidgetType>
+		<databaseWidgetDesc>数据库名：</databaseWidgetDesc>
+	</postgresql>
+	<oracle>
+		<typeName>Oracle</typeName>
+		<driver>oracle.jdbc.OracleDriver</driver>
+		<port>1521</port>
+		<username></username>
+		<validSql>select 1 from dual</validSql>
+		<defaultDatabaseName>ORCL</defaultDatabaseName>
+		<databaseWidgetType>INPUT</databaseWidgetType>
+		<databaseWidgetDesc>服务名：</databaseWidgetDesc>
+	</oracle>
+	<sqlserver>
+		<typeName>SQLServer</typeName>
+		<driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver>
+		<port>1433</port>
+		<username>sa</username>
+		<validSql>select 1</validSql>
+		<defaultDatabaseName></defaultDatabaseName>
+		<databaseWidgetType>SELECT</databaseWidgetType>
+		<databaseWidgetDesc>数据库名：</databaseWidgetDesc>
+	</sqlserver>
+</config>

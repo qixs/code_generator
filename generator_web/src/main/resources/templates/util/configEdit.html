@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta http-equiv="Expires" content="0" />
+
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+<link rel="stylesheet" th:href="@{/styles/index.css}"/>
+
+<title>代码生成器</title>
+
+<style>
+	/*箭头向左*/
+	.toLeft {
+	    width: 0;
+	    height: 0;
+	    cursor: pointer;
+	    margin-top: 20px;
+	    margin-right: 2px;
+	    border-right: 7px solid #ccc;
+	    border-top: 7px solid transparent;
+	    border-bottom: 7px solid transparent;
+	}
+	/*箭头向右*/
+	.toRight {
+	    width: 0;
+	    height: 0;
+	    cursor: pointer;
+	    margin-top: 20px;
+	    margin-left: 2px;
+	    border-left: 7px solid #cccf;
+	    border-top: 7px solid transparent;
+	    border-bottom: 7px solid transparent;
+	}
+</style>
+</head>
+<body>
+	<div id="sourceContainer" style="height: 100%;">
+		<form id="sourceForm" autocomplete="off">
+			<input name="_csrf" type="hidden" th:th:value="${_csrf.token}"/>
+			<input name="groupName" type="hidden" th:th:value="${groupName}"/>
+			<input name="pluginName" type="hidden" th:th:value="${pluginName}"/>
+			<input name="customPlugin" type="hidden" th:if="${customPlugin != null}" th:value="${customPlugin}">
+			<div id="sourceLeft" style="float: left;height: 100%;">
+				<div style="border: 1px solid #ccc;height: 100%;overflow-y: auto;">
+					<input name="_csrf" type="hidden" th:th:value="${_csrf.token}" />
+					<input name="plugin.name" type="hidden" th:th:value="${plugin?.name}"/>
+					
+					<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;">
+						<label class="col-sm-3 control-label" style="text-align: right;" title="插件描述">插件描述：</label>
+						<div class="col-sm-9">
+							<input type="text" name="plugin.description" class="form-control" th:value="${plugin.description}" maxlength="255" title="插件描述" placeholder="插件描述"/>
+						</div>
+					</div>
+					<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;">
+						<label class="col-sm-3 control-label" style="text-align: right;" title="生成的代码在zip文件中的相对目录(不包括生成的文件名)">代码相对目录：</label>
+						<div class="col-sm-9">
+							<input type="text" name="plugin.fileRelativeDir" class="form-control" th:value="${plugin.fileRelativeDir}" maxlength="255" title="生成的代码在zip文件中的相对目录(不包括生成的文件名)" placeholder="生成的代码在zip文件中的相对目录(不包括生成的文件名)"/>
+						</div>
+					</div>
+					<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;">
+						<label class="col-sm-3 control-label" style="text-align: right;" title="生成的代码文件后缀名">代码文件后缀名：</label>
+						<div class="col-sm-9">
+							<input type="text" name="plugin.fileSuffix" class="form-control" th:value="${plugin.fileSuffix}" maxlength="255" title="生成的代码文件后缀名" placeholder="生成的代码文件后缀名"/>
+						</div>
+					</div>
+					<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;">
+						<label class="col-sm-3 control-label" style="text-align: right;" title="类和文件名前缀">类和文件名前缀：</label>
+						<div class="col-sm-9">
+							<input type="text" name="plugin.prefix" class="form-control" th:value="${plugin.prefix}" maxlength="255" title="类和文件名前缀" placeholder="类和文件名前缀"/>
+						</div>
+					</div>
+					<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;">
+						<label class="col-sm-3 control-label" style="text-align: right;" title="类和文件名后缀">类和文件名后缀：</label>
+						<div class="col-sm-9">
+							<input type="text" name="plugin.suffix" class="form-control" th:value="${plugin.suffix}" maxlength="255" title="类和文件名后缀" placeholder="类和文件名后缀"/>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="collapse" style="float: left;width: 10px;background: #f9f9f9;border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;height: 100%;border-radius:4px;">
+				<div class="toRight"  title="向右折叠"></div>
+				<div class="toLeft"  title="向左折叠"></div>
+			</div>
+			<div id="sourceRight" style="float: left;height: 100%;">
+				<pre id="sourceEditTestResult" style="height: 100%;"></pre>
+			</div>
+		</form>
+	</div>
+</body>
+<script type="text/javascript" th:src="@{/scripts/util/pluginEdit.js}"></script>
+</html>

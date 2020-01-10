@@ -1,0 +1,11 @@
+plugin:
+  groupName: jpaLombok
+  name: repository
+  description: repository生成插件
+  generator: com.qxs.plugin.generator.jpa.lombok.repository.JpaLombokRepositoryGenerator
+  templatePath: template.ftl
+  fileRelativeDir: jpaLombok/repository
+  fileSuffix: .java
+  prefix: I
+  suffix: Repository
+  dependencies: entity #依赖的插件,以英文逗号(,)分割

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<!-- MySQL字段数据类型和java字段类型配置 -->
+	<mysql>
+		<type jdbcType="bigint" javaType="java.lang.Long"/>
+		<type jdbcType="binary" javaType="byte[]"/>
+		<type jdbcType="bit" javaType="java.lang.Boolean"/><!-- 如果bit类型长度超过1则会是byte[]类型 -->
+		<type jdbcType="blob" javaType="byte[]"/>
+		<type jdbcType="bool" javaType="java.lang.Boolean"/>
+		<type jdbcType="boolean" javaType="java.lang.Boolean"/>
+		<type jdbcType="char" javaType="java.lang.String"/>
+		<type jdbcType="date" javaType="java.util.Date"/>
+		<type jdbcType="datetime" javaType="java.util.Date"/>
+		<type jdbcType="decimal" javaType="java.math.BigDecimal"/>
+		<type jdbcType="double" javaType="java.lang.Double"/>
+		<type jdbcType="enum" javaType="java.lang.String"/>
+		<type jdbcType="float" javaType="java.lang.Float"/>
+		<type jdbcType="int" javaType="java.lang.Integer"/>
+		<type jdbcType="longblob" javaType="byte[]"/>
+		<type jdbcType="longtext" javaType="java.lang.String"/>
+		<type jdbcType="mediumblob" javaType="byte[]"/>
+		<type jdbcType="mediumint" javaType="java.lang.Integer"/>
+		<type jdbcType="mediumtext" javaType="java.lang.String"/>
+		<type jdbcType="numeric" javaType="java.math.BigDecimal"/>
+		<type jdbcType="real" javaType="java.lang.Double"/>
+		<type jdbcType="set" javaType="java.lang.String"/>
+		<type jdbcType="smallint" javaType="java.lang.Integer"/>
+		<type jdbcType="text" javaType="java.lang.String"/>
+		<type jdbcType="time" javaType="java.sql.Time"/>
+		<type jdbcType="timestamp" javaType="java.util.Date"/>
+		<type jdbcType="tinyblob" javaType="byte[]"/>
+		<type jdbcType="tinyint" javaType="java.lang.Integer"/>
+		<type jdbcType="tinytext" javaType="java.lang.String"/>
+		<type jdbcType="varbinary" javaType="byte[]"/>
+		<type jdbcType="varchar" javaType="java.lang.String"/>
+		<type jdbcType="year" javaType="java.util.Date"/>
+	</mysql>
+	
+	<!-- MariaDB字段数据类型和java字段类型配置 -->
+	<mariadb>
+		<type jdbcType="bigint" javaType="java.lang.Long"/>
+		<type jdbcType="binary" javaType="byte[]"/>
+		<type jdbcType="bit" javaType="java.lang.Boolean"/><!-- 如果bit类型长度超过1则会是byte[]类型 -->
+		<type jdbcType="blob" javaType="byte[]"/>
+		<type jdbcType="bool" javaType="java.lang.Boolean"/>
+		<type jdbcType="boolean" javaType="java.lang.Boolean"/>
+		<type jdbcType="char" javaType="java.lang.String"/>
+		<type jdbcType="date" javaType="java.util.Date"/>
+		<type jdbcType="datetime" javaType="java.util.Date"/>
+		<type jdbcType="decimal" javaType="java.math.BigDecimal"/>
+		<type jdbcType="double" javaType="java.lang.Double"/>
+		<type jdbcType="enum" javaType="java.lang.String"/>
+		<type jdbcType="float" javaType="java.lang.Float"/>
+		<type jdbcType="int" javaType="java.lang.Integer"/>
+		<type jdbcType="longblob" javaType="byte[]"/>
+		<type jdbcType="longtext" javaType="java.lang.String"/>
+		<type jdbcType="mediumblob" javaType="byte[]"/>
+		<type jdbcType="mediumint" javaType="java.lang.Integer"/>
+		<type jdbcType="mediumtext" javaType="java.lang.String"/>
+		<type jdbcType="numeric" javaType="java.math.BigDecimal"/>
+		<type jdbcType="real" javaType="java.lang.Double"/>
+		<type jdbcType="set" javaType="java.lang.String"/>
+		<type jdbcType="smallint" javaType="java.lang.Integer"/>
+		<type jdbcType="text" javaType="java.lang.String"/>
+		<type jdbcType="time" javaType="java.sql.Time"/>
+		<type jdbcType="timestamp" javaType="java.util.Date"/>
+		<type jdbcType="tinyblob" javaType="byte[]"/>
+		<type jdbcType="tinyint" javaType="java.lang.Integer"/>
+		<type jdbcType="tinytext" javaType="java.lang.String"/>
+		<type jdbcType="varbinary" javaType="byte[]"/>
+		<type jdbcType="varchar" javaType="java.lang.String"/>
+		<type jdbcType="year" javaType="java.util.Date"/>
+	</mariadb>
+	
+	<!-- Oracle字段数据类型和java字段类型配置 -->
+	<oracle>
+		<type jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<type jdbcType="VARCHAR2" javaType="java.lang.String"/>
+		<type jdbcType="BINARY_DOUBLE" javaType="java.math.BigDecimal"/>
+		<type jdbcType="BINARY_FLOAT" javaType="java.math.BigDecimal"/>
+		<type jdbcType="BLOB" javaType="byte[]"/>
+		<type jdbcType="CHAR" javaType="java.lang.String"/>
+		<type jdbcType="CHAR VARYING" javaType="java.lang.String"/>
+		<type jdbcType="CHARACTER" javaType="java.lang.String"/>
+		<type jdbcType="CHARACTER VARYING" javaType="java.lang.String"/>
+		<type jdbcType="CLOB" javaType="java.lang.String"/>
+		<type jdbcType="DATE" javaType="java.util.Date"/>
+		<type jdbcType="DECIMAL" javaType="java.math.BigDecimal"/>
+		<type jdbcType="DOUBLE PRECISION" javaType="java.math.BigDecimal"/>
+		<type jdbcType="FLOAT" javaType="java.math.BigDecimal"/>
+		<type jdbcType="INT" javaType="java.lang.Integer"/>
+		<type jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<type jdbcType="INTERVAL DAY" javaType="java.util.Date"/>
+		<type jdbcType="INTERVAL DAY TO SECOND" javaType="java.util.Date"/>
+		<type jdbcType="INTERVAL YEAR" javaType="java.util.Date"/>
+		<type jdbcType="INTERVAL YEAR TO MONTH" javaType="java.util.Date"/>
+		<type jdbcType="LONG RAW" javaType="byte[]"/>
+		<type jdbcType="LONG" javaType="java.lang.Long"/>
+		<type jdbcType="LONG VARCHAR" javaType="java.lang.String"/>
+		<type jdbcType="NATIONAL CHAR" javaType="java.lang.String"/>
+		<type jdbcType="NATIONAL CHAR VARYING" javaType="java.lang.String"/>
+		<type jdbcType="NATIONAL CHARACTER" javaType="java.lang.String"/>
+		<type jdbcType="NATIONAL CHARACTER VARYING" javaType="java.lang.String"/>
+		<type jdbcType="NCHAR" javaType="java.lang.String"/>
+		<type jdbcType="NCHAR VARYING" javaType="java.lang.String"/>
+		<type jdbcType="NCLOB" javaType="java.lang.String"/>
+		<type jdbcType="NUMBER" javaType="java.math.BigDecimal"/>
+		<type jdbcType="NUMERIC" javaType="java.math.BigDecimal"/>
+		<type jdbcType="NVARCHAR2" javaType="java.lang.String"/>
+		<type jdbcType="RAW" javaType="byte[]"/>
+		<type jdbcType="REAL" javaType="java.math.BigDecimal"/>
+		<type jdbcType="ROWID" javaType="java.lang.String"/>
+		<type jdbcType="SMALLINT" javaType="java.lang.Integer"/>
+		<type jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+		<type jdbcType="TIMESTAMP WITH LOCAL TIME ZONE" javaType="java.util.Date"/>
+		<type jdbcType="TIMESTAMP WITH TIME ZONE" javaType="java.util.Date"/>
+		<type jdbcType="UROWID" javaType="java.lang.String"/>
+	</oracle>
+	
+	<!-- SQLServer字段数据类型和java字段类型配置 -->
+	<microsoftsqlserver>
+		<type jdbcType="bigint" javaType="java.lang.Long"/>
+		<type jdbcType="binary" javaType="byte[]"/>
+		<type jdbcType="bit" javaType="java.lang.Boolean"/>
+		<type jdbcType="char" javaType="java.lang.String"/>
+		<type jdbcType="date" javaType="java.util.Date"/>
+		<type jdbcType="datetime" javaType="java.util.Date"/>
+		<type jdbcType="datetime2" javaType="java.util.Date"/>
+		<type jdbcType="datetimeoffset" javaType="java.util.Date"/>
+		<type jdbcType="decimal" javaType="java.math.BigDecimal"/>
+		<type jdbcType="float" javaType="java.math.BigDecimal"/>
+		<type jdbcType="int" javaType="java.lang.Integer"/>
+		<type jdbcType="money" javaType="java.math.BigDecimal"/>
+		<type jdbcType="nchar" javaType="java.lang.String"/>
+		<type jdbcType="ntext" javaType="java.lang.String"/>
+		<type jdbcType="numeric" javaType="java.math.BigDecimal"/>
+		<type jdbcType="nvarchar" javaType="java.lang.String"/>
+		<type jdbcType="nvarchar(max)" javaType="java.lang.String"/>
+		<type jdbcType="real" javaType="java.lang.Double"/>
+		<type jdbcType="smalldatetime" javaType="java.util.Date"/>
+		<type jdbcType="smallint" javaType="java.lang.Integer"/>
+		<type jdbcType="smallmoney" javaType="java.math.BigDecimal"/>
+		<type jdbcType="sysname" javaType="java.lang.String"/>
+		<type jdbcType="text" javaType="java.lang.String"/>
+		<type jdbcType="time" javaType="java.util.Date"/>
+		<type jdbcType="tinyint" javaType="java.lang.Integer"/>
+		<type jdbcType="uniqueidentifier" javaType="byte[]"/>
+		<type jdbcType="timestamp" javaType="java.util.Date"/>
+		<type jdbcType="varbinary" javaType="byte[]"/>
+		<type jdbcType="varbinary(max)" javaType="byte[]"/>
+		<type jdbcType="varchar" javaType="java.lang.String"/>
+		<type jdbcType="varchar(max)" javaType="java.lang.String"/>
+		<type jdbcType="xml" javaType="java.lang.String"/>
+	</microsoftsqlserver>
+	<!-- PostgreSQL字段数据类型和java字段类型配置 -->
+	<postgresql>
+		<type jdbcType="bit" javaType="java.lang.String"/>
+		<type jdbcType="bool" javaType="java.lang.Boolean"/>
+		<type jdbcType="bytea" javaType="byte[]"/>
+		<type jdbcType="bpchar" javaType="java.lang.String"/>
+		<type jdbcType="cidr" javaType="java.lang.String"/>
+		<type jdbcType="date" javaType="java.util.Date"/>
+		<type jdbcType="numeric" javaType="java.math.BigDecimal"/>
+		<type jdbcType="float4" javaType="java.math.BigDecimal"/>
+		<type jdbcType="float8" javaType="java.math.BigDecimal"/>
+		<type jdbcType="inet" javaType="java.lang.String"/>
+		<type jdbcType="int2" javaType="java.lang.Integer"/>
+		<type jdbcType="int4" javaType="java.lang.Integer"/>
+		<type jdbcType="int8" javaType="java.lang.Long"/>
+		<type jdbcType="interval" javaType="java.lang.String"/>
+		<type jdbcType="json" javaType="com.google.gson.JsonElement"/>
+		<type jdbcType="jsonb" javaType="com.google.gson.JsonElement"/>
+		<type jdbcType="macaddr" javaType="java.lang.String"/>
+		<type jdbcType="money" javaType="java.math.BigDecimal"/>
+		<type jdbcType="text" javaType="java.lang.String"/>
+		<type jdbcType="time" javaType="java.util.Date"/>
+		<type jdbcType="timestamp" javaType="java.util.Date"/>
+		<type jdbcType="timestamptz" javaType="java.util.Date"/>
+		<type jdbcType="timetz" javaType="java.util.Date"/>
+		<type jdbcType="tsquery" javaType="java.lang.String"/>
+		<type jdbcType="tsvector" javaType="java.lang.String"/>
+		<type jdbcType="uuid" javaType="java.lang.String"/>
+		<type jdbcType="varbit" javaType="java.lang.String"/>
+		<type jdbcType="varchar" javaType="java.lang.String"/>
+		<type jdbcType="xml" javaType="java.lang.String"/>
+	</postgresql>
+	<!-- SQLite字段数据类型和java字段类型配置 -->
+	<sqlite>
+		<type jdbcType="integer" javaType="java.lang.Integer"/>
+		<type jdbcType="real" javaType=""/>
+		<type jdbcType="text" javaType="java.lang.String"/>
+		<type jdbcType="blob" javaType="byte[]"/>
+	</sqlite>
+	
+</config>

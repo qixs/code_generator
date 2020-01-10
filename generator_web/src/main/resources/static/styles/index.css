@@ -1,0 +1,97 @@
+body{
+	position:absolute;
+	width:100%;
+	height:100%;
+	margin: 0;
+	padding: 0;
+	font: 12px tahoma, Arial, Verdana, sans-serif;
+	color: #666666;
+	overflow: hidden;
+}
+.container{
+	margin: 10px auto;
+	padding-left: 0;
+	padding-right: 0;
+	height:100%;
+	background: #FDFDFD;
+}
+.top{
+	height: 60px;
+	border-bottom: 1px solid #a4bed5;
+}
+.top .banner{
+	height:100%;
+	width:400px;
+	float: left;
+	font-size: 30px;
+	padding: 10px 0 0 50px;
+}
+.top .principal{
+	height:100%;
+	width:300px;
+	float: right;
+}
+.top .principal > div{
+	float: left;
+	padding-top: 30px;
+}
+.top .principal a{
+	margin-left: 10px;
+	cursor: pointer;
+}
+
+.middle{
+	margin-top: 10px;
+}
+
+.middle .left{
+	width: 250px;
+	border: 1px solid #D6E3EC;
+	float: left;
+	height: calc(100vh - 100px);
+}
+
+.middle .left .collapse-title ,.collapse-body{
+	border-bottom: 1px solid #f6f6f6;
+	line-height:40px;
+}
+.middle .left .collapse-title {
+	cursor: pointer;
+	text-indent:30px;
+	background:no-repeat 15px 6px #e7f4ff;
+}
+.middle .left .collapse-title.collapsed{
+	background:no-repeat 15px -24px;
+}
+.middle .left .collapse-title.collapsed:hover{background-color:#f8f8f8;}
+.middle .left .collapse-body{
+	padding:3px 10px;
+	overflow:hidden;
+	background:#fff;
+}
+
+.middle .left .collapse-body .left-col{
+	background:#FFFFFF;
+	padding-left: 40px;
+	font-weight: 100;
+}
+.middle .left .collapse-body.collapsing .left-col, .collapse-body.in .left-col{
+	display:block;
+}
+.middle .left .nav-left{
+	border-top: 0px solid #D6E3EC;
+	border-bottom: 0px solid #D6E3EC;
+	border-radius: 0px;
+    box-shadow: 0;
+    font-weight:bold;
+    margin-bottom: 0px;
+}
+
+.middle .right{
+	margin-left: 30px;
+	border: 1px solid #D6E3EC;
+	float: left;
+	height: calc(100vh - 100px);
+	width: calc(100% - 280px);
+	border-radius: 5px;
+}

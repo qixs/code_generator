@@ -1,0 +1,5 @@
+plugin: 
+  name: entity
+  description: 实体类生成插件
+  templatePath: template_name.ftl
+  generator: com.qxs

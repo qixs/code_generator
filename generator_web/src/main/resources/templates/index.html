@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta http-equiv="Expires" content="0" />
+
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+<link rel="stylesheet" th:href="@{/styles/index.css}"/>
+
+<meta name="_csrf" th:content="${_csrf.token}" />
+<meta name="_csrf_header" th:content="${_csrf.headerName}" />
+
+<title>代码生成器</title>
+
+</head>
+<body>
+	<input type="hidden" name="authenticationUsername" th:value="${#authentication.principal.username}">
+	<div class="container">
+		<div class="top">
+			<div class="banner">代码生成器</div>
+			<div class="principal">
+				<div style="margin-right: 30px;float: right;height:20px;">
+					<div style="float: left;"><span>您好，</span><a class="userInfo" href="javascript:void(0)"><span class="name" th:text="${#authentication.principal.name}" th:title="${#authentication.principal.username}">用户姓名</span></a></div>
+					<div style="float: left;"><a class="logout" href="javascript:void(0)">[退出]</a></div>
+					<div style="float: left;"><a target="_blank" href="https://github.com/qixs/code_generator/wiki">[帮助]</a></div>
+				</div>
+			</div>
+		</div>
+		<div class="middle">
+			<div class="left" id="accordion">
+				<div class="panel nav-left">
+					<div class="collapse-title collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#user">
+						用户管理		
+					</div>
+					<div id="user" class="panel-collapse collapse-body collapse">
+						<div class="left-col"><a th:href="@{/user/info/index}">用户信息</a></div>
+						<div class="left-col" data-sec-authorize="hasRole('ADMIN')"><a th:href="@{/user/index}">用户管理</a></div>
+						<div class="left-col" data-sec-authorize="${#authentication.principal.admin == 0}"><a th:href="@{/user/plugin/index}">用户插件管理</a></div>
+						<div class="left-col" data-sec-authorize="${#authentication.principal.admin == 0}"><a th:href="@{/user/plugin/change/history/index}">用户插件变更日志</a></div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="panel nav-left" data-sec-authorize="hasRole('ADMIN')">
+					<div class="collapse-title collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#plugin">
+						插件管理
+					</div>
+					<div id="plugin" class="panel-collapse collapse-body collapse">
+						<div class="left-col"><a th:href="@{/plugin/index}">插件管理</a></div>
+						<div class="left-col"><a th:href="@{/plugin/change/history/index}">插件变更日志</a></div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="panel nav-left">
+					<div class="collapse-title collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#log">
+						日志管理
+					</div>
+					<div id="log" class="panel-collapse collapse-body collapse">
+						<div class="left-col"><a th:href="@{/log/generate/index}">生成代码日志</a></div>
+						<div class="left-col" data-sec-authorize="hasRole('ADMIN')"><a th:href="@{/log/login/index}">登录日志</a></div>
+						<div class="left-col" data-sec-authorize="hasRole('ADMIN')"><a th:href="@{/log/access/index}">访问系统日志</a></div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="panel nav-left" data-sec-authorize="hasRole('ADMIN')">
+					<div class="collapse-title collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#config">
+						系统参数
+					</div>
+					<div id="config" class="panel-collapse collapse-body collapse">
+						<div class="left-col"><a th:href="@{/config/email/index}">邮箱设置</a></div>
+						<div class="left-col"><a th:href="@{/config/geetest/index}">Geetest设置</a></div>
+						<!-- 访问日志保留天数 30天 邮箱验证码有效分钟数  默认30分钟  用户激活链接有效分钟数  默认30分钟  重置密码链接有效分钟数  默认30分钟  是否允许用户自定义插件格式  默认是   同时生成代码最大任务数(需要先进行压测,合理指定该参数防止系统压爆  为0则不限制  默认10)-->
+						<div class="left-col"><a th:href="@{/config/system/parameter/index}">系统参数</a></div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="panel nav-left">
+					<div class="collapse-title collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#util">
+						小工具
+					</div>
+					<div id="util" class="panel-collapse collapse-body collapse">
+						<div class="left-col"><a th:href="@{/tools/sql/format/index}">SQL格式化</a></div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="panel nav-left">
+					<div class="collapse-title collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#license">
+						协议
+					</div>
+					<div id="license" class="panel-collapse collapse-body collapse">
+						<div class="left-col"><a th:href="@{/license/index}">协议</a></div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="panel nav-left">
+					<div class="collapse-title collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#problem">
+						问题与建议
+					</div>
+					<div id="problem" class="panel-collapse collapse-body collapse">
+						<div class="left-col"><a th:href="@{/problem/index}">问题与建议</a></div>
+						<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+			<div class="right">
+				<ul id="tab" class="nav nav-tabs">
+					<li class="active">
+						<a href="#generate" data-toggle="tab">
+							 生成代码
+						</a>
+					</li>
+				</ul>
+				
+				<div id="tabContent" class="tab-content" style="height:calc(100vh - 141px)">
+					<div class="tab-pane fade in active" id="generate" style="height:calc(100vh - 141px)">
+						<iframe style="width: 100%;height: calc(100vh - 141px);border:0px;" th:src="@{/generator/connection/index}"></iframe>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+
+<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/plugins/bootstrap/alert.js}"></script>
+<script type="text/javascript" th:src="@{/plugins/bootstrap/confirm.js}"></script>
+<script type="text/javascript" th:src="@{/plugins/bootstrap/tab.js}"></script>
+<script type="text/javascript" th:src="@{/plugins/bootstrap/modal.js}"></script>
+<script type="text/javascript" th:src="@{/scripts/index.js}"></script>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta http-equiv="Expires" content="0" />
+
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+
+<title>代码生成器</title>
+<style type="text/css">
+	span.notice{
+		color: red;
+		vertical-align: middle;
+	}
+</style>
+</head>
+<body>
+	<div class="error" style="padding: 10px;height: auto;display: none;">
+		<div class="alert alert-warning" style="display: none;">
+            <a href="#" class="close" data-dismiss="alert">
+		        &times;
+		    </a>
+			<strong>错误！</strong><span class="alertMsg" style="display: inline;"></span>
+        </div>
+	</div>
+	<div class="success" style="padding: 10px;height: 72px;display: none;">
+        <div id="success" class="alert alert-success">
+		    <a href="#" class="close" data-dismiss="alert">&times;</a>
+		    <strong>提示！</strong><span class="successMsg" style="display: inline;"></span>
+		</div>
+	</div>
+	<div style="height: 100%;margin-top: 50px;">
+		<form id="systemParameterForm" autocomplete="off">
+			<input name="_csrf" type="hidden" th:value="${_csrf.token}">
+			<input name="_method" type="hidden" value="POST">
+			<input name="systemParameter.id" type="hidden" th:value="${systemParameter.id}">
+			<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;">
+				<label class="col-sm-4 control-label" style="text-align: right;" title="访问日志保留天数">访问日志保留天数：</label>
+				<div class="col-sm-4">
+					<input type="text" name="systemParameter.accessLogRemainDays" style="width: 247px;float: left;margin-right: 5px;" class="form-control" th:value="${systemParameter.accessLogRemainDays}" maxlength="9" placeholder="访问日志保留天数不能为空，且必须为正整数"/>
+					<span>天</span>
+				</div>
+				<span class="notice">*</span>
+			</div>
+			<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;">
+				<label class="col-sm-4 control-label" style="text-align: right;" title="用户激活链接有效分钟数">用户激活链接有效分钟数：</label>
+				<div class="col-sm-4">
+					<input type="text" name="systemParameter.userActiveMinutes" style="width: 233px;float: left;margin-right: 5px;" class="form-control" th:value="${systemParameter.userActiveMinutes}" maxlength="9" placeholder="用户激活链接有效分钟数不能为空，且必须为正整数"/>
+					<span>分钟</span>
+				</div>
+				<span class="notice">*</span>
+			</div>
+			<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;">
+				<label class="col-sm-4 control-label" style="text-align: right;" title="重置密码链接有效分钟数">重置密码链接有效分钟数：</label>
+				<div class="col-sm-4">
+					<input type="text" name="systemParameter.resetPasswordMinutes" style="width: 233px;float: left;margin-right: 5px;" class="form-control" th:value="${systemParameter.resetPasswordMinutes}" maxlength="9" placeholder="重置密码链接有效分钟数不能为空，且必须为正整数"/>
+					<span>分钟</span>
+				</div>
+				<span class="notice">*</span>
+			</div>
+			<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;">
+				<label class="col-sm-4 control-label" style="text-align: right;" title="验证码有效分钟数">验证码有效分钟数：</label>
+				<div class="col-sm-4">
+					<input type="text" name="systemParameter.captchaExpireMinutes" style="width: 233px;float: left;margin-right: 5px;" class="form-control" th:value="${systemParameter.captchaExpireMinutes}" maxlength="9" placeholder="验证码有效分钟数不能为空，且必须为正整数"/>
+					<span>分钟</span>
+				</div>
+				<span class="notice">*</span>
+			</div>
+			<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;">
+				<label class="col-sm-4 control-label" style="text-align: right;" title="是否允许用户自定义插件格式">是否允许用户自定义插件格式：</label>
+				<div class="col-sm-4">
+					<select class="form-control" name="systemParameter.enableUserCustomPlugin">
+						<option value="1" th:selected="${systemParameter.enableUserCustomPlugin == 1}">是</option>
+						<option value="0" th:selected="${systemParameter.enableUserCustomPlugin == 0}">否</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;">
+				<label class="col-sm-4 control-label" style="text-align: right;" title="同时生成代码最大任务数">同时生成代码最大任务数：</label>
+				<div class="col-sm-4">
+					<input type="text" name="systemParameter.maxTaskCount" class="form-control" th:value="${systemParameter.maxTaskCount}" maxlength="9" placeholder="同时生成代码最大任务数不能为空，为0则不限制"/>
+				</div>
+				<span class="notice">*</span>
+			</div>
+			<div style="padding-top: 30px;">
+				<button type="button" id="save" style="margin-left: 250px;" class="btn btn-primary">保存</button>
+				<button type="button" id="rest" style="margin-left: 50px;" class="btn btn-primary">重置</button>
+			</div>
+		</form>
+	</div>
+</body>
+<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/plugins/bootstrap/confirm.js}"></script>
+<script type="text/javascript" th:src="@{/plugins/serialize.js}"></script>
+<script type="text/javascript" th:src="@{/plugins/regexp/regexp.js}"></script>
+<script type="text/javascript" th:src="@{/scripts/config/system/parameter/index.js}"></script>
+</html>

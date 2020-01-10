@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta http-equiv="Expires" content="0" />
+
+<title>代码生成器</title>
+
+</head>
+<body>
+	<input name="ssh.id" type="hidden" th:value="${ssh?.id}"/>
+	<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;">
+		<label class="col-sm-2 control-label">地址：</label>
+		<div class="col-sm-10">
+			<input name="ssh.host" class="form-control" value="" maxlength="255" placeholder="不能为空"/>
+		</div>
+	</div>
+	<div class="form-group" style="margin-bottom: 10px;">
+		<label class="col-sm-2 control-label">端口号：</label>
+		<div class="col-sm-10">
+			<input name="ssh.port" class="form-control" value="" maxlength="5" placeholder="不能为空且必须在1至65535之间"/>
+		</div>
+	</div>
+	<div class="form-group" style="margin-bottom: 10px;">
+		<label class="col-sm-2 control-label">用户名：</label>
+		<div class="col-sm-10">
+			<input name="ssh.username" class="form-control" value="" maxlength="25" placeholder="不能为空" autocomplete="off"/>
+		</div>
+	</div>
+	<div class="form-group" style="margin-bottom: 10px;">
+		<label class="col-sm-2 control-label">密码：</label>
+		<div class="col-sm-10">
+			<input name="ssh.password" type="password" class="form-control" value="" maxlength="255" placeholder="不能为空"/>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" th:src="@{/scripts/generator/ssh.js}"></script>
+</html>

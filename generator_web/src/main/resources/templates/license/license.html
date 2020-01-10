@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta http-equiv="Expires" content="0" />
+
+<title>代码生成器</title>
+
+</head>
+<body>
+	<div class="container">
+		<p class="license" th:text="${license}"></p>
+	</div>
+</body>
+
+<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("p.license").html($("p.license").text());
+
+		$("a").each(function () {
+			var href = $(this).attr("href");
+			$(this).click(function(){
+				window.top.open(href);
+			});
+			$(this).attr("href", "javascript:void(0)")
+		});
+	});
+</script>
+</html>

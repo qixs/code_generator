@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<!-- MySQL字段数据类型和java字段类型配置 -->
+	<mysql>
+		<type jdbcType="bigint" mapperJdbcType="BIGINT"/>
+		<type jdbcType="binary" mapperJdbcType="BINARY"/>
+		<type jdbcType="bit" mapperJdbcType="BIT"/><!-- 如果bit类型长度超过1则会是byte[]类型 -->
+		<type jdbcType="blob" mapperJdbcType="BLOB"/>
+		<type jdbcType="bool" mapperJdbcType="BOOLEAN"/>
+		<type jdbcType="boolean" mapperJdbcType="BOOLEAN"/>
+		<type jdbcType="char" mapperJdbcType="CHAR"/>
+		<type jdbcType="date" mapperJdbcType="DATE"/>
+		<type jdbcType="datetime" mapperJdbcType="TIMESTAMP"/>
+		<type jdbcType="decimal" mapperJdbcType="NUMERIC"/>
+		<type jdbcType="double" mapperJdbcType="NUMERIC"/>
+		<type jdbcType="float" mapperJdbcType="FLOAT"/>
+		<type jdbcType="int" mapperJdbcType="INTEGER"/>
+		<type jdbcType="longblob" mapperJdbcType="BLOB"/>
+		<type jdbcType="longtext" mapperJdbcType="LONGVARCHAR"/>
+		<type jdbcType="mediumblob" mapperJdbcType="BLOB"/>
+		<type jdbcType="mediumint" mapperJdbcType="INTEGER"/>
+		<type jdbcType="mediumtext" mapperJdbcType="VARCHAR"/>
+		<type jdbcType="numeric" mapperJdbcType="NUMERIC"/>
+		<type jdbcType="real" mapperJdbcType="REAL"/>
+		<type jdbcType="smallint" mapperJdbcType="SMALLINT"/>
+		<type jdbcType="text" mapperJdbcType="VARCHAR"/>
+		<type jdbcType="time" mapperJdbcType="TIME"/>
+		<type jdbcType="timestamp" mapperJdbcType="TIMESTAMP"/>
+		<type jdbcType="tinyblob" mapperJdbcType="BLOB"/>
+		<type jdbcType="tinyint" mapperJdbcType="TINYINT"/>
+		<type jdbcType="tinytext" mapperJdbcType="VARCHAR"/>
+		<type jdbcType="varbinary" mapperJdbcType="VARBINARY"/>
+		<type jdbcType="varchar" mapperJdbcType="VARCHAR"/>
+		<type jdbcType="year" mapperJdbcType="VARCHAR"/>
+	</mysql>
+	
+	<!-- MariaDB字段数据类型和java字段类型配置 -->
+	<mariadb>
+		<type jdbcType="bigint" mapperJdbcType="BIGINT"/>
+		<type jdbcType="binary" mapperJdbcType="BINARY"/>
+		<type jdbcType="bit" mapperJdbcType="BIT"/><!-- 如果bit类型长度超过1则会是byte[]类型 -->
+		<type jdbcType="blob" mapperJdbcType="BLOB"/>
+		<type jdbcType="bool" mapperJdbcType="BOOLEAN"/>
+		<type jdbcType="boolean" mapperJdbcType="BOOLEAN"/>
+		<type jdbcType="char" mapperJdbcType="CHAR"/>
+		<type jdbcType="date" mapperJdbcType="DATE"/>
+		<type jdbcType="datetime" mapperJdbcType="TIMESTAMP"/>
+		<type jdbcType="decimal" mapperJdbcType="NUMERIC"/>
+		<type jdbcType="double" mapperJdbcType="NUMERIC"/>
+		<type jdbcType="float" mapperJdbcType="FLOAT"/>
+		<type jdbcType="int" mapperJdbcType="INTEGER"/>
+		<type jdbcType="longblob" mapperJdbcType="BLOB"/>
+		<type jdbcType="longtext" mapperJdbcType="LONGVARCHAR"/>
+		<type jdbcType="mediumblob" mapperJdbcType="BLOB"/>
+		<type jdbcType="mediumint" mapperJdbcType="INTEGER"/>
+		<type jdbcType="mediumtext" mapperJdbcType="VARCHAR"/>
+		<type jdbcType="numeric" mapperJdbcType="NUMERIC"/>
+		<type jdbcType="real" mapperJdbcType="REAL"/>
+		<type jdbcType="smallint" mapperJdbcType="SMALLINT"/>
+		<type jdbcType="text" mapperJdbcType="VARCHAR"/>
+		<type jdbcType="time" mapperJdbcType="TIME"/>
+		<type jdbcType="timestamp" mapperJdbcType="TIMESTAMP"/>
+		<type jdbcType="tinyblob" mapperJdbcType="BLOB"/>
+		<type jdbcType="tinyint" mapperJdbcType="TINYINT"/>
+		<type jdbcType="tinytext" mapperJdbcType="VARCHAR"/>
+		<type jdbcType="varbinary" mapperJdbcType="VARBINARY"/>
+		<type jdbcType="varchar" mapperJdbcType="VARCHAR"/>
+		<type jdbcType="year" mapperJdbcType="VARCHAR"/>
+	</mariadb>
+	
+	<!-- Oracle字段数据类型和java字段类型配置 -->
+	<oracle>
+		<type jdbcType="VARCHAR" mapperJdbcType="VARCHAR"/>
+		<type jdbcType="VARCHAR2" mapperJdbcType="VARCHAR"/>
+		<type jdbcType="BINARY_DOUBLE" mapperJdbcType="DOUBLE"/>
+		<type jdbcType="BINARY_FLOAT" mapperJdbcType="FLOAT"/>
+		<type jdbcType="BLOB" mapperJdbcType="BLOB"/>
+		<type jdbcType="CHAR" mapperJdbcType="CHAR"/>
+		<type jdbcType="CHAR VARYING" mapperJdbcType="CHAR"/>
+		<type jdbcType="CHARACTER" mapperJdbcType="CHAR"/>
+		<type jdbcType="CHARACTER VARYING" mapperJdbcType="CHAR"/>
+		<type jdbcType="CLOB" mapperJdbcType="CLOB"/>
+		<type jdbcType="DATE" mapperJdbcType="DATE"/>
+		<type jdbcType="DECIMAL" mapperJdbcType="DECIMAL"/>
+		<type jdbcType="DOUBLE PRECISION" mapperJdbcType="DOUBLE"/>
+		<type jdbcType="FLOAT" mapperJdbcType="FLOAT"/>
+		<type jdbcType="INT" mapperJdbcType="INTEGER"/>
+		<type jdbcType="INTEGER" mapperJdbcType="INTEGER"/>
+		<type jdbcType="INTERVAL DAY" mapperJdbcType="VARCHAR"/>
+		<type jdbcType="INTERVAL DAY TO SECOND" mapperJdbcType="VARCHAR"/>
+		<type jdbcType="INTERVAL YEAR" mapperJdbcType="VARCHAR"/>
+		<type jdbcType="INTERVAL YEAR TO MONTH" mapperJdbcType="VARCHAR"/>
+		<type jdbcType="LONG RAW" mapperJdbcType="LONGVARBINARY"/>
+		<type jdbcType="LONG" mapperJdbcType="NUMERIC"/>
+		<type jdbcType="LONG VARCHAR" mapperJdbcType="LONGVARCHAR"/>
+		<type jdbcType="NATIONAL CHAR" mapperJdbcType="CHAR"/>
+		<type jdbcType="NATIONAL CHAR VARYING" mapperJdbcType="CHAR"/>
+		<type jdbcType="NATIONAL CHARACTER" mapperJdbcType="CHAR"/>
+		<type jdbcType="NATIONAL CHARACTER VARYING" mapperJdbcType="CHAR"/>
+		<type jdbcType="NCHAR" mapperJdbcType="CHAR"/>
+		<type jdbcType="NCHAR VARYING" mapperJdbcType="CHAR"/>
+		<type jdbcType="NCLOB" mapperJdbcType="CLOB"/>
+		<type jdbcType="NUMBER" mapperJdbcType="NUMERIC"/>
+		<type jdbcType="NUMERIC" mapperJdbcType="NUMERIC"/>
+		<type jdbcType="NVARCHAR2" mapperJdbcType="VARCHAR"/>
+		<type jdbcType="RAW" mapperJdbcType="VARBINARY"/>
+		<type jdbcType="REAL" mapperJdbcType="DECIMAL"/>
+		<type jdbcType="ROWID" mapperJdbcType="ROWID"/>
+		<type jdbcType="SMALLINT" mapperJdbcType="SMALLINT"/>
+		<type jdbcType="TIMESTAMP" mapperJdbcType="TIMESTAMP"/>
+		<type jdbcType="TIMESTAMP WITH LOCAL TIME ZONE" mapperJdbcType="TIMESTAMP"/>
+		<type jdbcType="TIMESTAMP WITH TIME ZONE" mapperJdbcType="TIMESTAMP"/>
+		<type jdbcType="UROWID" mapperJdbcType="ROWID"/>
+	</oracle>
+	
+	<!-- SQLServer字段数据类型和java字段类型配置 -->
+	<microsoftsqlserver>
+		<type jdbcType="bigint" mapperJdbcType="BIGINT"/>
+		<type jdbcType="binary" mapperJdbcType="BINARY"/>
+		<type jdbcType="bit" mapperJdbcType="BIT"/>
+		<type jdbcType="char" mapperJdbcType="CHAR"/>
+		<type jdbcType="date" mapperJdbcType="DATE"/>
+		<type jdbcType="datetime" mapperJdbcType="DATE"/>
+		<type jdbcType="datetime2" mapperJdbcType="DATE"/>
+		<type jdbcType="datetimeoffset" mapperJdbcType="DATE"/>
+		<type jdbcType="decimal" mapperJdbcType="NUMERIC"/>
+		<type jdbcType="float" mapperJdbcType="NUMERIC"/>
+		<type jdbcType="int" mapperJdbcType="INTEGER"/>
+		<type jdbcType="money" mapperJdbcType="NUMERIC"/>
+		<type jdbcType="nchar" mapperJdbcType="VARCHAR"/>
+		<type jdbcType="ntext" mapperJdbcType="VARCHAR"/>
+		<type jdbcType="numeric" mapperJdbcType="NUMERIC"/>
+		<type jdbcType="nvarchar" mapperJdbcType="VARCHAR"/>
+		<type jdbcType="nvarchar(max)" mapperJdbcType="VARCHAR"/>
+		<type jdbcType="real" mapperJdbcType="REAL"/>
+		<type jdbcType="smalldatetime" mapperJdbcType="DATE"/>
+		<type jdbcType="smallint" mapperJdbcType="INTEGER"/>
+		<type jdbcType="smallmoney" mapperJdbcType="NUMERIC"/>
+		<type jdbcType="sysname" mapperJdbcType="VARCHAR"/>
+		<type jdbcType="text" mapperJdbcType="VARCHAR"/>
+		<type jdbcType="time" mapperJdbcType="DATE"/>
+		<type jdbcType="tinyint" mapperJdbcType="INTEGER"/>
+		<type jdbcType="uniqueidentifier" mapperJdbcType=""/>
+		<type jdbcType="timestamp" mapperJdbcType="DATE"/>
+		<type jdbcType="varbinary" mapperJdbcType="VARBINARY"/>
+		<type jdbcType="varbinary(max)" mapperJdbcType="VARBINARY"/>
+		<type jdbcType="varchar" mapperJdbcType="VARCHAR"/>
+		<type jdbcType="varchar(max)" mapperJdbcType="VARCHAR"/>
+		<type jdbcType="xml" mapperJdbcType="SQLXML"/>
+	</microsoftsqlserver>
+	<!-- PostgreSQL字段数据类型和java字段类型配置 -->
+	<postgresql>
+		<type jdbcType="bit" mapperJdbcType="BIT"/>
+		<type jdbcType="bool" mapperJdbcType="BOOLEAN"/>
+		<type jdbcType="bytea" mapperJdbcType="BLOB"/>
+		<type jdbcType="bpchar" mapperJdbcType="CHAR"/>
+		<type jdbcType="cidr" mapperJdbcType="VARCHAR"/>
+		<type jdbcType="date" mapperJdbcType="DATE"/>
+		<type jdbcType="numeric" mapperJdbcType="DECIMAL"/>
+		<type jdbcType="float4" mapperJdbcType="FLOAT"/>
+		<type jdbcType="float8" mapperJdbcType="FLOAT"/>
+		<type jdbcType="inet" mapperJdbcType="VARCHAR"/>
+		<type jdbcType="int2" mapperJdbcType="INTEGER"/>
+		<type jdbcType="int4" mapperJdbcType="INTEGER"/>
+		<type jdbcType="int8" mapperJdbcType="BIGINT"/>
+		<type jdbcType="interval" mapperJdbcType="VARCHAR"/>
+		<type jdbcType="json" mapperJdbcType="OTHER"/>
+		<type jdbcType="jsonb" mapperJdbcType="OTHER"/>
+		<type jdbcType="macaddr" mapperJdbcType="VARCHAR"/>
+		<type jdbcType="money" mapperJdbcType="DECIMAL"/>
+		<type jdbcType="text" mapperJdbcType="VARCHAR"/>
+		<type jdbcType="time" mapperJdbcType="DATE"/>
+		<type jdbcType="timestamp" mapperJdbcType="DATE"/>
+		<type jdbcType="timestamptz" mapperJdbcType="DATE"/>
+		<type jdbcType="timetz" mapperJdbcType="DATE"/>
+		<type jdbcType="tsquery" mapperJdbcType="VARCHAR"/>
+		<type jdbcType="tsvector" mapperJdbcType="VARCHAR"/>
+		<type jdbcType="uuid" mapperJdbcType="VARCHAR"/>
+		<type jdbcType="varbit" mapperJdbcType="BIT"/>
+		<type jdbcType="varchar" mapperJdbcType="VARCHAR"/>
+		<type jdbcType="xml" mapperJdbcType="VARCHAR"/>
+	</postgresql>
+	<!-- SQLite字段数据类型和java字段类型配置 -->
+	<sqlite>
+		<type jdbcType="integer" mapperJdbcType="INTEGER"/>
+		<type jdbcType="real" mapperJdbcType="REAL"/>
+		<type jdbcType="text" mapperJdbcType="VARCHAR"/>
+		<type jdbcType="blob" mapperJdbcType="BLOB"/>
+	</sqlite>
+	
+</config>

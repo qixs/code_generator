@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta http-equiv="Expires" content="0" />
+
+<title>代码生成器</title>
+
+</head>
+<body>
+	<form id="userForm" autocomplete="off">
+		<input type="hidden" name="_method" th:value="${user != null && user?.id != null ? 'PUT' : 'POST'}"/>
+		<input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
+		<input type="hidden" name="user.id" th:value="${user?.id}"/>
+		<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;">
+			<label class="col-sm-3 control-label" style="text-align: right;padding-right: 0;">用户名：</label>
+			<div class="col-sm-9" style="padding-left: 5px;">
+				<input type="text" name="user.username" class="form-control" th:value="${user?.username}" maxlength="255" placeholder="不能为空"/>
+			</div>
+		</div>
+		<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;">
+			<label class="col-sm-3 control-label" style="text-align: right;padding-right: 0;">姓名：</label>
+			<div class="col-sm-9" style="padding-left: 5px;">
+				<input type="text" name="user.name" class="form-control" th:value="${user?.name}" maxlength="255" placeholder="不能为空"/>
+			</div>
+		</div>
+		<div class="form-group" th:if="${#authentication.principal.id != user?.id}" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;">
+			<label class="col-sm-3 control-label" style="text-align: right;padding-right: 0;">管理员：</label>
+			<div class="col-sm-9" style="padding-left: 5px;">
+				<select name="user.admin" class="form-control">
+					<option value="0" th:selected="${user == null || user?.admin == 0}">否</option>
+					<option value="1" th:selected="${user?.admin == 1}">是</option>
+				</select>
+			</div>
+		</div>
+		<div th:if="${user?.id == null}" class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;">
+			<label class="col-sm-3 control-label" style="text-align: right;padding-right: 0;">密码：</label>
+			<div class="col-sm-9" style="padding-left: 5px;">
+				<input type="password" name="user.password" class="form-control" maxlength="18" placeholder="请输入新密码"/>
+			</div>
+		</div>
+		<div th:if="${user?.id == null}" class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;">
+			<label class="col-sm-3 control-label" style="text-align: right;padding-right: 0;">重复密码：</label>
+			<div class="col-sm-9" style="padding-left: 5px;">
+				<input type="password" name="passwordRepeat" class="form-control" maxlength="18" placeholder="请重新输入新密码"/>
+			</div>
+		</div>
+	</form>
+</body>
+<script type="text/javascript" th:src="@{/plugins/serialize.js}"></script>
+</html>

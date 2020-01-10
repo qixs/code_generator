@@ -1,0 +1,4 @@
+plugin1: 
+  name: entity
+  description: 实体类生成插件
+  generator: com.qxs

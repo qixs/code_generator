@@ -1,0 +1,11 @@
+plugin:
+  groupName: mybatisPlus
+  name: serviceImpl
+  description: serviceImpl生成插件
+  generator: com.qxs.plugin.generator.mybatis.plus.service.impl.MybatisPlusServiceImplGenerator
+  templatePath: template.ftl
+  fileRelativeDir: mybatisPlus/service/impl
+  fileSuffix: .java
+  prefix:
+  suffix: ServiceImpl
+  dependencies: entity,mapper,serviceInterface #依赖的插件,以英文逗号(,)分割

@@ -1,0 +1,93 @@
+
+import java.util.List;
+
+/**
+ * t_test 表service接口
+ *
+ * @Description 
+ * @author qixingshen
+ * @date 2018-04-04 04:36:59
+ * @version 1.0
+ */
+public interface ITestService{
+	/***
+	* 新增
+	*
+	* @param test 
+	* @return int 是否插入成功   1:成功  0:不成功
+	**/
+	int insert(Test test);
+	
+	/***
+	* 批量新增
+	*
+	* @param testList 集合
+	* @return int 插入成功条数
+	**/
+	int batchInsert(List<Test> testList);
+	
+	/***
+	* 更新
+	*
+	* @param test 
+	* @return int 是否更新成功   1:成功  0:不成功
+	**/
+	int update(Test test);
+	
+	/***
+	* 批量更新
+	*
+	* @param testList 集合
+	* @return int 更新成功条数
+	**/
+	int batchUpdate(List<Test> testList);
+
+	/***
+	* 根据主键删除
+	*
+	* @param bigintCol 主键
+	* @return int 是否删除成功   1:成功  0:不成功
+	**/
+	int deleteById(Long bigintCol);
+
+	/***
+	* 根据对象删除
+	*
+	* @param test 
+	* @return int 是否删除成功   1:成功  0:不成功
+	**/
+	int delete(Test test);
+
+	/***
+	* 根据主键获取对象
+	*
+	* @param bigintCol 主键
+	* @return Test 对象
+	**/
+	Test findById(Long bigintCol);
+
+	/***
+	* 根据对象查询
+	*
+	* @param test 
+	* @return Test
+	**/
+	Test find(Test test);
+	
+	/***
+	* 根据对象查询列表
+	*
+	* @param test 
+	* @return List<Test>
+	**/
+	List<Test> findList(Test test);
+	
+	/***
+	* 查询总数
+	*
+	* @paramtest 
+	* @return long 总条数
+	**/
+	long findCount(Test test);
+	
+}

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<insert>
+    <selectKeyMode>BEFORE</selectKeyMode>
+    <selectKeySql>SELECT SEQ_${name}.NEXTVAL FROM DUAL </selectKeySql>
+    <!-- VALUES或UNION,oracle不支持values(xxx,xxx),(xxx,xxx),(xxx,xxx)只能使用UNION ALL的形式,mysql和sqlite支持values的形式 -->
+    <batchInsertMode>UNION</batchInsertMode>
+    <batchInsertSelectKeySql>SELECT SEQ_${name}.NEXTVAL</batchInsertSelectKeySql>
+</insert>

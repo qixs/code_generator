@@ -1,0 +1,168 @@
+
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.lang.RuntimeException;
+
+/**
+ * t_test 表service接口实现
+ *
+ * @Description 
+ * @author qixingshen
+ * @date 2018-04-08 06:29:04
+ * @version 1.0
+ */
+@Service
+public class TestServiceImpl implements ITestService{
+
+	private transient Logger logger = LoggerFactory.getLogger(getClass());
+
+	@Autowired
+	private ITestDAO testDAO;
+	/***
+	* 新增
+	*
+	* @param test 
+	* @return int 是否插入成功   1:成功  0:不成功
+	**/
+	@Override
+	public int insert(Test test){
+		int i = testDAO.insert(test);
+		if(i <= 0){
+			logger.error("插入失败,插入参数:[{}]", test);
+			throw new RuntimeException("插入失败");
+		}
+		return i;
+	}
+
+	/***
+	* 批量新增
+	*
+	* @param testList 集合
+	* @return int 插入成功条数
+	**/
+	@Override
+	public int batchInsert(List<Test> testList){
+		int i = testDAO.batchInsert(testList);
+		if(i < testList.size()){
+			logger.error("批量插入失败,插入参数:[{}]", testList);
+			throw new RuntimeException("批量插入失败");
+		}
+		return i;
+	}
+	
+	/***
+	* 更新
+	*
+	* @param test 
+	* @return int 是否更新成功   1:成功  0:不成功
+	**/
+	@Override
+	public int update(Test test){
+		int i = testDAO.update(test);
+		if(i <= 0){
+			logger.error("更新失败,更新参数:[{}]", test);
+			throw new RuntimeException("更新失败");
+		}
+		return i;
+	}
+	
+	/***
+	* 批量更新
+	*
+	* @param testList 集合
+	* @return int 更新成功条数
+	**/
+	@Override
+	public int batchUpdate(List<Test> testList){
+		int i = testDAO.batchUpdate(testList);
+		if(i < testList.size()){
+			logger.error("批量更新失败,更新参数:[{}]", testList);
+			throw new RuntimeException("批量更新失败");
+		}
+		return i;
+	}
+
+	/***
+	* 根据主键删除
+	*
+	* @param int8Col 主键
+	* @return int 是否删除成功   1:成功  0:不成功
+	**/
+	@Override
+	public int deleteById(Long int8Col){
+		int i = testDAO.deleteById(int8Col);
+		if(i <= 0){
+			logger.error("删除失败,删除参数:[{}]", int8Col);
+			throw new RuntimeException("删除失败,数据可能不存在");
+		}
+		return i;
+	}
+
+	/***
+	* 根据对象删除
+	*
+	* @param test 
+	* @return int 是否删除成功   1:成功  0:不成功
+	**/
+	@Override
+	public int delete(Test test){
+		int i = testDAO.delete(test);
+		logger.debug("删除[{}]条,删除参数:[{}]", i, test);
+		return i;
+	}
+
+	/***
+	* 根据主键获取对象
+	*
+	* @param int8Col 主键
+	* @return Test 对象
+	**/
+	@Override
+	public Test findById(Long int8Col){
+		Test test = testDAO.findById(int8Col);
+		if(test == null){
+			logger.error("根据id查询失败,查询参数:[{}]", int8Col);
+			throw new RuntimeException("根据id查询失败,数据可能不存在");
+		}
+		return test;
+	}
+
+	/***
+	* 根据对象查询
+	*
+	* @param test 
+	* @return Test
+	**/
+	@Override
+	public Test find(Test test){
+		return testDAO.find(test);
+	}
+	
+	/***
+	* 根据对象查询列表
+	*
+	* @param test 
+	* @return List<Test>
+	**/
+	@Override
+	public List<Test> findList(Test test){
+		return testDAO.findList(test);
+	}
+	
+	/***
+	* 查询总数
+	*
+	* @paramtest 
+	* @return long 总条数
+	**/
+	@Override
+	public long findCount(Test test){
+		return testDAO.findCount(test);
+	}
+	
+}

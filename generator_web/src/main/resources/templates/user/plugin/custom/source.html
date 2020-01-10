@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta http-equiv="Expires" content="0" />
+
+<title>代码生成器</title>
+
+<style type="text/css">
+html,body{
+	margin:0px;
+	padding:0px;
+	height: 100%;
+}
+</style>
+</head>
+<body>
+	<input type="hidden" name="userCustomPluginTemp.userPluginId" th:value="${userCustomPluginTemp.userPluginId}"/>
+	<input type="hidden" name="userCustomPluginTemp.groupName" th:value="${userCustomPluginTemp.groupName}" />
+	<input type="hidden" name="userCustomPluginTemp.name" th:value="${userCustomPluginTemp.name}" />
+	<input type="hidden" name="userCustomPluginTemp.description" th:value="${userCustomPluginTemp.description}"/>
+	<input type="hidden" name="userCustomPluginTemp.generator" th:value="${userCustomPluginTemp.generator}" />
+	<input type="hidden" name="userCustomPluginTemp.dependencies" th:value="${userCustomPluginTemp.dependencies}" />
+	<input type="hidden" name="userCustomPluginTemp.fileRelativeDir" th:value="${userCustomPluginTemp.fileRelativeDir}" maxlength="255" />
+	<input type="hidden" name="userCustomPluginTemp.fileSuffix" th:value="${userCustomPluginTemp.fileSuffix}" />
+	<input type="hidden" name="userCustomPluginTemp.prefix" th:value="${userCustomPluginTemp.prefix}" />
+	<input type="hidden" name="userCustomPluginTemp.suffix" th:value="${userCustomPluginTemp.suffix}" />
+	<input type="hidden" name="userCustomPluginTemp.custom" th:value="${userCustomPluginTemp.custom}"/>
+		<input type="hidden" name="userCustomPluginTemp.templateContent" th:value="${userCustomPluginTemp.templateContent}"/>
+	<textarea name="userCustomPluginTemp.generatorSourceContent" style="width: 100%;height: 100%;padding: 5px;border: 1px solid #ccc;border-radius:4px;" th:text="${userCustomPluginTemp.generatorSourceContent}"></textarea>
+</body>
+
+</html>

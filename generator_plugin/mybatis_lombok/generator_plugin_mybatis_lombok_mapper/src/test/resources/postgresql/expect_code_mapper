@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace=".ITestDAO">
+	<resultMap type="test" id="testMap">
+		<id column="c_int8_col" property="int8Col" jdbcType="BIGINT"/><!-- 主键  注释 -->
+		<result column="c_bool_col" property="boolCol" jdbcType="BOOLEAN"/><!-- c_bool_col  注释 -->
+		<result column="c_char_col" property="charCol" jdbcType="CHAR"/><!-- c_char_col  注释 -->
+		<result column="c_date_col" property="dateCol" jdbcType="DATE"/><!-- c_date_col  注释 -->
+		<result column="c_numeric_col" property="numericCol" jdbcType="DECIMAL"/><!-- c_numeric_col  注释 -->
+		<result column="c_float4_col" property="float4Col" jdbcType="FLOAT"/><!-- c_float4_col  注释 -->
+		<result column="c_float8_col" property="float8Col" jdbcType="FLOAT"/><!-- c_float8_col  注释 -->
+		<result column="c_int2_col" property="int2Col" jdbcType="INTEGER"/><!-- c_int2_col  注释 -->
+		<result column="c_int4_col" property="int4Col" jdbcType="INTEGER"/><!-- c_int4_col  注释 -->
+		<result column="c_json_col" property="jsonCol" jdbcType="OTHER"/><!-- c_json_col  注释 -->
+		<result column="c_jsonb_col" property="jsonbCol" jdbcType="OTHER"/><!-- c_jsonb_col  注释 -->
+		<result column="c_money_col" property="moneyCol" jdbcType="DECIMAL"/><!-- c_money_col  注释 -->
+		<result column="c_text_col" property="textCol" jdbcType="VARCHAR"/><!-- c_text_col  注释 -->
+		<result column="c_timestamp_col" property="timestampCol" jdbcType="DATE"/><!-- c_timestamp_col  注释 -->
+		<result column="c_timestamptz_col" property="timestamptzCol" jdbcType="DATE"/><!-- c_timestamptz_col  注释 -->
+		<result column="c_varchar_col" property="varcharCol" jdbcType="VARCHAR"/><!-- c_varchar_col  注释 -->
+	</resultMap>
+
+    <!-- 新增 -->
+    <insert id="insert" parameterType="test" >
+		<selectKey keyProperty="int8Col" resultType="java.lang.Long" order="BEFORE">
+        <![CDATA[
+            SELECT nextval('t_test_c_int8_col_seq'::regclass) as int8Col
+        ]]>
+        </selectKey>
+    <![CDATA[
+        INSERT INTO t_test (
+			c_int8_col,
+			c_bool_col,
+			c_char_col,
+			c_date_col,
+			c_numeric_col,
+			c_float4_col,
+			c_float8_col,
+			c_int2_col,
+			c_int4_col,
+			c_json_col,
+			c_jsonb_col,
+			c_money_col,
+			c_text_col,
+			c_timestamp_col,
+			c_timestamptz_col,
+			c_varchar_col
+		)
+		VALUES (
+			#{int8Col,jdbcType=BIGINT},
+			#{boolCol,jdbcType=BOOLEAN},
+			#{charCol,jdbcType=CHAR},
+			#{dateCol,jdbcType=DATE},
+			#{numericCol,jdbcType=DECIMAL},
+			#{float4Col,jdbcType=FLOAT},
+			#{float8Col,jdbcType=FLOAT},
+			#{int2Col,jdbcType=INTEGER},
+			#{int4Col,jdbcType=INTEGER},
+			#{jsonCol,jdbcType=OTHER},
+			#{jsonbCol,jdbcType=OTHER},
+			#{moneyCol,jdbcType=DECIMAL},
+			#{textCol,jdbcType=VARCHAR},
+			#{timestampCol,jdbcType=DATE},
+			#{timestamptzCol,jdbcType=DATE},
+			#{varcharCol,jdbcType=VARCHAR}
+		)
+    ]]>
+    </insert>
+    <!-- 批量新增 -->
+    <insert id="batchInsert" parameterType="java.util.List" useGeneratedKeys="false">
+        INSERT INTO t_test (
+			c_int8_col,
+			c_bool_col,
+			c_char_col,
+			c_date_col,
+			c_numeric_col,
+			c_float4_col,
+			c_float8_col,
+			c_int2_col,
+			c_int4_col,
+			c_json_col,
+			c_jsonb_col,
+			c_money_col,
+			c_text_col,
+			c_timestamp_col,
+			c_timestamptz_col,
+			c_varchar_col
+		)  values
+		<foreach collection="list" item="item" index="index" separator="," >
+            (
+			nextval('t_test_c_int8_col_seq'::regclass),
+			#{item.boolCol,jdbcType=BOOLEAN},
+			#{item.charCol,jdbcType=CHAR},
+			#{item.dateCol,jdbcType=DATE},
+			#{item.numericCol,jdbcType=DECIMAL},
+			#{item.float4Col,jdbcType=FLOAT},
+			#{item.float8Col,jdbcType=FLOAT},
+			#{item.int2Col,jdbcType=INTEGER},
+			#{item.int4Col,jdbcType=INTEGER},
+			#{item.jsonCol,jdbcType=OTHER},
+			#{item.jsonbCol,jdbcType=OTHER},
+			#{item.moneyCol,jdbcType=DECIMAL},
+			#{item.textCol,jdbcType=VARCHAR},
+			#{item.timestampCol,jdbcType=DATE},
+			#{item.timestamptzCol,jdbcType=DATE},
+			#{item.varcharCol,jdbcType=VARCHAR}
+			)
+        </foreach>
+    </insert>
+    <!-- 更新 -->
+    <update id="update" parameterType="test">
+    <![CDATA[
+	    UPDATE t_test SET
+			c_bool_col = #{boolCol,jdbcType=BOOLEAN},
+			c_char_col = #{charCol,jdbcType=CHAR},
+			c_date_col = #{dateCol,jdbcType=DATE},
+			c_numeric_col = #{numericCol,jdbcType=DECIMAL},
+			c_float4_col = #{float4Col,jdbcType=FLOAT},
+			c_float8_col = #{float8Col,jdbcType=FLOAT},
+			c_int2_col = #{int2Col,jdbcType=INTEGER},
+			c_int4_col = #{int4Col,jdbcType=INTEGER},
+			c_json_col = #{jsonCol,jdbcType=OTHER},
+			c_jsonb_col = #{jsonbCol,jdbcType=OTHER},
+			c_money_col = #{moneyCol,jdbcType=DECIMAL},
+			c_text_col = #{textCol,jdbcType=VARCHAR},
+			c_timestamp_col = #{timestampCol,jdbcType=DATE},
+			c_timestamptz_col = #{timestamptzCol,jdbcType=DATE},
+			c_varchar_col = #{varcharCol,jdbcType=VARCHAR}
+		WHERE c_int8_col = #{int8Col,jdbcType=BIGINT}
+    ]]>
+    </update>
+    <!-- 批量更新 -->
+    <update id="batchUpdate" parameterType="java.util.List">
+        update t_test
+        <trim prefix="set" suffixOverrides=",">
+            <trim prefix="c_bool_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.boolCol != null">
+                        when t_test.c_int8_col = #{item.int8Col} then #{item.boolCol,jdbcType=BOOLEAN}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_char_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.charCol != null">
+                        when t_test.c_int8_col = #{item.int8Col} then #{item.charCol,jdbcType=CHAR}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_date_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.dateCol != null">
+                        when t_test.c_int8_col = #{item.int8Col} then #{item.dateCol,jdbcType=DATE}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_numeric_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.numericCol != null">
+                        when t_test.c_int8_col = #{item.int8Col} then #{item.numericCol,jdbcType=DECIMAL}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_float4_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.float4Col != null">
+                        when t_test.c_int8_col = #{item.int8Col} then #{item.float4Col,jdbcType=FLOAT}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_float8_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.float8Col != null">
+                        when t_test.c_int8_col = #{item.int8Col} then #{item.float8Col,jdbcType=FLOAT}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_int2_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.int2Col != null">
+                        when t_test.c_int8_col = #{item.int8Col} then #{item.int2Col,jdbcType=INTEGER}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_int4_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.int4Col != null">
+                        when t_test.c_int8_col = #{item.int8Col} then #{item.int4Col,jdbcType=INTEGER}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_json_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.jsonCol != null">
+                        when t_test.c_int8_col = #{item.int8Col} then #{item.jsonCol,jdbcType=OTHER}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_jsonb_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.jsonbCol != null">
+                        when t_test.c_int8_col = #{item.int8Col} then #{item.jsonbCol,jdbcType=OTHER}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_money_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.moneyCol != null">
+                        when t_test.c_int8_col = #{item.int8Col} then #{item.moneyCol,jdbcType=DECIMAL}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_text_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.textCol != null">
+                        when t_test.c_int8_col = #{item.int8Col} then #{item.textCol,jdbcType=VARCHAR}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_timestamp_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.timestampCol != null">
+                        when t_test.c_int8_col = #{item.int8Col} then #{item.timestampCol,jdbcType=DATE}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_timestamptz_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.timestamptzCol != null">
+                        when t_test.c_int8_col = #{item.int8Col} then #{item.timestamptzCol,jdbcType=DATE}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_varchar_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.varcharCol != null">
+                        when t_test.c_int8_col = #{item.int8Col} then #{item.varcharCol,jdbcType=VARCHAR}
+                    </if>
+                </foreach>
+            </trim>
+        </trim>
+        where c_int8_col in
+        <foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+        	#{item.int8Col,jdbcType=BIGINT}
+        </foreach>
+    </update>
+    <!-- 删除 -->
+    <delete id="deleteById" parameterType="java.lang.Long">
+    <![CDATA[
+        delete from t_test where c_int8_col = #{int8Col,jdbcType=BIGINT}
+    ]]>
+    </delete>
+    <!-- 根据对象删除 -->
+    <delete id="delete" parameterType="test">
+        delete from t_test
+        <include refid="whereCondition"/>
+    </delete>
+    <!-- 根据id查询 -->
+    <select id="findById" parameterType="java.lang.Long" resultMap="testMap" >
+    <![CDATA[
+	    SELECT
+			t_test.c_int8_col,
+			t_test.c_bool_col,
+			t_test.c_char_col,
+			t_test.c_date_col,
+			t_test.c_numeric_col,
+			t_test.c_float4_col,
+			t_test.c_float8_col,
+			t_test.c_int2_col,
+			t_test.c_int4_col,
+			t_test.c_json_col,
+			t_test.c_jsonb_col,
+			t_test.c_money_col,
+			t_test.c_text_col,
+			t_test.c_timestamp_col,
+			t_test.c_timestamptz_col,
+			t_test.c_varchar_col
+		FROM t_test
+        where t_test.c_int8_col = #{int8Col,jdbcType=BIGINT}
+    ]]>
+    </select>
+    <!-- 根据对象查询 -->
+    <select id="find" parameterType="test" resultMap="testMap" >
+    <![CDATA[
+	    SELECT
+			t_test.c_int8_col,
+			t_test.c_bool_col,
+			t_test.c_char_col,
+			t_test.c_date_col,
+			t_test.c_numeric_col,
+			t_test.c_float4_col,
+			t_test.c_float8_col,
+			t_test.c_int2_col,
+			t_test.c_int4_col,
+			t_test.c_json_col,
+			t_test.c_jsonb_col,
+			t_test.c_money_col,
+			t_test.c_text_col,
+			t_test.c_timestamp_col,
+			t_test.c_timestamptz_col,
+			t_test.c_varchar_col
+		FROM t_test
+    ]]>
+        <include refid="whereCondition"/>
+    </select>
+    <!-- 根据对象查询对象列表 -->
+    <select id="findList" parameterType="map" resultMap="testMap" >
+    <![CDATA[
+	    SELECT
+			t_test.c_int8_col,
+			t_test.c_bool_col,
+			t_test.c_char_col,
+			t_test.c_date_col,
+			t_test.c_numeric_col,
+			t_test.c_float4_col,
+			t_test.c_float8_col,
+			t_test.c_int2_col,
+			t_test.c_int4_col,
+			t_test.c_json_col,
+			t_test.c_jsonb_col,
+			t_test.c_money_col,
+			t_test.c_text_col,
+			t_test.c_timestamp_col,
+			t_test.c_timestamptz_col,
+			t_test.c_varchar_col
+		FROM t_test
+    ]]>
+        <include refid="whereCondition"/>
+    </select>
+    <!-- 根据对象查询对象列表总数 -->
+    <select id="findCount" parameterType="test" resultType="long">
+    <![CDATA[
+        select count(*) from t_test
+    ]]>
+        <include refid="whereCondition"/>
+    </select>
+
+    <!-- 公用的where条件 -->
+    <sql id="whereCondition">
+        <where>
+             <if test="int8Col != null">
+             <![CDATA[
+                 AND t_test.c_int8_col = #{int8Col,jdbcType=BIGINT}
+             ]]>
+             </if>
+             <if test="boolCol != null">
+             <![CDATA[
+                 AND t_test.c_bool_col = #{boolCol,jdbcType=BOOLEAN}
+             ]]>
+             </if>
+             <if test="charCol != null and charCol != ''">
+             <![CDATA[
+                 AND t_test.c_char_col = #{charCol,jdbcType=CHAR}
+             ]]>
+             </if>
+             <if test="dateCol != null">
+             <![CDATA[
+                 AND t_test.c_date_col = #{dateCol,jdbcType=DATE}
+             ]]>
+             </if>
+             <if test="numericCol != null">
+             <![CDATA[
+                 AND t_test.c_numeric_col = #{numericCol,jdbcType=DECIMAL}
+             ]]>
+             </if>
+             <if test="float4Col != null">
+             <![CDATA[
+                 AND t_test.c_float4_col = #{float4Col,jdbcType=FLOAT}
+             ]]>
+             </if>
+             <if test="float8Col != null">
+             <![CDATA[
+                 AND t_test.c_float8_col = #{float8Col,jdbcType=FLOAT}
+             ]]>
+             </if>
+             <if test="int2Col != null">
+             <![CDATA[
+                 AND t_test.c_int2_col = #{int2Col,jdbcType=INTEGER}
+             ]]>
+             </if>
+             <if test="int4Col != null">
+             <![CDATA[
+                 AND t_test.c_int4_col = #{int4Col,jdbcType=INTEGER}
+             ]]>
+             </if>
+             <if test="jsonCol != null">
+             <![CDATA[
+                 AND t_test.c_json_col = #{jsonCol,jdbcType=OTHER}
+             ]]>
+             </if>
+             <if test="jsonbCol != null">
+             <![CDATA[
+                 AND t_test.c_jsonb_col = #{jsonbCol,jdbcType=OTHER}
+             ]]>
+             </if>
+             <if test="moneyCol != null">
+             <![CDATA[
+                 AND t_test.c_money_col = #{moneyCol,jdbcType=DECIMAL}
+             ]]>
+             </if>
+             <if test="textCol != null and textCol != ''">
+             <![CDATA[
+                 AND t_test.c_text_col = #{textCol,jdbcType=VARCHAR}
+             ]]>
+             </if>
+             <if test="timestampCol != null">
+             <![CDATA[
+                 AND t_test.c_timestamp_col = #{timestampCol,jdbcType=DATE}
+             ]]>
+             </if>
+             <if test="timestamptzCol != null">
+             <![CDATA[
+                 AND t_test.c_timestamptz_col = #{timestamptzCol,jdbcType=DATE}
+             ]]>
+             </if>
+             <if test="varcharCol != null and varcharCol != ''">
+             <![CDATA[
+                 AND t_test.c_varchar_col = #{varcharCol,jdbcType=VARCHAR}
+             ]]>
+             </if>
+        </where>
+    </sql>
+</mapper>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta http-equiv="Expires" content="0" />
+
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+<link rel="stylesheet" media="screen" th:href="@{/webjars/bootstrap-table/dist/bootstrap-table.min.css}">
+<title>代码生成器</title>
+
+<style type="text/css">
+body{
+	position:absolute;
+	width:100%;
+	height:100%;
+	margin: 0;
+	padding: 0;
+}
+.contioner{
+	text-align: center;
+	margin-top: calc(50vh - 200px);
+	height: 100%;
+}
+</style>
+</head>
+<div class="contioner">
+	<div class="h2">代码生成器</div>
+	<div style="width: 800px;margin: auto;">
+		<div>您好 <span encrypt:email="${username}"></span>，</div>
+	<div style="padding-top: 12px;">该账户激活失败，失败原因如下：</div>
+	<div style="padding-top: 12px;color:red;" th:text="${activeErrorMessage}"></div>
+	<div style="padding-top: 12px;">您可以联系管理员手动激活该账户。</div>
+	<div style="padding-top: 12px;">要获取额外的帮助，请访问我们的支持中心 <a th:href="${helpUrl}" th:text="${helpUrl}"></a>。</div>
+	<div style="padding-top: 12px;">祝您使用代码生成器愉快！</div>
+	</div>
+</div>
+</html>

@@ -1,0 +1,1 @@
+SELECT datname FROM pg_database where datname not in ('template0', 'template1')

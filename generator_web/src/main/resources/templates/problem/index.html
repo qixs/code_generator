@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="Cache-Control" content="no-cache" />
+	<meta http-equiv="Cache-Control" content="no-store" />
+	<meta http-equiv="Expires" content="0" />
+
+	<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+	<title>代码生成器</title>
+
+	<style type="text/css">
+		html,body{
+			margin:0px;
+			padding:0px;
+			height: 100%;
+		}
+	</style>
+</head>
+<body style="overflow: hidden;">
+<div class="error" style="padding: 10px;height: 72px;display: none;">
+	<div class="alert alert-warning" style="display: none;">
+		<a href="#" class="close" >&times;</a>
+		<strong>错误！</strong><span class="alertMsg" style="display: inline;"></span>
+	</div>
+</div>
+<div class="success" style="padding: 10px;height: 72px;display: none;">
+	<div id="success" class="alert alert-success">
+		<a href="#" class="close" >&times;</a>
+		<strong>提示！</strong><span class="successMsg" style="display: inline;"></span>
+	</div>
+</div>
+	<form id="problemForm" autocomplete="off">
+		<input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
+		<div class="form-group" style="height: 34px;margin-top: 15px;">
+			<label class="col-sm-2 control-label" style="text-align: right;padding-right: 0;padding-top: 7px;">类型：</label>
+			<div class="col-sm-9" style="padding-left: 5px;">
+				<select name="type" class="form-control">
+					<option value="问题反馈">问题反馈</option>
+					<option value="建议">建议</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group" style="margin-top: 7px;">
+			<label class="col-sm-2 control-label" style="text-align: right;padding-right: 0;padding-top: 7px;">描述：</label>
+			<div class="col-sm-9" style="padding-left: 5px;">
+				<textarea class="form-control" name="desc" style="height: 300px;"></textarea>
+			</div>
+		</div>
+		<div style="padding-bottom: 50px;padding-top: 10px;">
+			<button type="button" style="margin-left: 430px;margin-top: 15px;" class="btn btn-primary submit">提交</button>
+		</div>
+	</form>
+</body>
+
+<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/plugins/bootstrap/alert.js}"></script>
+<script type="text/javascript" th:src="@{/plugins/bootstrap/modal.js}"></script>
+<script type="text/javascript" th:src="@{/scripts/util/emailModal.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/jquery-form/jquery.form.min.js}"></script>
+<script type="text/javascript" th:src="@{/scripts/problem/index.js}"></script>
+</html>

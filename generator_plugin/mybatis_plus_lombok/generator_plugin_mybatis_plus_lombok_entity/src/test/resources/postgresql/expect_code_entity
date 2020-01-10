@@ -1,0 +1,429 @@
+
+import java.io.Serializable;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.google.gson.JsonElement;
+import java.math.BigDecimal;
+import java.util.Date;
+import org.springframework.format.annotation.DateTimeFormat;
+
+/**
+ * t_test实体类
+ *
+ * @Description 
+ * @author qixingshen
+ * @date 2018-04-09 03:36:48
+ * @version 1.0
+ */
+public class Test implements Serializable {
+	private static final long serialVersionUID = -7765888941748438395L;
+
+	/**
+	 * 主键  注释  (数据库字段名:c_int8_col)
+	 */
+	private Long int8Col;
+
+	/**
+	 * c_bool_col  注释  (数据库字段名:c_bool_col)
+	 */
+	private Boolean boolCol;
+
+	/**
+	 * c_char_col  注释  (数据库字段名:c_char_col)
+	 */
+	private String charCol;
+
+	/**
+	 * c_date_col  注释  (数据库字段名:c_date_col)
+	 */
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	private Date dateCol;
+
+	/**
+	 * c_numeric_col  注释  (数据库字段名:c_numeric_col)
+	 */
+	private BigDecimal numericCol;
+
+	/**
+	 * c_float4_col  注释  (数据库字段名:c_float4_col)
+	 */
+	private BigDecimal float4Col;
+
+	/**
+	 * c_float8_col  注释  (数据库字段名:c_float8_col)
+	 */
+	private BigDecimal float8Col;
+
+	/**
+	 * c_int2_col  注释  (数据库字段名:c_int2_col)
+	 */
+	private Integer int2Col;
+
+	/**
+	 * c_int4_col  注释  (数据库字段名:c_int4_col)
+	 */
+	private Integer int4Col;
+
+	/**
+	 * c_json_col  注释  (数据库字段名:c_json_col)
+	 */
+	private JsonElement jsonCol;
+
+	/**
+	 * c_jsonb_col  注释  (数据库字段名:c_jsonb_col)
+	 */
+	private JsonElement jsonbCol;
+
+	/**
+	 * c_money_col  注释  (数据库字段名:c_money_col)
+	 */
+	private BigDecimal moneyCol;
+
+	/**
+	 * c_text_col  注释  (数据库字段名:c_text_col)
+	 */
+	private String textCol;
+
+	/**
+	 * c_timestamp_col  注释  (数据库字段名:c_timestamp_col)
+	 */
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	private Date timestampCol;
+
+	/**
+	 * c_timestamptz_col  注释  (数据库字段名:c_timestamptz_col)
+	 */
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	private Date timestamptzCol;
+
+	/**
+	 * c_varchar_col  注释  (数据库字段名:c_varchar_col)
+	 */
+	private String varcharCol;
+
+
+    public Test(){}
+
+    /***
+    * @param int8Col 主键  注释
+    * @param boolCol c_bool_col  注释
+    * @param charCol c_char_col  注释
+    * @param dateCol c_date_col  注释
+    * @param numericCol c_numeric_col  注释
+    * @param float4Col c_float4_col  注释
+    * @param float8Col c_float8_col  注释
+    * @param int2Col c_int2_col  注释
+    * @param int4Col c_int4_col  注释
+    * @param jsonCol c_json_col  注释
+    * @param jsonbCol c_jsonb_col  注释
+    * @param moneyCol c_money_col  注释
+    * @param textCol c_text_col  注释
+    * @param timestampCol c_timestamp_col  注释
+    * @param timestamptzCol c_timestamptz_col  注释
+    * @param varcharCol c_varchar_col  注释
+    **/
+    public Test(Long int8Col, Boolean boolCol, String charCol, Date dateCol, BigDecimal numericCol, BigDecimal float4Col, BigDecimal float8Col, Integer int2Col, Integer int4Col, JsonElement jsonCol, JsonElement jsonbCol, BigDecimal moneyCol, String textCol, Date timestampCol, Date timestamptzCol, String varcharCol){
+    	this.int8Col = int8Col;
+    	this.boolCol = boolCol;
+    	this.charCol = charCol;
+    	this.dateCol = dateCol;
+    	this.numericCol = numericCol;
+    	this.float4Col = float4Col;
+    	this.float8Col = float8Col;
+    	this.int2Col = int2Col;
+    	this.int4Col = int4Col;
+    	this.jsonCol = jsonCol;
+    	this.jsonbCol = jsonbCol;
+    	this.moneyCol = moneyCol;
+    	this.textCol = textCol;
+    	this.timestampCol = timestampCol;
+    	this.timestamptzCol = timestamptzCol;
+    	this.varcharCol = varcharCol;
+    }
+
+	/**
+	 * @param int8Col 主键  注释
+	 *
+	 * returnTest
+	 */
+    public Test setInt8Col(Long int8Col){
+    	this.int8Col = int8Col;
+    	return this;
+    }
+
+	/**
+	 * @return Long 主键  注释
+	 */
+    public Long getInt8Col(){
+    	return int8Col;
+    }
+
+	/**
+	 * @param boolCol c_bool_col  注释
+	 *
+	 * returnTest
+	 */
+    public Test setBoolCol(Boolean boolCol){
+    	this.boolCol = boolCol;
+    	return this;
+    }
+
+	/**
+	 * @return Boolean c_bool_col  注释
+	 */
+    public Boolean getBoolCol(){
+    	return boolCol;
+    }
+
+	/**
+	 * @param charCol c_char_col  注释
+	 *
+	 * returnTest
+	 */
+    public Test setCharCol(String charCol){
+    	this.charCol = charCol;
+    	return this;
+    }
+
+	/**
+	 * @return String c_char_col  注释
+	 */
+    public String getCharCol(){
+    	return charCol;
+    }
+
+	/**
+	 * @param dateCol c_date_col  注释
+	 *
+	 * returnTest
+	 */
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    public Test setDateCol(Date dateCol){
+    	this.dateCol = dateCol;
+    	return this;
+    }
+
+	/**
+	 * @return Date c_date_col  注释
+	 */
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    public Date getDateCol(){
+    	return dateCol;
+    }
+
+	/**
+	 * @param numericCol c_numeric_col  注释
+	 *
+	 * returnTest
+	 */
+    public Test setNumericCol(BigDecimal numericCol){
+    	this.numericCol = numericCol;
+    	return this;
+    }
+
+	/**
+	 * @return BigDecimal c_numeric_col  注释
+	 */
+    public BigDecimal getNumericCol(){
+    	return numericCol;
+    }
+
+	/**
+	 * @param float4Col c_float4_col  注释
+	 *
+	 * returnTest
+	 */
+    public Test setFloat4Col(BigDecimal float4Col){
+    	this.float4Col = float4Col;
+    	return this;
+    }
+
+	/**
+	 * @return BigDecimal c_float4_col  注释
+	 */
+    public BigDecimal getFloat4Col(){
+    	return float4Col;
+    }
+
+	/**
+	 * @param float8Col c_float8_col  注释
+	 *
+	 * returnTest
+	 */
+    public Test setFloat8Col(BigDecimal float8Col){
+    	this.float8Col = float8Col;
+    	return this;
+    }
+
+	/**
+	 * @return BigDecimal c_float8_col  注释
+	 */
+    public BigDecimal getFloat8Col(){
+    	return float8Col;
+    }
+
+	/**
+	 * @param int2Col c_int2_col  注释
+	 *
+	 * returnTest
+	 */
+    public Test setInt2Col(Integer int2Col){
+    	this.int2Col = int2Col;
+    	return this;
+    }
+
+	/**
+	 * @return Integer c_int2_col  注释
+	 */
+    public Integer getInt2Col(){
+    	return int2Col;
+    }
+
+	/**
+	 * @param int4Col c_int4_col  注释
+	 *
+	 * returnTest
+	 */
+    public Test setInt4Col(Integer int4Col){
+    	this.int4Col = int4Col;
+    	return this;
+    }
+
+	/**
+	 * @return Integer c_int4_col  注释
+	 */
+    public Integer getInt4Col(){
+    	return int4Col;
+    }
+
+	/**
+	 * @param jsonCol c_json_col  注释
+	 *
+	 * returnTest
+	 */
+    public Test setJsonCol(JsonElement jsonCol){
+    	this.jsonCol = jsonCol;
+    	return this;
+    }
+
+	/**
+	 * @return JsonElement c_json_col  注释
+	 */
+    public JsonElement getJsonCol(){
+    	return jsonCol;
+    }
+
+	/**
+	 * @param jsonbCol c_jsonb_col  注释
+	 *
+	 * returnTest
+	 */
+    public Test setJsonbCol(JsonElement jsonbCol){
+    	this.jsonbCol = jsonbCol;
+    	return this;
+    }
+
+	/**
+	 * @return JsonElement c_jsonb_col  注释
+	 */
+    public JsonElement getJsonbCol(){
+    	return jsonbCol;
+    }
+
+	/**
+	 * @param moneyCol c_money_col  注释
+	 *
+	 * returnTest
+	 */
+    public Test setMoneyCol(BigDecimal moneyCol){
+    	this.moneyCol = moneyCol;
+    	return this;
+    }
+
+	/**
+	 * @return BigDecimal c_money_col  注释
+	 */
+    public BigDecimal getMoneyCol(){
+    	return moneyCol;
+    }
+
+	/**
+	 * @param textCol c_text_col  注释
+	 *
+	 * returnTest
+	 */
+    public Test setTextCol(String textCol){
+    	this.textCol = textCol;
+    	return this;
+    }
+
+	/**
+	 * @return String c_text_col  注释
+	 */
+    public String getTextCol(){
+    	return textCol;
+    }
+
+	/**
+	 * @param timestampCol c_timestamp_col  注释
+	 *
+	 * returnTest
+	 */
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    public Test setTimestampCol(Date timestampCol){
+    	this.timestampCol = timestampCol;
+    	return this;
+    }
+
+	/**
+	 * @return Date c_timestamp_col  注释
+	 */
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    public Date getTimestampCol(){
+    	return timestampCol;
+    }
+
+	/**
+	 * @param timestamptzCol c_timestamptz_col  注释
+	 *
+	 * returnTest
+	 */
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    public Test setTimestamptzCol(Date timestamptzCol){
+    	this.timestamptzCol = timestamptzCol;
+    	return this;
+    }
+
+	/**
+	 * @return Date c_timestamptz_col  注释
+	 */
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    public Date getTimestamptzCol(){
+    	return timestamptzCol;
+    }
+
+	/**
+	 * @param varcharCol c_varchar_col  注释
+	 *
+	 * returnTest
+	 */
+    public Test setVarcharCol(String varcharCol){
+    	this.varcharCol = varcharCol;
+    	return this;
+    }
+
+	/**
+	 * @return String c_varchar_col  注释
+	 */
+    public String getVarcharCol(){
+    	return varcharCol;
+    }
+
+    @Override
+	public String toString() {
+		return String.format("Test={int8Col = %s, boolCol = %s, charCol = %s, dateCol = %s, numericCol = %s, float4Col = %s, float8Col = %s, int2Col = %s, int4Col = %s, jsonCol = %s, jsonbCol = %s, moneyCol = %s, textCol = %s, timestampCol = %s, timestamptzCol = %s, varcharCol = %s}", int8Col, boolCol, charCol, dateCol, numericCol, float4Col, float8Col, int2Col, int4Col, jsonCol, jsonbCol, moneyCol, textCol, timestampCol, timestamptzCol, varcharCol);
+	}
+}

@@ -1,0 +1,751 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace=".ITestDAO">
+	<resultMap type="test" id="testMap">
+		<id column="cBigintColumn" property="bigintColumn" jdbcType="BIGINT"/><!-- bigint 主键 自增 非空 注释 -->
+		<result column="c_binary_column" property="binaryColumn" jdbcType="BINARY"/><!-- binary 非空 -->
+		<result column="c_bit_column" property="bitColumn" jdbcType="BIT"/><!-- bit -->
+		<result column="c_blob_column" property="blobColumn" jdbcType="BLOB"/><!-- blob -->
+		<result column="c_bool_column" property="boolColumn" jdbcType="TINYINT"/><!-- bool -->
+		<result column="c_boolean_column" property="booleanColumn" jdbcType="TINYINT"/><!-- boolean -->
+		<result column="c_char_column" property="charColumn" jdbcType="CHAR"/><!-- char -->
+		<result column="c_date_column" property="dateColumn" jdbcType="DATE"/><!-- date -->
+		<result column="c_datetime_column" property="datetimeColumn" jdbcType="TIMESTAMP"/><!-- datetime -->
+		<result column="c_decimal_column" property="decimalColumn" jdbcType="NUMERIC"/><!-- decimal 默认值1 -->
+		<result column="c_double_column" property="doubleColumn" jdbcType="NUMERIC"/><!-- double -->
+		<result column="c_enum_column" property="enumColumn"/><!-- enum -->
+		<result column="c_float_column" property="floatColumn" jdbcType="FLOAT"/><!-- float -->
+		<result column="c_int_column" property="intColumn" jdbcType="INTEGER"/><!-- int 默认值100 -->
+		<result column="c_longblob_column" property="longblobColumn" jdbcType="BLOB"/><!-- longblob -->
+		<result column="c_longtext_column" property="longtextColumn" jdbcType="LONGVARCHAR"/><!-- longtext -->
+		<result column="c_mediumblob_column" property="mediumblobColumn" jdbcType="BLOB"/><!-- mediumblob -->
+		<result column="c_mediumint_column" property="mediumintColumn" jdbcType="INTEGER"/><!-- mediumint -->
+		<result column="c_mediumtext_column" property="mediumtextColumn" jdbcType="VARCHAR"/><!-- mediumtext -->
+		<result column="c_numeric_column" property="numericColumn" jdbcType="NUMERIC"/><!-- numeric -->
+		<result column="c_real_column" property="realColumn" jdbcType="NUMERIC"/><!-- real -->
+		<result column="c_set_column" property="setColumn"/><!-- set -->
+		<result column="c_smallint_column" property="smallintColumn" jdbcType="SMALLINT"/><!-- smallint -->
+		<result column="c_text_column" property="textColumn" jdbcType="VARCHAR"/><!-- text -->
+		<result column="c_time_column" property="timeColumn" jdbcType="TIME"/><!-- time -->
+		<result column="c_timestamp_column" property="timestampColumn" jdbcType="TIMESTAMP"/><!-- timestamp 默认值:当前时间 注释 -->
+		<result column="c_tinyblob_column" property="tinyblobColumn" jdbcType="BLOB"/><!-- tinyblob 注释 -->
+		<result column="c_tinyint_column" property="tinyintColumn" jdbcType="TINYINT"/><!-- tinyint 注释 -->
+		<result column="c_tinytext_column" property="tinytextColumn" jdbcType="VARCHAR"/><!-- tinytext 注释 -->
+		<result column="c_varbinary_column" property="varbinaryColumn" jdbcType="VARBINARY"/><!-- varbinary 注释 -->
+		<result column="c_varchar_column" property="varcharColumn" jdbcType="VARCHAR"/><!-- varchar 注释 -->
+		<result column="c_t2_year_column" property="yearColumn" jdbcType="VARCHAR"/><!-- year 注释 -->
+	</resultMap>
+
+    <!-- 新增 -->
+    <insert id="insert" parameterType="test"  useGeneratedKeys="true" keyProperty="bigintColumn">
+    <![CDATA[
+        INSERT INTO t_t2_test (
+			c_binary_column,
+			c_bit_column,
+			c_blob_column,
+			c_bool_column,
+			c_boolean_column,
+			c_char_column,
+			c_date_column,
+			c_datetime_column,
+			c_decimal_column,
+			c_double_column,
+			c_enum_column,
+			c_float_column,
+			c_int_column,
+			c_longblob_column,
+			c_longtext_column,
+			c_mediumblob_column,
+			c_mediumint_column,
+			c_mediumtext_column,
+			c_numeric_column,
+			c_real_column,
+			c_set_column,
+			c_smallint_column,
+			c_text_column,
+			c_time_column,
+			c_timestamp_column,
+			c_tinyblob_column,
+			c_tinyint_column,
+			c_tinytext_column,
+			c_varbinary_column,
+			c_varchar_column,
+			c_t2_year_column
+		) 
+		VALUES (
+			#{binaryColumn,jdbcType=BINARY},
+			#{bitColumn,jdbcType=BIT},
+			#{blobColumn,jdbcType=BLOB},
+			#{boolColumn,jdbcType=TINYINT},
+			#{booleanColumn,jdbcType=TINYINT},
+			#{charColumn,jdbcType=CHAR},
+			#{dateColumn,jdbcType=DATE},
+			#{datetimeColumn,jdbcType=TIMESTAMP},
+			#{decimalColumn,jdbcType=NUMERIC},
+			#{doubleColumn,jdbcType=NUMERIC},
+			#{enumColumn},
+			#{floatColumn,jdbcType=FLOAT},
+			#{intColumn,jdbcType=INTEGER},
+			#{longblobColumn,jdbcType=BLOB},
+			#{longtextColumn,jdbcType=LONGVARCHAR},
+			#{mediumblobColumn,jdbcType=BLOB},
+			#{mediumintColumn,jdbcType=INTEGER},
+			#{mediumtextColumn,jdbcType=VARCHAR},
+			#{numericColumn,jdbcType=NUMERIC},
+			#{realColumn,jdbcType=NUMERIC},
+			#{setColumn},
+			#{smallintColumn,jdbcType=SMALLINT},
+			#{textColumn,jdbcType=VARCHAR},
+			#{timeColumn,jdbcType=TIME},
+			#{timestampColumn,jdbcType=TIMESTAMP},
+			#{tinyblobColumn,jdbcType=BLOB},
+			#{tinyintColumn,jdbcType=TINYINT},
+			#{tinytextColumn,jdbcType=VARCHAR},
+			#{varbinaryColumn,jdbcType=VARBINARY},
+			#{varcharColumn,jdbcType=VARCHAR},
+			#{yearColumn,jdbcType=VARCHAR}
+		) 
+    ]]>
+    </insert>
+    <!-- 批量新增 -->
+    <insert id="batchInsert" parameterType="java.util.List" useGeneratedKeys="false">
+        INSERT INTO t_t2_test (
+			c_binary_column,
+			c_bit_column,
+			c_blob_column,
+			c_bool_column,
+			c_boolean_column,
+			c_char_column,
+			c_date_column,
+			c_datetime_column,
+			c_decimal_column,
+			c_double_column,
+			c_enum_column,
+			c_float_column,
+			c_int_column,
+			c_longblob_column,
+			c_longtext_column,
+			c_mediumblob_column,
+			c_mediumint_column,
+			c_mediumtext_column,
+			c_numeric_column,
+			c_real_column,
+			c_set_column,
+			c_smallint_column,
+			c_text_column,
+			c_time_column,
+			c_timestamp_column,
+			c_tinyblob_column,
+			c_tinyint_column,
+			c_tinytext_column,
+			c_varbinary_column,
+			c_varchar_column,
+			c_t2_year_column
+		)  values
+		<foreach collection="list" item="item" index="index" separator="," >
+            (
+			#{item.binaryColumn,jdbcType=BINARY},
+			#{item.bitColumn,jdbcType=BIT},
+			#{item.blobColumn,jdbcType=BLOB},
+			#{item.boolColumn,jdbcType=TINYINT},
+			#{item.booleanColumn,jdbcType=TINYINT},
+			#{item.charColumn,jdbcType=CHAR},
+			#{item.dateColumn,jdbcType=DATE},
+			#{item.datetimeColumn,jdbcType=TIMESTAMP},
+			#{item.decimalColumn,jdbcType=NUMERIC},
+			#{item.doubleColumn,jdbcType=NUMERIC},
+			#{item.enumColumn},
+			#{item.floatColumn,jdbcType=FLOAT},
+			#{item.intColumn,jdbcType=INTEGER},
+			#{item.longblobColumn,jdbcType=BLOB},
+			#{item.longtextColumn,jdbcType=LONGVARCHAR},
+			#{item.mediumblobColumn,jdbcType=BLOB},
+			#{item.mediumintColumn,jdbcType=INTEGER},
+			#{item.mediumtextColumn,jdbcType=VARCHAR},
+			#{item.numericColumn,jdbcType=NUMERIC},
+			#{item.realColumn,jdbcType=NUMERIC},
+			#{item.setColumn},
+			#{item.smallintColumn,jdbcType=SMALLINT},
+			#{item.textColumn,jdbcType=VARCHAR},
+			#{item.timeColumn,jdbcType=TIME},
+			#{item.timestampColumn,jdbcType=TIMESTAMP},
+			#{item.tinyblobColumn,jdbcType=BLOB},
+			#{item.tinyintColumn,jdbcType=TINYINT},
+			#{item.tinytextColumn,jdbcType=VARCHAR},
+			#{item.varbinaryColumn,jdbcType=VARBINARY},
+			#{item.varcharColumn,jdbcType=VARCHAR},
+			#{item.yearColumn,jdbcType=VARCHAR}
+			)
+        </foreach>
+    </insert>
+    <!-- 更新 -->
+    <update id="update" parameterType="test">
+    <![CDATA[
+	    UPDATE t_t2_test SET 
+			c_binary_column = #{binaryColumn,jdbcType=BINARY},
+			c_bit_column = #{bitColumn,jdbcType=BIT},
+			c_blob_column = #{blobColumn,jdbcType=BLOB},
+			c_bool_column = #{boolColumn,jdbcType=TINYINT},
+			c_boolean_column = #{booleanColumn,jdbcType=TINYINT},
+			c_char_column = #{charColumn,jdbcType=CHAR},
+			c_date_column = #{dateColumn,jdbcType=DATE},
+			c_datetime_column = #{datetimeColumn,jdbcType=TIMESTAMP},
+			c_decimal_column = #{decimalColumn,jdbcType=NUMERIC},
+			c_double_column = #{doubleColumn,jdbcType=NUMERIC},
+			c_enum_column = #{enumColumn},
+			c_float_column = #{floatColumn,jdbcType=FLOAT},
+			c_int_column = #{intColumn,jdbcType=INTEGER},
+			c_longblob_column = #{longblobColumn,jdbcType=BLOB},
+			c_longtext_column = #{longtextColumn,jdbcType=LONGVARCHAR},
+			c_mediumblob_column = #{mediumblobColumn,jdbcType=BLOB},
+			c_mediumint_column = #{mediumintColumn,jdbcType=INTEGER},
+			c_mediumtext_column = #{mediumtextColumn,jdbcType=VARCHAR},
+			c_numeric_column = #{numericColumn,jdbcType=NUMERIC},
+			c_real_column = #{realColumn,jdbcType=NUMERIC},
+			c_set_column = #{setColumn},
+			c_smallint_column = #{smallintColumn,jdbcType=SMALLINT},
+			c_text_column = #{textColumn,jdbcType=VARCHAR},
+			c_time_column = #{timeColumn,jdbcType=TIME},
+			c_timestamp_column = #{timestampColumn,jdbcType=TIMESTAMP},
+			c_tinyblob_column = #{tinyblobColumn,jdbcType=BLOB},
+			c_tinyint_column = #{tinyintColumn,jdbcType=TINYINT},
+			c_tinytext_column = #{tinytextColumn,jdbcType=VARCHAR},
+			c_varbinary_column = #{varbinaryColumn,jdbcType=VARBINARY},
+			c_varchar_column = #{varcharColumn,jdbcType=VARCHAR},
+			c_t2_year_column = #{yearColumn,jdbcType=VARCHAR}
+		WHERE cBigintColumn = #{bigintColumn,jdbcType=BIGINT} 
+    ]]>
+    </update>
+    <!-- 批量更新 -->
+    <update id="batchUpdate" parameterType="java.util.List">
+        update t_t2_test
+        <trim prefix="set" suffixOverrides=",">
+            <trim prefix="c_binary_column = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.binaryColumn != null">
+                        when t_t2_test.cBigintColumn = #{item.bigintColumn} then #{item.binaryColumn,jdbcType=BINARY}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_bit_column = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.bitColumn != null">
+                        when t_t2_test.cBigintColumn = #{item.bigintColumn} then #{item.bitColumn,jdbcType=BIT}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_blob_column = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.blobColumn != null">
+                        when t_t2_test.cBigintColumn = #{item.bigintColumn} then #{item.blobColumn,jdbcType=BLOB}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_bool_column = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.boolColumn != null">
+                        when t_t2_test.cBigintColumn = #{item.bigintColumn} then #{item.boolColumn,jdbcType=TINYINT}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_boolean_column = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.booleanColumn != null">
+                        when t_t2_test.cBigintColumn = #{item.bigintColumn} then #{item.booleanColumn,jdbcType=TINYINT}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_char_column = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.charColumn != null">
+                        when t_t2_test.cBigintColumn = #{item.bigintColumn} then #{item.charColumn,jdbcType=CHAR}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_date_column = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.dateColumn != null">
+                        when t_t2_test.cBigintColumn = #{item.bigintColumn} then #{item.dateColumn,jdbcType=DATE}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_datetime_column = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.datetimeColumn != null">
+                        when t_t2_test.cBigintColumn = #{item.bigintColumn} then #{item.datetimeColumn,jdbcType=TIMESTAMP}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_decimal_column = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.decimalColumn != null">
+                        when t_t2_test.cBigintColumn = #{item.bigintColumn} then #{item.decimalColumn,jdbcType=NUMERIC}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_double_column = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.doubleColumn != null">
+                        when t_t2_test.cBigintColumn = #{item.bigintColumn} then #{item.doubleColumn,jdbcType=NUMERIC}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_enum_column = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.enumColumn != null">
+                        when t_t2_test.cBigintColumn = #{item.bigintColumn} then #{item.enumColumn}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_float_column = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.floatColumn != null">
+                        when t_t2_test.cBigintColumn = #{item.bigintColumn} then #{item.floatColumn,jdbcType=FLOAT}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_int_column = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.intColumn != null">
+                        when t_t2_test.cBigintColumn = #{item.bigintColumn} then #{item.intColumn,jdbcType=INTEGER}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_longblob_column = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.longblobColumn != null">
+                        when t_t2_test.cBigintColumn = #{item.bigintColumn} then #{item.longblobColumn,jdbcType=BLOB}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_longtext_column = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.longtextColumn != null">
+                        when t_t2_test.cBigintColumn = #{item.bigintColumn} then #{item.longtextColumn,jdbcType=LONGVARCHAR}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_mediumblob_column = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.mediumblobColumn != null">
+                        when t_t2_test.cBigintColumn = #{item.bigintColumn} then #{item.mediumblobColumn,jdbcType=BLOB}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_mediumint_column = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.mediumintColumn != null">
+                        when t_t2_test.cBigintColumn = #{item.bigintColumn} then #{item.mediumintColumn,jdbcType=INTEGER}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_mediumtext_column = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.mediumtextColumn != null">
+                        when t_t2_test.cBigintColumn = #{item.bigintColumn} then #{item.mediumtextColumn,jdbcType=VARCHAR}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_numeric_column = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.numericColumn != null">
+                        when t_t2_test.cBigintColumn = #{item.bigintColumn} then #{item.numericColumn,jdbcType=NUMERIC}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_real_column = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.realColumn != null">
+                        when t_t2_test.cBigintColumn = #{item.bigintColumn} then #{item.realColumn,jdbcType=NUMERIC}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_set_column = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.setColumn != null">
+                        when t_t2_test.cBigintColumn = #{item.bigintColumn} then #{item.setColumn}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_smallint_column = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.smallintColumn != null">
+                        when t_t2_test.cBigintColumn = #{item.bigintColumn} then #{item.smallintColumn,jdbcType=SMALLINT}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_text_column = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.textColumn != null">
+                        when t_t2_test.cBigintColumn = #{item.bigintColumn} then #{item.textColumn,jdbcType=VARCHAR}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_time_column = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.timeColumn != null">
+                        when t_t2_test.cBigintColumn = #{item.bigintColumn} then #{item.timeColumn,jdbcType=TIME}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_timestamp_column = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.timestampColumn != null">
+                        when t_t2_test.cBigintColumn = #{item.bigintColumn} then #{item.timestampColumn,jdbcType=TIMESTAMP}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_tinyblob_column = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.tinyblobColumn != null">
+                        when t_t2_test.cBigintColumn = #{item.bigintColumn} then #{item.tinyblobColumn,jdbcType=BLOB}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_tinyint_column = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.tinyintColumn != null">
+                        when t_t2_test.cBigintColumn = #{item.bigintColumn} then #{item.tinyintColumn,jdbcType=TINYINT}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_tinytext_column = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.tinytextColumn != null">
+                        when t_t2_test.cBigintColumn = #{item.bigintColumn} then #{item.tinytextColumn,jdbcType=VARCHAR}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_varbinary_column = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.varbinaryColumn != null">
+                        when t_t2_test.cBigintColumn = #{item.bigintColumn} then #{item.varbinaryColumn,jdbcType=VARBINARY}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_varchar_column = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.varcharColumn != null">
+                        when t_t2_test.cBigintColumn = #{item.bigintColumn} then #{item.varcharColumn,jdbcType=VARCHAR}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_t2_year_column = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.yearColumn != null">
+                        when t_t2_test.cBigintColumn = #{item.bigintColumn} then #{item.yearColumn,jdbcType=VARCHAR}
+                    </if>
+                </foreach>
+            </trim>
+        </trim>
+        where cBigintColumn in
+        <foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+        	#{item.bigintColumn,jdbcType=BIGINT}
+        </foreach>
+    </update>
+    <!-- 删除 -->
+    <delete id="deleteById" parameterType="java.lang.Long">
+    <![CDATA[
+        delete from t_t2_test where cBigintColumn = #{bigintColumn,jdbcType=BIGINT}
+    ]]>
+    </delete>
+    <!-- 根据对象删除 -->
+    <delete id="delete" parameterType="test">
+        delete from t_t2_test
+        <include refid="whereCondition"/>
+    </delete>
+    <!-- 根据id查询 -->
+    <select id="findById" parameterType="java.lang.Long" resultMap="testMap" >
+    <![CDATA[
+	    SELECT 
+			t_t2_test.cBigintColumn, 
+			t_t2_test.c_binary_column, 
+			t_t2_test.c_bit_column, 
+			t_t2_test.c_blob_column, 
+			t_t2_test.c_bool_column, 
+			t_t2_test.c_boolean_column, 
+			t_t2_test.c_char_column, 
+			t_t2_test.c_date_column, 
+			t_t2_test.c_datetime_column, 
+			t_t2_test.c_decimal_column, 
+			t_t2_test.c_double_column, 
+			t_t2_test.c_enum_column, 
+			t_t2_test.c_float_column, 
+			t_t2_test.c_int_column, 
+			t_t2_test.c_longblob_column, 
+			t_t2_test.c_longtext_column, 
+			t_t2_test.c_mediumblob_column, 
+			t_t2_test.c_mediumint_column, 
+			t_t2_test.c_mediumtext_column, 
+			t_t2_test.c_numeric_column, 
+			t_t2_test.c_real_column, 
+			t_t2_test.c_set_column, 
+			t_t2_test.c_smallint_column, 
+			t_t2_test.c_text_column, 
+			t_t2_test.c_time_column, 
+			t_t2_test.c_timestamp_column, 
+			t_t2_test.c_tinyblob_column, 
+			t_t2_test.c_tinyint_column, 
+			t_t2_test.c_tinytext_column, 
+			t_t2_test.c_varbinary_column, 
+			t_t2_test.c_varchar_column, 
+			t_t2_test.c_t2_year_column
+		FROM t_t2_test
+        where t_t2_test.cBigintColumn = #{bigintColumn,jdbcType=BIGINT}
+    ]]>
+    </select>
+    <!-- 根据对象查询 -->
+    <select id="find" parameterType="test" resultMap="testMap" >
+    <![CDATA[
+	    SELECT 
+			t_t2_test.cBigintColumn, 
+			t_t2_test.c_binary_column, 
+			t_t2_test.c_bit_column, 
+			t_t2_test.c_blob_column, 
+			t_t2_test.c_bool_column, 
+			t_t2_test.c_boolean_column, 
+			t_t2_test.c_char_column, 
+			t_t2_test.c_date_column, 
+			t_t2_test.c_datetime_column, 
+			t_t2_test.c_decimal_column, 
+			t_t2_test.c_double_column, 
+			t_t2_test.c_enum_column, 
+			t_t2_test.c_float_column, 
+			t_t2_test.c_int_column, 
+			t_t2_test.c_longblob_column, 
+			t_t2_test.c_longtext_column, 
+			t_t2_test.c_mediumblob_column, 
+			t_t2_test.c_mediumint_column, 
+			t_t2_test.c_mediumtext_column, 
+			t_t2_test.c_numeric_column, 
+			t_t2_test.c_real_column, 
+			t_t2_test.c_set_column, 
+			t_t2_test.c_smallint_column, 
+			t_t2_test.c_text_column, 
+			t_t2_test.c_time_column, 
+			t_t2_test.c_timestamp_column, 
+			t_t2_test.c_tinyblob_column, 
+			t_t2_test.c_tinyint_column, 
+			t_t2_test.c_tinytext_column, 
+			t_t2_test.c_varbinary_column, 
+			t_t2_test.c_varchar_column, 
+			t_t2_test.c_t2_year_column
+		FROM t_t2_test
+    ]]>
+        <include refid="whereCondition"/>
+    </select>
+    <!-- 根据对象查询对象列表 -->
+    <select id="findList" parameterType="map" resultMap="testMap" >
+    <![CDATA[
+	    SELECT 
+			t_t2_test.cBigintColumn, 
+			t_t2_test.c_binary_column, 
+			t_t2_test.c_bit_column, 
+			t_t2_test.c_blob_column, 
+			t_t2_test.c_bool_column, 
+			t_t2_test.c_boolean_column, 
+			t_t2_test.c_char_column, 
+			t_t2_test.c_date_column, 
+			t_t2_test.c_datetime_column, 
+			t_t2_test.c_decimal_column, 
+			t_t2_test.c_double_column, 
+			t_t2_test.c_enum_column, 
+			t_t2_test.c_float_column, 
+			t_t2_test.c_int_column, 
+			t_t2_test.c_longblob_column, 
+			t_t2_test.c_longtext_column, 
+			t_t2_test.c_mediumblob_column, 
+			t_t2_test.c_mediumint_column, 
+			t_t2_test.c_mediumtext_column, 
+			t_t2_test.c_numeric_column, 
+			t_t2_test.c_real_column, 
+			t_t2_test.c_set_column, 
+			t_t2_test.c_smallint_column, 
+			t_t2_test.c_text_column, 
+			t_t2_test.c_time_column, 
+			t_t2_test.c_timestamp_column, 
+			t_t2_test.c_tinyblob_column, 
+			t_t2_test.c_tinyint_column, 
+			t_t2_test.c_tinytext_column, 
+			t_t2_test.c_varbinary_column, 
+			t_t2_test.c_varchar_column, 
+			t_t2_test.c_t2_year_column
+		FROM t_t2_test
+    ]]>
+        <include refid="whereCondition"/>
+    </select>
+    <!-- 根据对象查询对象列表总数 -->
+    <select id="findCount" parameterType="test" resultType="long">
+    <![CDATA[
+        select count(*) from t_t2_test
+    ]]>
+        <include refid="whereCondition"/>
+    </select>
+
+    <!-- 公用的where条件 -->
+    <sql id="whereCondition">
+        <where>
+             <if test="bigintColumn != null">
+             <![CDATA[
+                 AND t_t2_test.cBigintColumn = #{bigintColumn,jdbcType=BIGINT}
+             ]]>
+             </if>
+             <if test="binaryColumn != null">
+             <![CDATA[
+                 AND t_t2_test.c_binary_column = #{binaryColumn,jdbcType=BINARY}
+             ]]>
+             </if>
+             <if test="bitColumn != null">
+             <![CDATA[
+                 AND t_t2_test.c_bit_column = #{bitColumn,jdbcType=BIT}
+             ]]>
+             </if>
+             <if test="blobColumn != null">
+             <![CDATA[
+                 AND t_t2_test.c_blob_column = #{blobColumn,jdbcType=BLOB}
+             ]]>
+             </if>
+             <if test="boolColumn != null">
+             <![CDATA[
+                 AND t_t2_test.c_bool_column = #{boolColumn,jdbcType=TINYINT}
+             ]]>
+             </if>
+             <if test="booleanColumn != null">
+             <![CDATA[
+                 AND t_t2_test.c_boolean_column = #{booleanColumn,jdbcType=TINYINT}
+             ]]>
+             </if>
+             <if test="charColumn != null and charColumn != ''">
+             <![CDATA[
+                 AND t_t2_test.c_char_column = #{charColumn,jdbcType=CHAR}
+             ]]>
+             </if>
+             <if test="dateColumn != null">
+             <![CDATA[
+                 AND t_t2_test.c_date_column = #{dateColumn,jdbcType=DATE}
+             ]]>
+             </if>
+             <if test="datetimeColumn != null">
+             <![CDATA[
+                 AND t_t2_test.c_datetime_column = #{datetimeColumn,jdbcType=TIMESTAMP}
+             ]]>
+             </if>
+             <if test="decimalColumn != null">
+             <![CDATA[
+                 AND t_t2_test.c_decimal_column = #{decimalColumn,jdbcType=NUMERIC}
+             ]]>
+             </if>
+             <if test="doubleColumn != null">
+             <![CDATA[
+                 AND t_t2_test.c_double_column = #{doubleColumn,jdbcType=NUMERIC}
+             ]]>
+             </if>
+             <if test="enumColumn != null and enumColumn != ''">
+             <![CDATA[
+                 AND t_t2_test.c_enum_column = #{enumColumn}
+             ]]>
+             </if>
+             <if test="floatColumn != null">
+             <![CDATA[
+                 AND t_t2_test.c_float_column = #{floatColumn,jdbcType=FLOAT}
+             ]]>
+             </if>
+             <if test="intColumn != null">
+             <![CDATA[
+                 AND t_t2_test.c_int_column = #{intColumn,jdbcType=INTEGER}
+             ]]>
+             </if>
+             <if test="longblobColumn != null">
+             <![CDATA[
+                 AND t_t2_test.c_longblob_column = #{longblobColumn,jdbcType=BLOB}
+             ]]>
+             </if>
+             <if test="longtextColumn != null and longtextColumn != ''">
+             <![CDATA[
+                 AND t_t2_test.c_longtext_column = #{longtextColumn,jdbcType=LONGVARCHAR}
+             ]]>
+             </if>
+             <if test="mediumblobColumn != null">
+             <![CDATA[
+                 AND t_t2_test.c_mediumblob_column = #{mediumblobColumn,jdbcType=BLOB}
+             ]]>
+             </if>
+             <if test="mediumintColumn != null">
+             <![CDATA[
+                 AND t_t2_test.c_mediumint_column = #{mediumintColumn,jdbcType=INTEGER}
+             ]]>
+             </if>
+             <if test="mediumtextColumn != null and mediumtextColumn != ''">
+             <![CDATA[
+                 AND t_t2_test.c_mediumtext_column = #{mediumtextColumn,jdbcType=VARCHAR}
+             ]]>
+             </if>
+             <if test="numericColumn != null">
+             <![CDATA[
+                 AND t_t2_test.c_numeric_column = #{numericColumn,jdbcType=NUMERIC}
+             ]]>
+             </if>
+             <if test="realColumn != null">
+             <![CDATA[
+                 AND t_t2_test.c_real_column = #{realColumn,jdbcType=NUMERIC}
+             ]]>
+             </if>
+             <if test="setColumn != null and setColumn != ''">
+             <![CDATA[
+                 AND t_t2_test.c_set_column = #{setColumn}
+             ]]>
+             </if>
+             <if test="smallintColumn != null">
+             <![CDATA[
+                 AND t_t2_test.c_smallint_column = #{smallintColumn,jdbcType=SMALLINT}
+             ]]>
+             </if>
+             <if test="textColumn != null and textColumn != ''">
+             <![CDATA[
+                 AND t_t2_test.c_text_column = #{textColumn,jdbcType=VARCHAR}
+             ]]>
+             </if>
+             <if test="timeColumn != null">
+             <![CDATA[
+                 AND t_t2_test.c_time_column = #{timeColumn,jdbcType=TIME}
+             ]]>
+             </if>
+             <if test="timestampColumn != null">
+             <![CDATA[
+                 AND t_t2_test.c_timestamp_column = #{timestampColumn,jdbcType=TIMESTAMP}
+             ]]>
+             </if>
+             <if test="tinyblobColumn != null">
+             <![CDATA[
+                 AND t_t2_test.c_tinyblob_column = #{tinyblobColumn,jdbcType=BLOB}
+             ]]>
+             </if>
+             <if test="tinyintColumn != null">
+             <![CDATA[
+                 AND t_t2_test.c_tinyint_column = #{tinyintColumn,jdbcType=TINYINT}
+             ]]>
+             </if>
+             <if test="tinytextColumn != null and tinytextColumn != ''">
+             <![CDATA[
+                 AND t_t2_test.c_tinytext_column = #{tinytextColumn,jdbcType=VARCHAR}
+             ]]>
+             </if>
+             <if test="varbinaryColumn != null">
+             <![CDATA[
+                 AND t_t2_test.c_varbinary_column = #{varbinaryColumn,jdbcType=VARBINARY}
+             ]]>
+             </if>
+             <if test="varcharColumn != null and varcharColumn != ''">
+             <![CDATA[
+                 AND t_t2_test.c_varchar_column = #{varcharColumn,jdbcType=VARCHAR}
+             ]]>
+             </if>
+             <if test="yearColumn != null">
+             <![CDATA[
+                 AND t_t2_test.c_t2_year_column = #{yearColumn,jdbcType=VARCHAR}
+             ]]>
+             </if>
+        </where>
+    </sql>
+</mapper>

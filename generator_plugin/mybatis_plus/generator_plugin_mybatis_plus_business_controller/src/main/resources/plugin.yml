@@ -1,0 +1,11 @@
+plugin:
+  groupName: mybatisPlus
+  name: businessController
+  description: businessController生成插件
+  generator: com.qxs.plugin.generator.mybatis.plus.business.controller.MybatisPlusBusinessControllerGenerator
+  templatePath: template.ftl
+  fileRelativeDir: mybatisPlus/businessController
+  fileSuffix: .java
+  prefix:
+  suffix: Controller
+  dependencies: entity,business #依赖的插件,以英文逗号(,)分割

@@ -1,0 +1,122 @@
+spring:
+  aop.proxy-target-class: false
+  application.name: code-generator
+  datasource:
+    type: com.qxs.generator.web.config.datasource.SQLiteDataSource
+    url: jdbc:sqlite:code_generator.db
+    druid.filter.stat:
+      log-slow-sql: true
+      slow-sql-millis: 1000
+      merge-sql: true
+      db-type: mysql
+      enabled: true
+  jpa:
+    database: DEFAULT
+    show-sql: true
+    properties.hibernate.dialect: com.qxs.base.database.dialect.SQLiteDialect
+    properties.hibernate.implicit_naming_strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+    properties.hibernate.physical_naming_strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+
+#    hibernate.ddl-auto: update
+
+spring.jackson.timeZone: GMT+8
+
+#提醒信息配置
+notice:
+  validateMinutes: 30 #重置密码校验码有效分钟数
+  helpUrl: http://www.baidu.com
+  email: #发送邮件服务器等配置信息
+#    personal: 代码生成器
+#    defaultEncoding: GBK
+    templates: 
+      resetPassword: 
+#        subject: 代码生成器重置密码
+#        template: notice/email/templates/resetPassword  #重置密码邮件模板
+      resetPasswordSuccess: 
+        subject: 代码生成器重置密码成功提醒
+#        template: notice/email/templates/resetPasswordSuccess  #忘记密码邮件模板
+      passwordModifySuccess: 
+#        subject: 代码生成器修改密码成功提醒
+#        template: notice/email/templates/passwordModifySuccess  #密码修改成功邮件模板
+      activeAccount: 
+#        subject: 代码生成器账号激活
+#        template: notice/email/templates/activeAccount  #账号创建成功激活邮件模板
+      testMail: 
+#        subject: 代码生成器测试邮件
+#        template: notice/email/templates/testMail  #代码生成器测试邮件
+      adminCaptcha:
+#        subject: 创建超级管理员账号验证码
+#        template: notice/email/templates/adminCaptcha  #创建超级管理员账号验证码邮件
+
+#跑测试用例需要
+#plugins.dir: C:/
+
+spring.security:
+  user:
+    name: admin
+    password: admin
+  basic.enabled: false
+  permitUrls: /**/*.jpg,/**/*.JPG,/**/*.jpeg,/**/*.JPEG,/**/*.png,/**/*.PNG,/**/*.gif,/**/*.GIF,/**/*.bmp,/**/*.BMP,/**/*.ico,/**/*.ICO,/favicon.ico,/**/*.css,/**/*.css.map,/**/*.js,/**/*.css?v=**,/**/*.js?v=**,/**/fonts/glyphicons-halflings-regular.*,/captcha/geetest/register,/forgetPassword,/forgetPassword/**,/user/admin,/init/wizard/**,/error,/**/js-pushlet-net.html,/pushlet,/checkInitializing,/user/active/**,/license/**,/help/index
+  
+#开发阶段禁用缓存
+spring.thymeleaf: 
+  cache: false
+  cache-period: 0
+
+#系统版本号
+system.version: 1.0
+
+server.port: 9090
+#  use-forward-headers: false
+#  tomcat:
+#    uri-encoding: UTF-8
+
+
+#静态资源
+spring.resources:
+#  cache.period: 86400   #缓存1天
+  chain:
+    enabled: true
+    htmlApplicationCache: true
+    compressed: true
+#    strategy:
+#      fixed:
+#        enabled: true
+#        paths: /static
+#        version: 1.0.0
+#      content:
+#        enabled: true
+#        paths: /**
+
+#缓存 caffeine
+spring.cache.caffeine.spec: initialCapacity=50,maximumSize=500,expireAfterAccess=10m,expireAfterWrite=10m,refreshAfterWrite=10m
+
+#技术支持
+technicalSupport.email: 459789479@qq.com
+
+#定时任务
+task:
+  clearAccessLogTask.cron: 0 0 3 * * ? #清理访问日志数据周期
+
+#日志
+logging:
+  file: logs/${spring.application.name}.log
+  level:
+    root: INFO
+    sun.rmi: ERROR
+    com: INFO
+    org: INFO 
+    org.apache.tomcat: INFO
+    org.apache.catalina.core: info
+    org.springframework.core.env: info
+    org.springframework.context.annotation: info
+    org.springframework.core: info
+    org.springframework.boot.web.embedded.tomcat: info
+    org.apache.catalina.loader: info
+    org.springframework.boot.devtools: info
+    org.apache.catalina.mapper: info
+    org.springframework.data.repository.config: info
+    org.springframework.beans.factory.support: INFO
+    org.hibernate.internal.util.EntityPrinter: INFO
+    org.springframework.boot.autoconfigure.logging: info
+    

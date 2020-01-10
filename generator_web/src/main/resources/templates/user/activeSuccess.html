@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta http-equiv="Expires" content="0" />
+
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+<link rel="stylesheet" media="screen" th:href="@{/webjars/bootstrap-table/dist/bootstrap-table.min.css}">
+<title>代码生成器</title>
+
+<style type="text/css">
+body{
+	position:absolute;
+	width:100%;
+	height:100%;
+	margin: 0;
+	padding: 0;
+}
+.contioner{
+	text-align: center;
+	margin-top: calc(50vh - 200px);
+	height: 100%;
+}
+</style>
+</head>
+<div class="contioner">
+	<div class="h2">代码生成器</div>
+	<div style="width: 800px;margin: auto;">
+		<div>您好 <span encrypt:email="${username}"></span>，</div>
+		<div style="padding-top: 12px;">祝贺您成功激活代码生成器账户！</div>
+		<div style="padding-top: 12px;">为了更好的使用该工具，请遵守代码生成器相关使用协议！<a class="license" style="cursor: pointer;">查看协议</a></div>
+		<div style="padding-top: 12px;">如有问题，请在系统内进行反馈，我们会及时跟进处理！</div>
+		<div style="padding-top: 12px;">要获取额外的帮助，请访问我们的支持中心 <a target="_blank" th:href="${helpUrl}" th:text="${helpUrl}"></a>。</div>
+		<div style="padding-top: 12px;">祝您使用代码生成器愉快！</div>
+		<div style="padding-top: 12px;"><a href="/login">去登录</a></div>
+	</div>
+</div>
+<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/plugins/bootstrap/modal.js}"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("a.license").click(function(){
+			$.modal({
+				title: "协议",
+				cancelButtonTitle: "关闭",
+				body: function(){
+					var body = null;
+					$.ajax({
+						type: "get", 
+					    url: "/license/index", 
+					    cache:false, 
+					    async:false, 
+					    success: function(data){ 
+					    	body = data;
+					    } 
+					});
+					return body;
+				},
+				beforeShow: function(modal){
+					modal.find("button.ok").remove();
+				}
+			});
+		});
+	});
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta http-equiv="Expires" content="0" />
+
+<link rel="stylesheet" th:href="@{/webjars/bootstrap-table/dist/bootstrap-table.min.css}"/>
+
+<title>代码生成器</title>
+
+</head>
+<body>
+	<div class="error" style="padding: 10px;height: 72px;display: none;">
+		<div class="alert alert-warning" style="display: none;">
+            <a href="#" class="close" >&times;</a>
+			<strong>错误！</strong><span class="alertMsg" style="display: inline;"></span>
+        </div>
+	</div>
+	<div class="success" style="padding: 10px;height: 72px;display: none;">
+        <div id="success" class="alert alert-success">
+		    <a href="#" class="close" >&times;</a>
+		    <strong>提示！</strong><span class="successMsg" style="display: inline;"></span>
+		</div>
+	</div>
+	<div style="padding: 10px;">
+		<div style="float: left;width: 728px;margin-left: 10px;">
+			<table id="pluginTable"></table>
+		</div>
+	</div>
+</body>
+
+<script type="text/javascript" th:src="@{/webjars/bootstrap-table/dist/bootstrap-table.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap-table/dist/locale/bootstrap-table-zh-CN.min.js}"></script>
+
+</html>

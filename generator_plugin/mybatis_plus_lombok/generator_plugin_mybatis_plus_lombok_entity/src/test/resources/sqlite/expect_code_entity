@@ -1,0 +1,60 @@
+
+import java.io.Serializable;
+
+
+/**
+ * test实体类
+ *
+ * @Description 
+ * @author qixingshen
+ * @date 2018-03-31 02:03:46
+ * @version 1.0
+ */
+public class Test implements Serializable {
+	private static final long serialVersionUID = -1029763566025668288L;
+	
+	/**
+	 *   (数据库字段名:integer) 
+	 */
+	private Integer integer;
+	
+	/**
+	 *   (数据库字段名:text) 
+	 */
+	private String text;
+	
+    
+    public Test(){}
+    
+    /***
+    * @param integer 
+    * @param text 
+    **/
+    public Test(Integer integer, String text){
+    	this.integer = integer;
+    	this.text = text;
+    }
+    
+    public Test setInteger(Integer integer){
+    	this.integer = integer;
+    	return this;
+    }
+    
+    public Integer getInteger(){
+    	return integer;
+    }
+    
+    public Test setText(String text){
+    	this.text = text;
+    	return this;
+    }
+    
+    public String getText(){
+    	return text;
+    }
+    
+    @Override
+	public String toString() {
+		return String.format("Test={integer = %s, text = %s}", integer, text);
+	}
+}

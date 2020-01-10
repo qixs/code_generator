@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta http-equiv="Expires" content="0" />
+
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+<title>代码生成器</title>
+
+</head>
+<body>
+	<div class="success" style="padding: 10px;height: 72px;display: none;">
+        <div id="success" class="alert alert-success">
+		    <a href="#" class="close" >&times;</a>
+		    <strong>提示！</strong><span class="successMsg" style="display: inline;"></span>
+		</div>
+	</div>
+	<div style="margin-top: 50px;">
+		<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;">
+			<label class="col-sm-3 control-label" style="text-align: right;padding-right: 0;">用户名：</label>
+			<div class="col-sm-9" style="padding-left: 5px;">
+				<span th:text="${user.username}"></span>
+			</div>
+		</div>
+		<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;">
+			<label class="col-sm-3 control-label" style="text-align: right;padding-right: 0;">姓名：</label>
+			<div class="col-sm-9" style="padding-left: 5px;">
+				<span class="name" th:text="${user.name}"></span>
+			</div>
+		</div>
+		<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;">
+			<label class="col-sm-3 control-label" style="text-align: right;padding-right: 0;">管理员：</label>
+			<div class="col-sm-9" style="padding-left: 5px;">
+				<span th:text="${user.admin == 1 ? '是' : '否'}"></span>
+			</div>
+		</div>
+		<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;">
+			<label class="col-sm-3 control-label" style="text-align: right;padding-right: 0;">最后更新人姓名：</label>
+			<div class="col-sm-9" style="padding-left: 5px;">
+				<span th:text="${user.updateUserName}"></span>
+			</div>
+		</div>
+		<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;">
+			<label class="col-sm-3 control-label" style="text-align: right;padding-right: 0;">最后更新时间：</label>
+			<div class="col-sm-9" style="padding-left: 5px;">
+				<span th:text="${user.updateDate}"></span>
+			</div>
+		</div>
+		<div style="padding-bottom: 50px;padding-top: 10px;">
+			<button type="button" style="margin-left: 130px;" class="btn btn-primary modify">修改信息</button>
+			<button type="button" style="margin-left: 50px;" class="btn btn-primary changePassword">修改密码</button>
+		</div>
+	</div>
+</body>
+
+<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/plugins/bootstrap/alert.js}"></script>
+<script type="text/javascript" th:src="@{/plugins/bootstrap/modal.js}"></script>
+<script type="text/javascript" th:src="@{/scripts/userInfo/index.js}"></script>
+</html>

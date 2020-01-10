@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<insert>
+    <!-- VALUES或UNION,oracle不支持values(xxx,xxx),(xxx,xxx),(xxx,xxx)只能使用UNION ALL的形式,mysql和sqlite支持values的形式 -->
+    <batchInsertMode>VALUES</batchInsertMode>
+</insert>

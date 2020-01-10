@@ -1,0 +1,11 @@
+plugin:
+  groupName: mybatis
+  name: entity
+  description: 实体类生成插件
+  templatePath: template.ftl
+  generator: com.qxs.plugin.generator.mybatis.entity.MybatisEntityGenerator
+  fileRelativeDir: mybatis/entity
+  fileSuffix: .java
+  prefix:
+  suffix:
+  dependencies:  #依赖的插件,以英文逗号(,)分割

@@ -1,0 +1,11 @@
+plugin:
+  groupName: jpa
+  name: business
+  description: business生成插件
+  generator: com.qxs.plugin.generator.jpa.business.JpaBusinessGenerator
+  templatePath: template.ftl
+  fileRelativeDir: jpa/business
+  fileSuffix: .java
+  prefix:
+  suffix: Business
+  dependencies: entity,serviceInterface #依赖的插件,以英文逗号(,)分割

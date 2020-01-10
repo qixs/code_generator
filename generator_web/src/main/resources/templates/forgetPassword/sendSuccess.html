@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta http-equiv="Expires" content="0" />
+	<meta name="_csrf" th:content="${_csrf.token}" />
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+<title>代码生成器</title>
+</head>
+<body>
+	<div class="contioner" style="margin-top: 150px;">
+		<input type="hidden" name="username" th:value="${username}"/>
+		<div class="h2" style="text-align: center;">代码生成器</div>
+		<div  style="width: 1000px;margin: auto;">
+			<div>您好：</div>
+			<div style="margin-left: 30px;">重置密码邮件已经成功发送到您的邮箱：<span th:text="${username}"></span>，链接有效时间：<span th:text="${resetPasswordMinutes}"></span>分钟，请尽快点击邮箱链接重置您的密码。</div>
+			<div>如果未收到邮件请尝试<a style="cursor: pointer;" class="repeatSendMail" href="javascript:void(0)">重新发送</a></div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/plugins/bootstrap/alert.js}"></script>
+<script type="text/javascript" th:src="@{/scripts/forgetPassword/sendSuccess.js}"></script>
+</html>

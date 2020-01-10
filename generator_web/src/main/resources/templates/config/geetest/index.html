@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta http-equiv="Expires" content="0" />
+
+<link rel="stylesheet" media="screen" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+<link rel="stylesheet" media="screen" th:href="@{/webjars/bootstrap-table/dist/bootstrap-table.min.css}">
+
+<title>代码生成器</title>
+<style type="text/css">
+	span.notice{
+		color: red;
+		vertical-align: middle;
+	}
+	input[type='text'].form-control{
+		width: 280px;
+	}
+	div.col-sm-3{
+		width: 300px;
+	}
+</style>
+</head>
+<body>
+	<div class="error" style="padding: 10px;height: auto;display: none;">
+		<div class="alert alert-warning" style="display: none;">
+            <a href="#" class="close" data-dismiss="alert">
+		        &times;
+		    </a>
+			<strong>错误！</strong><span class="alertMsg" style="display: inline;"></span>
+        </div>
+	</div>
+	<div class="success" style="padding: 10px;height: 72px;display: none;">
+        <div id="success" class="alert alert-success">
+		    <a href="#" class="close" data-dismiss="alert">&times;</a>
+		    <strong>提示！</strong><span class="successMsg" style="display: inline;"></span>
+		</div>
+	</div>
+	<div style="height: 100%;margin-top: 50px;">
+		<form id="geetestForm" autocomplete="off">
+			<input name="_csrf" type="hidden" th:value="${_csrf.token}">
+			<input name="_method" type="hidden" value="POST">
+			<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;padding-left: 30px;">
+				<div class="col-sm-3" style="float: left;">
+					<input type="text" name="geetest.id" class="form-control" placeholder="请输入ID"/>
+				</div>
+				<span class="notice" style="float: left;">*</span>
+				<div class="col-sm-3" style="float: left;">
+					<input type="text" name="geetest.key" class="form-control" placeholder="请输入KEY"/>
+				</div>
+				<span class="notice" style="float: left;">*</span>
+				<div class="col-sm-3" style="float: left;width: 100px;">
+					<input type="text" name="geetest.weight" class="form-control" style="width: 100px;" placeholder="请输入权重"/>
+				</div>
+				<span class="notice" style="float: left;">*</span>
+				<div class="col-sm-3" style="float: left;width: 100px;">
+					<button type="button" id="add" style="margin-left: 20px;float: left;" class="btn btn-primary">添加</button>
+				</div>
+			</div>
+		</form>
+		<div style="margin-top: 10px;margin-left: 10px;"><span style="color: red;">Geetest注册地址：</span><a href="https://auth.geetest.com/register/" target="_blank">https://auth.geetest.com/register/</a></div>
+		<div class="bootstrapTable" style="height: 100%;">
+			<div style="padding: 10px;height: 100%;">
+				<table id="geetestTable"></table>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap-table/dist/bootstrap-table.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap-table/dist/locale/bootstrap-table-zh-CN.js}"></script>
+<script type="text/javascript" th:src="@{/plugins/bootstrap/confirm.js}"></script>
+<script type="text/javascript" th:src="@{/plugins/regexp/regexp.js}"></script>
+<script type="text/javascript" th:src="@{/plugins/serialize.js}"></script>
+<script type="text/javascript" th:src="@{/plugins/regexp/regexp.js}"></script>
+<script type="text/javascript" th:src="@{/scripts/config/geetest/index.js}"></script>
+
+</html>

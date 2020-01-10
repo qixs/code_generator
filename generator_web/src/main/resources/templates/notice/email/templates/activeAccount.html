@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta http-equiv="Expires" content="0" />
+
+<title>代码生成器</title>
+
+</head>
+<body class="code_generator_mail">
+	<div style="background-color: #F0F2F4;padding: 40px 0;">
+		<div style="text-align: center;color: #2D8CFF;font-weight: 900;font-size: 24px;padding-bottom: 20px;">代码生成器</div>
+		<div style="width: 600px;margin: 0 auto;background: white;padding: 60px 40px 40px;">
+			<div>您好 <span encrypt:email="${to}"></span>，</div>
+			<div style="padding-top: 12px;">祝贺您成功注册代码生成器！为了激活您的帐户， 请点击下面的按钮以验证您的电子邮件地址：</div>
+			<div style="padding-top: 22px;"><a style="background: #2D8CFF;color: white;margin: 0 auto;display: block;text-align: center;height: 44px;width: 134px;font-weight: 700;border-radius: 5px;line-height: 44px;font-family: helvetica,arial;font-size: 16px;text-decoration: none;" th:href="${activeUrl}">立即激活</a></div>
+			<div style="padding-top: 22px;">如果以上按钮不起作用，请将此粘贴到您的浏览器：</div>
+			<div style="padding-top: 12px;word-wrap: break-word;"><a th:href="${activeUrl}" th:text="${activeUrl}"></a></div>
+			<div style="padding-top: 12px;">该链接有效时间<span th:text="${validateMinutes}"></span>分钟，过期请联系管理员手动激活账户！</div>
+			<div style="padding-top: 12px;">要获取额外的帮助，请访问我们的支持中心 <a th:href="${helpUrl}" th:text="${helpUrl}"></a>。</div>
+			<div style="padding-top: 12px;">祝您使用代码生成器愉快！</div>
+		</div>
+	</div>
+</body>
+
+</html>

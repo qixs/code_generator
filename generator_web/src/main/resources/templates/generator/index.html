@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta http-equiv="Expires" content="0" />
+
+<meta name="_csrf" th:content="${_csrf.token}" />
+<meta name="_csrf_header" th:content="${_csrf.headerName}" />
+
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+
+<title>代码生成器</title>
+
+</head>
+<body style="padding: 10px;overflow-x: hidden;">
+	<div class="error" style="padding: 10px;height: auto;display: none;">
+		<div class="alert alert-warning" style="display: none;">
+			<a href="#" class="close" >
+				&times;
+			</a>
+			<strong>错误！</strong><span class="alertMsg" style="display: inline;"></span>
+		</div>
+	</div>
+	<div class="success" style="padding: 10px;height: 72px;display: none;">
+		<div id="success" class="alert alert-success">
+			<a href="#" class="close" >&times;</a>
+			<strong>提示！</strong><span class="successMsg" style="display: inline;"></span>
+		</div>
+	</div>
+	<form th:action="@{/generate}" method="post" class="form-horizontal" id="generatorForm" role="form" autocomplete="off">
+		<input name="generateTotalNum" type="hidden" />
+		<input name="connection.id" type="hidden" />
+		<input name="connection.connectionName" type="hidden" />
+		<input name="lodingTables" type="hidden" value="0"/>
+		<div class="form-group" style="margin-top: 10px;">
+			<label class="col-sm-2 control-label">保存的链接：</label>
+			<div class="col-sm-10">
+				<select name="connectionId" class="form-control">
+					<option th:each="connection : ${connections}" th:value="${connection.id}" th:text="${connection.connectionName}"></option>
+				</select>
+			</div>
+		</div>
+		<div class="progress progress-striped active" style="display: none;">
+		    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+		        <span class="sr-only">0% 完成</span>
+		    </div>
+		</div>
+		<p style="text-align: center;">
+			<button type="button" class="btn btn-default validConnection">测试链接</button>
+			<button type="button" class="btn btn-default generateCode">生成代码</button>
+			<button type="button" class="btn btn-default newConnection">新建链接</button>
+			<button type="button" class="btn btn-default cloneConnection">克隆链接</button>
+			<button type="button" class="btn btn-default saveConnection">保存链接</button>
+			<button type="button" class="btn btn-default deleteConnection">删除链接</button>
+		</p>
+		<ul id="tab" class="nav nav-tabs">
+			<li class="active">
+				<a href="#database" data-toggle="tab">数据库</a>
+			</li>
+			<li >
+				<a href="#ssh" data-toggle="tab">SSH</a>
+			</li>
+			<li >
+				<a href="#generateParameter" data-toggle="tab">生成参数</a>
+			</li>
+		</ul>
+		
+		<div id="tabContent" class="tab-content" >
+			<div class="tab-pane fade in active" id="database" >
+				
+			</div>
+			<div class="tab-pane fade" id="ssh" >
+				
+			</div>
+			<div class="tab-pane fade" id="generateParameter" >
+				
+			</div>
+		</div>
+	</form>
+</body>
+
+<script type="text/javascript" th:src="@{/webjars/jquery/jquery.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap-table/dist/bootstrap-table.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap-table/dist/locale/bootstrap-table-zh-CN.min.js}"></script>
+<script type="text/javascript" th:src="@{/plugins/jszip/jszip.min.js}"></script>
+<script type="text/javascript" th:src="@{/plugins/jszip/FileSaver.js}"></script>
+<script type="text/javascript" th:src="@{/plugins/regexp/regexp.js}"></script>
+<script type="text/javascript" th:src="@{/plugins/file/jquery.fileDownload.js}"></script>
+<script type="text/javascript" th:src="@{/plugins/serialize.js}"></script>
+<script type="text/javascript" th:src="@{/plugins/bootstrap/alert.js}"></script>
+<script type="text/javascript" th:src="@{/plugins/bootstrap/confirm.js}"></script>
+<script type="text/javascript" th:src="@{/scripts/generator/index.js}"></script>
+<script type="text/javascript" th:src="@{/plugins/bootstrap/modal.js}"></script>
+
+</html>

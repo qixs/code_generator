@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta http-equiv="Expires" content="0" />
+
+<title>代码生成器</title>
+
+<style type="text/css">
+html,body{
+	margin:0px;
+	padding:0px;
+	height: 100%;
+}
+textarea{ 
+	width: 620px;
+	line-height: 1.1;
+	height: 100px;
+} 
+</style>
+</head>
+<body style="overflow: hidden;">
+	<div class="detailContainer" style="overflow-y: auto;overflow-x: hidden;">
+		<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;">
+			<label class="col-sm-3 control-label" style="text-align: right;padding-right: 0;">用户名：</label>
+			<div class="col-sm-9" style="padding-left: 5px;">
+				<span th:text="${access.user.username}" th:title="${access.user.username}"></span>
+			</div>
+		</div>
+		<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;">
+			<label class="col-sm-3 control-label" style="text-align: right;padding-right: 0;">系统版本号：</label>
+			<div class="col-sm-9" style="padding-left: 5px;">
+				<span th:text="${access.systemVersion}" th:title="${access.systemVersion}"></span>
+			</div>
+		</div>
+		<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;">
+			<label class="col-sm-3 control-label" style="text-align: right;padding-right: 0;">访问时间：</label>
+			<div class="col-sm-9" style="padding-left: 5px;">
+				<span th:text="${access.accessDate}" th:title="${access.accessDate}"></span>
+			</div>
+		</div>
+		<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;">
+			<label class="col-sm-3 control-label" style="text-align: right;padding-right: 0;">执行时间：</label>
+			<div class="col-sm-9" style="padding-left: 5px;">
+				<span th:text="${access.time}" th:title="${access.time}"></span>
+			</div>
+		</div>
+		<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;">
+			<label class="col-sm-3 control-label" style="text-align: right;padding-right: 0;">访问地址：</label>
+			<div class="col-sm-9" style="padding-left: 5px;">
+				<span th:text="${access.url}" th:title="${access.url}"></span>
+			</div>
+		</div>
+		<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 100px;line-height: 34px;">
+			<label class="col-sm-3 control-label" style="text-align: right;padding-right: 0;">请求参数：</label>
+			<div class="col-sm-9" style="padding-left: 5px;">
+				<textarea style="line-height: 1.1;" th:text="${access.parameters}" th:title="${access.parameters}" readonly="readonly"></textarea>
+			</div>
+		</div>
+		<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;">
+			<label class="col-sm-3 control-label" style="text-align: right;padding-right: 0;">响应结果类型：</label>
+			<div class="col-sm-9" style="padding-left: 5px;">
+				<span th:text="${access.resultType}" th:title="${access.resultType}" style="overflow: hidden;text-overflow:ellipsis;white-space: nowrap;width:620px;display: block;"></span>
+			</div>
+		</div>
+		<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 100px;line-height: 34px;">
+			<label class="col-sm-3 control-label" style="text-align: right;padding-right: 0;">响应结果：</label>
+			<div class="col-sm-9" style="padding-left: 5px;">
+				<textarea style="line-height: 1.1;" th:text="${access.result}" th:title="${access.result}" readonly="readonly"></textarea>
+			</div>
+		</div>
+		<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 100px;line-height: 34px;">
+			<label class="col-sm-3 control-label" style="text-align: right;padding-right: 0;">异常信息：</label>
+			<div class="col-sm-9" style="padding-left: 5px;">
+				<textarea style="line-height: 1.1;" th:text="${access.exception}" th:title="${access.exception}" readonly="readonly"></textarea>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" th:src="@{/webjars/jquery-form/jquery.form.min.js}"></script>
+</html>

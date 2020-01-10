@@ -1,0 +1,2 @@
+SELECT * from table left join a on a = a and a=a or a=a
+where a=a and a=a or a=a

@@ -1,0 +1,11 @@
+plugin:
+  groupName: jpa
+  name: repository
+  description: repository生成插件
+  generator: com.qxs.plugin.generator.jpa.repository.JpaRepositoryGenerator
+  templatePath: template.ftl
+  fileRelativeDir: jpa/repository
+  fileSuffix: .java
+  prefix: I
+  suffix: Repository
+  dependencies: entity #依赖的插件,以英文逗号(,)分割

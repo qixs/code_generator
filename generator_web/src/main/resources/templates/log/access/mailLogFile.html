@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta http-equiv="Expires" content="0" />
+
+<title>代码生成器</title>
+
+<style type="text/css">
+html,body{
+	margin:0px;
+	padding:0px;
+	height: 100%;
+}
+textarea{ 
+	width: 620px;
+	line-height: 1.1;
+	height: 100px;
+}
+span{
+	float: left;
+    width: 200px;
+    display: inline-block;
+}
+span.spanRight{
+	text-align: right;
+}
+div{
+	min-height: 21px;
+	margin-top: 10px;
+}
+
+</style>
+</head>
+<body>
+	<div><span class="spanRight">用户名：</span><span th:text="${access.user.username}"></span></div>
+	<div><span class="spanRight">系统版本号：</span><span th:text="${access.systemVersion}"></span></div>
+	<div><span class="spanRight">访问时间：</span><span th:text="${access.accessDate}"></span></div>
+	<div><span class="spanRight">执行时间：</span><span th:text="${access.time}"></span></div>
+	<div><span class="spanRight">访问地址：</span><span th:text="${access.url}"></span></div>
+	<div><span class="spanRight">请求参数：</span><textarea th:text="${access.parameters}"></textarea></div>
+	<div><span class="spanRight">响应结果类型：</span><textarea th:text="${access.resultType}"></textarea></div>
+	<div><span class="spanRight">响应结果：</span><textarea th:text="${access.result}"></textarea></div>
+	<div><span class="spanRight">异常信息：</span><textarea th:text="${access.exception}"></textarea></div>
+</body>
+</html>

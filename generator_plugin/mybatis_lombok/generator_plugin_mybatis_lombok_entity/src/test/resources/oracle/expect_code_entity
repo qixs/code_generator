@@ -1,0 +1,864 @@
+
+import java.io.Serializable;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import java.math.BigDecimal;
+import java.util.Date;
+import org.springframework.format.annotation.DateTimeFormat;
+
+/**
+ * T_TEST实体类
+ *
+ * @Description 
+ * @author qixingshen
+ * @date 2018-04-04 11:49:11
+ * @version 1.0
+ */
+public class Test implements Serializable {
+	private static final long serialVersionUID = -1699687929442602770L;
+	
+	/**
+	 * C_NUMBER 注释  (数据库字段名:C_NUMBER_COL) 
+	 */
+	private BigDecimal numberCol;
+	
+	/**
+	 * C_VARCHAR 主键 注释  (数据库字段名:C_VARCHAR_COL) 
+	 */
+	private String varcharCol;
+	
+	/**
+	 * C_NUMERIC 注释  (数据库字段名:C_NUMERIC_COL) 
+	 */
+	private BigDecimal numericCol;
+	
+	/**
+	 * C_BLOB 注释  (数据库字段名:C_BLOB_COL) 
+	 */
+	private byte[] blobCol;
+	
+	/**
+	 * C_DOUBLE_PRECISION 注释  (数据库字段名:C_DOUBLE_PRECISION_COL) 
+	 */
+	private BigDecimal doublePrecisionCol;
+	
+	/**
+	 * C_NCHAR_VARYING 注释  (数据库字段名:C_NCHAR_VARYING_COL) 
+	 */
+	private String ncharVaryingCol;
+	
+	/**
+	 * C_NVARCHAR2 注释  (数据库字段名:C_NVARCHAR2_COL) 
+	 */
+	private String nvarchar2Col;
+	
+	/**
+	 * C_UROWID 注释  (数据库字段名:C_UROWID_COL) 
+	 */
+	private String urowidCol;
+	
+	/**
+	 * C_SMALLINT 注释  (数据库字段名:C_SMALLINT_COL) 
+	 */
+	private BigDecimal smallintCol;
+	
+	/**
+	 * C_FLOAT 注释  (数据库字段名:C_FLOAT_COL) 
+	 */
+	private BigDecimal floatCol;
+	
+	/**
+	 * C_ROWID 注释  (数据库字段名:C_ROWID_COL) 
+	 */
+	private String rowidCol;
+	
+	/**
+	 * C_VARCHAR2 注释  (数据库字段名:C_VARCHAR2_COL) 
+	 */
+	private String varchar2Col;
+	
+	/**
+	 * C_INTEGER 注释  (数据库字段名:C_INTEGER_COL) 
+	 */
+	private BigDecimal integerCol;
+	
+	/**
+	 * C_CHAR 注释  (数据库字段名:C_CHAR_COL) 
+	 */
+	private String charCol;
+	
+	/**
+	 * C_NCHAR 注释  (数据库字段名:C_NCHAR_COL) 
+	 */
+	private String ncharCol;
+	
+	/**
+	 * C_CHARACTER_VARYING 注释  (数据库字段名:C_CHARACTER_VARYING) 
+	 */
+	private String characterVarying;
+	
+	/**
+	 * C_NATIONAL_CHARACTER_VARYING 注释  (数据库字段名:C_NATIONAL_CHARACTER_VARYING) 
+	 */
+	private String nationalCharacterVarying;
+	
+	/**
+	 * C_DATE 注释  (数据库字段名:C_DATE_COL) 
+	 */
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	private Date dateCol;
+	
+	/**
+	 * C_BINARY_FLOAT 注释  (数据库字段名:C_BINARY_FLOAT_COL) 
+	 */
+	private BigDecimal binaryFloatCol;
+	
+	/**
+	 * C_TIMESTAMP_WITH_LOCAL_TIME_ZONE 注释  (数据库字段名:C_TIME_WITH_LOCAL_TIME_ZONE) 
+	 */
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	private Date timeWithLocalTimeZone;
+	
+	/**
+	 * C_RAW 注释  (数据库字段名:C_RAW_COL) 
+	 */
+	private byte[] rawCol;
+	
+	/**
+	 * C_NATIONAL_CHARACTER 注释  (数据库字段名:C_NATIONAL_CHARACTER_COL) 
+	 */
+	private String nationalCharacterCol;
+	
+	/**
+	 * C_CHAR_VARYING 注释  (数据库字段名:C_CHAR_VARYING_COL) 
+	 */
+	private String charVaryingCol;
+	
+	/**
+	 * C_DECIMAL 注释  (数据库字段名:C_DECIMAL_COL) 
+	 */
+	private BigDecimal decimalCol;
+	
+	/**
+	 * C_NATIONAL_CHAR 注释  (数据库字段名:C_NATIONAL_CHAR_COL) 
+	 */
+	private String nationalCharCol;
+	
+	/**
+	 * C_CLOB 注释  (数据库字段名:C_CLOB_COL) 
+	 */
+	private String clobCol;
+	
+	/**
+	 * C_NATIONAL_CHAR_VARYING 注释  (数据库字段名:C_NATIONAL_CHAR_VARYING) 
+	 */
+	private String nationalCharVarying;
+	
+	/**
+	 * C_REAL 注释  (数据库字段名:C_REAL_COL) 
+	 */
+	private BigDecimal realCol;
+	
+	/**
+	 * C_TIMESTAMP 注释  (数据库字段名:C_TIMESTAMP_COL) 
+	 */
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	private Date timestampCol;
+	
+	/**
+	 * C_INT 注释  (数据库字段名:C_INT_COL) 
+	 */
+	private BigDecimal intCol;
+	
+	/**
+	 * C_NCLOB 注释  (数据库字段名:C_NCLOB_COL) 
+	 */
+	private String nclobCol;
+	
+	/**
+	 * C_BINARY_DOUBLE 注释  (数据库字段名:C_BINARY_DOUBLE_COL) 
+	 */
+	private BigDecimal binaryDoubleCol;
+	
+	/**
+	 * C_CHARACTER 注释  (数据库字段名:C_CHARACTER_COL) 
+	 */
+	private String characterCol;
+	
+	/**
+	 * C_TIMESTAMP_WITH_TIME_ZONE 注释  (数据库字段名:C_TIMESTAMP_WITH_TIME_ZONE) 
+	 */
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	private Date timestampWithTimeZone;
+	
+    
+    public Test(){}
+    
+    /***
+    * @param numberCol C_NUMBER 注释
+    * @param varcharCol C_VARCHAR 主键 注释
+    * @param numericCol C_NUMERIC 注释
+    * @param blobCol C_BLOB 注释
+    * @param doublePrecisionCol C_DOUBLE_PRECISION 注释
+    * @param ncharVaryingCol C_NCHAR_VARYING 注释
+    * @param nvarchar2Col C_NVARCHAR2 注释
+    * @param urowidCol C_UROWID 注释
+    * @param smallintCol C_SMALLINT 注释
+    * @param floatCol C_FLOAT 注释
+    * @param rowidCol C_ROWID 注释
+    * @param varchar2Col C_VARCHAR2 注释
+    * @param integerCol C_INTEGER 注释
+    * @param charCol C_CHAR 注释
+    * @param ncharCol C_NCHAR 注释
+    * @param characterVarying C_CHARACTER_VARYING 注释
+    * @param nationalCharacterVarying C_NATIONAL_CHARACTER_VARYING 注释
+    * @param dateCol C_DATE 注释
+    * @param binaryFloatCol C_BINARY_FLOAT 注释
+    * @param timeWithLocalTimeZone C_TIMESTAMP_WITH_LOCAL_TIME_ZONE 注释
+    * @param rawCol C_RAW 注释
+    * @param nationalCharacterCol C_NATIONAL_CHARACTER 注释
+    * @param charVaryingCol C_CHAR_VARYING 注释
+    * @param decimalCol C_DECIMAL 注释
+    * @param nationalCharCol C_NATIONAL_CHAR 注释
+    * @param clobCol C_CLOB 注释
+    * @param nationalCharVarying C_NATIONAL_CHAR_VARYING 注释
+    * @param realCol C_REAL 注释
+    * @param timestampCol C_TIMESTAMP 注释
+    * @param intCol C_INT 注释
+    * @param nclobCol C_NCLOB 注释
+    * @param binaryDoubleCol C_BINARY_DOUBLE 注释
+    * @param characterCol C_CHARACTER 注释
+    * @param timestampWithTimeZone C_TIMESTAMP_WITH_TIME_ZONE 注释
+    **/
+    public Test(BigDecimal numberCol, String varcharCol, BigDecimal numericCol, byte[] blobCol, BigDecimal doublePrecisionCol, String ncharVaryingCol, String nvarchar2Col, String urowidCol, BigDecimal smallintCol, BigDecimal floatCol, String rowidCol, String varchar2Col, BigDecimal integerCol, String charCol, String ncharCol, String characterVarying, String nationalCharacterVarying, Date dateCol, BigDecimal binaryFloatCol, Date timeWithLocalTimeZone, byte[] rawCol, String nationalCharacterCol, String charVaryingCol, BigDecimal decimalCol, String nationalCharCol, String clobCol, String nationalCharVarying, BigDecimal realCol, Date timestampCol, BigDecimal intCol, String nclobCol, BigDecimal binaryDoubleCol, String characterCol, Date timestampWithTimeZone){
+    	this.numberCol = numberCol;
+    	this.varcharCol = varcharCol;
+    	this.numericCol = numericCol;
+    	this.blobCol = blobCol;
+    	this.doublePrecisionCol = doublePrecisionCol;
+    	this.ncharVaryingCol = ncharVaryingCol;
+    	this.nvarchar2Col = nvarchar2Col;
+    	this.urowidCol = urowidCol;
+    	this.smallintCol = smallintCol;
+    	this.floatCol = floatCol;
+    	this.rowidCol = rowidCol;
+    	this.varchar2Col = varchar2Col;
+    	this.integerCol = integerCol;
+    	this.charCol = charCol;
+    	this.ncharCol = ncharCol;
+    	this.characterVarying = characterVarying;
+    	this.nationalCharacterVarying = nationalCharacterVarying;
+    	this.dateCol = dateCol;
+    	this.binaryFloatCol = binaryFloatCol;
+    	this.timeWithLocalTimeZone = timeWithLocalTimeZone;
+    	this.rawCol = rawCol;
+    	this.nationalCharacterCol = nationalCharacterCol;
+    	this.charVaryingCol = charVaryingCol;
+    	this.decimalCol = decimalCol;
+    	this.nationalCharCol = nationalCharCol;
+    	this.clobCol = clobCol;
+    	this.nationalCharVarying = nationalCharVarying;
+    	this.realCol = realCol;
+    	this.timestampCol = timestampCol;
+    	this.intCol = intCol;
+    	this.nclobCol = nclobCol;
+    	this.binaryDoubleCol = binaryDoubleCol;
+    	this.characterCol = characterCol;
+    	this.timestampWithTimeZone = timestampWithTimeZone;
+    }
+    
+	/**
+	 * @param numberCol C_NUMBER 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setNumberCol(BigDecimal numberCol){
+    	this.numberCol = numberCol;
+    	return this;
+    }
+    
+	/**
+	 * @return BigDecimal C_NUMBER 注释
+	 */
+    public BigDecimal getNumberCol(){
+    	return numberCol;
+    }
+    
+	/**
+	 * @param varcharCol C_VARCHAR 主键 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setVarcharCol(String varcharCol){
+    	this.varcharCol = varcharCol;
+    	return this;
+    }
+    
+	/**
+	 * @return String C_VARCHAR 主键 注释
+	 */
+    public String getVarcharCol(){
+    	return varcharCol;
+    }
+    
+	/**
+	 * @param numericCol C_NUMERIC 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setNumericCol(BigDecimal numericCol){
+    	this.numericCol = numericCol;
+    	return this;
+    }
+    
+	/**
+	 * @return BigDecimal C_NUMERIC 注释
+	 */
+    public BigDecimal getNumericCol(){
+    	return numericCol;
+    }
+    
+	/**
+	 * @param blobCol C_BLOB 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setBlobCol(byte[] blobCol){
+    	this.blobCol = blobCol;
+    	return this;
+    }
+    
+	/**
+	 * @return byte[] C_BLOB 注释
+	 */
+    public byte[] getBlobCol(){
+    	return blobCol;
+    }
+    
+	/**
+	 * @param doublePrecisionCol C_DOUBLE_PRECISION 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setDoublePrecisionCol(BigDecimal doublePrecisionCol){
+    	this.doublePrecisionCol = doublePrecisionCol;
+    	return this;
+    }
+    
+	/**
+	 * @return BigDecimal C_DOUBLE_PRECISION 注释
+	 */
+    public BigDecimal getDoublePrecisionCol(){
+    	return doublePrecisionCol;
+    }
+    
+	/**
+	 * @param ncharVaryingCol C_NCHAR_VARYING 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setNcharVaryingCol(String ncharVaryingCol){
+    	this.ncharVaryingCol = ncharVaryingCol;
+    	return this;
+    }
+    
+	/**
+	 * @return String C_NCHAR_VARYING 注释
+	 */
+    public String getNcharVaryingCol(){
+    	return ncharVaryingCol;
+    }
+    
+	/**
+	 * @param nvarchar2Col C_NVARCHAR2 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setNvarchar2Col(String nvarchar2Col){
+    	this.nvarchar2Col = nvarchar2Col;
+    	return this;
+    }
+    
+	/**
+	 * @return String C_NVARCHAR2 注释
+	 */
+    public String getNvarchar2Col(){
+    	return nvarchar2Col;
+    }
+    
+	/**
+	 * @param urowidCol C_UROWID 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setUrowidCol(String urowidCol){
+    	this.urowidCol = urowidCol;
+    	return this;
+    }
+    
+	/**
+	 * @return String C_UROWID 注释
+	 */
+    public String getUrowidCol(){
+    	return urowidCol;
+    }
+    
+	/**
+	 * @param smallintCol C_SMALLINT 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setSmallintCol(BigDecimal smallintCol){
+    	this.smallintCol = smallintCol;
+    	return this;
+    }
+    
+	/**
+	 * @return BigDecimal C_SMALLINT 注释
+	 */
+    public BigDecimal getSmallintCol(){
+    	return smallintCol;
+    }
+    
+	/**
+	 * @param floatCol C_FLOAT 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setFloatCol(BigDecimal floatCol){
+    	this.floatCol = floatCol;
+    	return this;
+    }
+    
+	/**
+	 * @return BigDecimal C_FLOAT 注释
+	 */
+    public BigDecimal getFloatCol(){
+    	return floatCol;
+    }
+    
+	/**
+	 * @param rowidCol C_ROWID 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setRowidCol(String rowidCol){
+    	this.rowidCol = rowidCol;
+    	return this;
+    }
+    
+	/**
+	 * @return String C_ROWID 注释
+	 */
+    public String getRowidCol(){
+    	return rowidCol;
+    }
+    
+	/**
+	 * @param varchar2Col C_VARCHAR2 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setVarchar2Col(String varchar2Col){
+    	this.varchar2Col = varchar2Col;
+    	return this;
+    }
+    
+	/**
+	 * @return String C_VARCHAR2 注释
+	 */
+    public String getVarchar2Col(){
+    	return varchar2Col;
+    }
+    
+	/**
+	 * @param integerCol C_INTEGER 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setIntegerCol(BigDecimal integerCol){
+    	this.integerCol = integerCol;
+    	return this;
+    }
+    
+	/**
+	 * @return BigDecimal C_INTEGER 注释
+	 */
+    public BigDecimal getIntegerCol(){
+    	return integerCol;
+    }
+    
+	/**
+	 * @param charCol C_CHAR 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setCharCol(String charCol){
+    	this.charCol = charCol;
+    	return this;
+    }
+    
+	/**
+	 * @return String C_CHAR 注释
+	 */
+    public String getCharCol(){
+    	return charCol;
+    }
+    
+	/**
+	 * @param ncharCol C_NCHAR 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setNcharCol(String ncharCol){
+    	this.ncharCol = ncharCol;
+    	return this;
+    }
+    
+	/**
+	 * @return String C_NCHAR 注释
+	 */
+    public String getNcharCol(){
+    	return ncharCol;
+    }
+    
+	/**
+	 * @param characterVarying C_CHARACTER_VARYING 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setCharacterVarying(String characterVarying){
+    	this.characterVarying = characterVarying;
+    	return this;
+    }
+    
+	/**
+	 * @return String C_CHARACTER_VARYING 注释
+	 */
+    public String getCharacterVarying(){
+    	return characterVarying;
+    }
+    
+	/**
+	 * @param nationalCharacterVarying C_NATIONAL_CHARACTER_VARYING 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setNationalCharacterVarying(String nationalCharacterVarying){
+    	this.nationalCharacterVarying = nationalCharacterVarying;
+    	return this;
+    }
+    
+	/**
+	 * @return String C_NATIONAL_CHARACTER_VARYING 注释
+	 */
+    public String getNationalCharacterVarying(){
+    	return nationalCharacterVarying;
+    }
+    
+	/**
+	 * @param dateCol C_DATE 注释
+	 * 
+	 * returnTest
+	 */
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    public Test setDateCol(Date dateCol){
+    	this.dateCol = dateCol;
+    	return this;
+    }
+    
+	/**
+	 * @return Date C_DATE 注释
+	 */
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    public Date getDateCol(){
+    	return dateCol;
+    }
+    
+	/**
+	 * @param binaryFloatCol C_BINARY_FLOAT 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setBinaryFloatCol(BigDecimal binaryFloatCol){
+    	this.binaryFloatCol = binaryFloatCol;
+    	return this;
+    }
+    
+	/**
+	 * @return BigDecimal C_BINARY_FLOAT 注释
+	 */
+    public BigDecimal getBinaryFloatCol(){
+    	return binaryFloatCol;
+    }
+    
+	/**
+	 * @param timeWithLocalTimeZone C_TIMESTAMP_WITH_LOCAL_TIME_ZONE 注释
+	 * 
+	 * returnTest
+	 */
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    public Test setTimeWithLocalTimeZone(Date timeWithLocalTimeZone){
+    	this.timeWithLocalTimeZone = timeWithLocalTimeZone;
+    	return this;
+    }
+    
+	/**
+	 * @return Date C_TIMESTAMP_WITH_LOCAL_TIME_ZONE 注释
+	 */
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    public Date getTimeWithLocalTimeZone(){
+    	return timeWithLocalTimeZone;
+    }
+    
+	/**
+	 * @param rawCol C_RAW 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setRawCol(byte[] rawCol){
+    	this.rawCol = rawCol;
+    	return this;
+    }
+    
+	/**
+	 * @return byte[] C_RAW 注释
+	 */
+    public byte[] getRawCol(){
+    	return rawCol;
+    }
+    
+	/**
+	 * @param nationalCharacterCol C_NATIONAL_CHARACTER 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setNationalCharacterCol(String nationalCharacterCol){
+    	this.nationalCharacterCol = nationalCharacterCol;
+    	return this;
+    }
+    
+	/**
+	 * @return String C_NATIONAL_CHARACTER 注释
+	 */
+    public String getNationalCharacterCol(){
+    	return nationalCharacterCol;
+    }
+    
+	/**
+	 * @param charVaryingCol C_CHAR_VARYING 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setCharVaryingCol(String charVaryingCol){
+    	this.charVaryingCol = charVaryingCol;
+    	return this;
+    }
+    
+	/**
+	 * @return String C_CHAR_VARYING 注释
+	 */
+    public String getCharVaryingCol(){
+    	return charVaryingCol;
+    }
+    
+	/**
+	 * @param decimalCol C_DECIMAL 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setDecimalCol(BigDecimal decimalCol){
+    	this.decimalCol = decimalCol;
+    	return this;
+    }
+    
+	/**
+	 * @return BigDecimal C_DECIMAL 注释
+	 */
+    public BigDecimal getDecimalCol(){
+    	return decimalCol;
+    }
+    
+	/**
+	 * @param nationalCharCol C_NATIONAL_CHAR 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setNationalCharCol(String nationalCharCol){
+    	this.nationalCharCol = nationalCharCol;
+    	return this;
+    }
+    
+	/**
+	 * @return String C_NATIONAL_CHAR 注释
+	 */
+    public String getNationalCharCol(){
+    	return nationalCharCol;
+    }
+    
+	/**
+	 * @param clobCol C_CLOB 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setClobCol(String clobCol){
+    	this.clobCol = clobCol;
+    	return this;
+    }
+    
+	/**
+	 * @return String C_CLOB 注释
+	 */
+    public String getClobCol(){
+    	return clobCol;
+    }
+    
+	/**
+	 * @param nationalCharVarying C_NATIONAL_CHAR_VARYING 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setNationalCharVarying(String nationalCharVarying){
+    	this.nationalCharVarying = nationalCharVarying;
+    	return this;
+    }
+    
+	/**
+	 * @return String C_NATIONAL_CHAR_VARYING 注释
+	 */
+    public String getNationalCharVarying(){
+    	return nationalCharVarying;
+    }
+    
+	/**
+	 * @param realCol C_REAL 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setRealCol(BigDecimal realCol){
+    	this.realCol = realCol;
+    	return this;
+    }
+    
+	/**
+	 * @return BigDecimal C_REAL 注释
+	 */
+    public BigDecimal getRealCol(){
+    	return realCol;
+    }
+    
+	/**
+	 * @param timestampCol C_TIMESTAMP 注释
+	 * 
+	 * returnTest
+	 */
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    public Test setTimestampCol(Date timestampCol){
+    	this.timestampCol = timestampCol;
+    	return this;
+    }
+    
+	/**
+	 * @return Date C_TIMESTAMP 注释
+	 */
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    public Date getTimestampCol(){
+    	return timestampCol;
+    }
+    
+	/**
+	 * @param intCol C_INT 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setIntCol(BigDecimal intCol){
+    	this.intCol = intCol;
+    	return this;
+    }
+    
+	/**
+	 * @return BigDecimal C_INT 注释
+	 */
+    public BigDecimal getIntCol(){
+    	return intCol;
+    }
+    
+	/**
+	 * @param nclobCol C_NCLOB 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setNclobCol(String nclobCol){
+    	this.nclobCol = nclobCol;
+    	return this;
+    }
+    
+	/**
+	 * @return String C_NCLOB 注释
+	 */
+    public String getNclobCol(){
+    	return nclobCol;
+    }
+    
+	/**
+	 * @param binaryDoubleCol C_BINARY_DOUBLE 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setBinaryDoubleCol(BigDecimal binaryDoubleCol){
+    	this.binaryDoubleCol = binaryDoubleCol;
+    	return this;
+    }
+    
+	/**
+	 * @return BigDecimal C_BINARY_DOUBLE 注释
+	 */
+    public BigDecimal getBinaryDoubleCol(){
+    	return binaryDoubleCol;
+    }
+    
+	/**
+	 * @param characterCol C_CHARACTER 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setCharacterCol(String characterCol){
+    	this.characterCol = characterCol;
+    	return this;
+    }
+    
+	/**
+	 * @return String C_CHARACTER 注释
+	 */
+    public String getCharacterCol(){
+    	return characterCol;
+    }
+    
+	/**
+	 * @param timestampWithTimeZone C_TIMESTAMP_WITH_TIME_ZONE 注释
+	 * 
+	 * returnTest
+	 */
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    public Test setTimestampWithTimeZone(Date timestampWithTimeZone){
+    	this.timestampWithTimeZone = timestampWithTimeZone;
+    	return this;
+    }
+    
+	/**
+	 * @return Date C_TIMESTAMP_WITH_TIME_ZONE 注释
+	 */
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    public Date getTimestampWithTimeZone(){
+    	return timestampWithTimeZone;
+    }
+    
+    @Override
+	public String toString() {
+		return String.format("Test={numberCol = %s, varcharCol = %s, numericCol = %s, blobCol = %s, doublePrecisionCol = %s, ncharVaryingCol = %s, nvarchar2Col = %s, urowidCol = %s, smallintCol = %s, floatCol = %s, rowidCol = %s, varchar2Col = %s, integerCol = %s, charCol = %s, ncharCol = %s, characterVarying = %s, nationalCharacterVarying = %s, dateCol = %s, binaryFloatCol = %s, timeWithLocalTimeZone = %s, rawCol = %s, nationalCharacterCol = %s, charVaryingCol = %s, decimalCol = %s, nationalCharCol = %s, clobCol = %s, nationalCharVarying = %s, realCol = %s, timestampCol = %s, intCol = %s, nclobCol = %s, binaryDoubleCol = %s, characterCol = %s, timestampWithTimeZone = %s}", numberCol, varcharCol, numericCol, blobCol, doublePrecisionCol, ncharVaryingCol, nvarchar2Col, urowidCol, smallintCol, floatCol, rowidCol, varchar2Col, integerCol, charCol, ncharCol, characterVarying, nationalCharacterVarying, dateCol, binaryFloatCol, timeWithLocalTimeZone, rawCol, nationalCharacterCol, charVaryingCol, decimalCol, nationalCharCol, clobCol, nationalCharVarying, realCol, timestampCol, intCol, nclobCol, binaryDoubleCol, characterCol, timestampWithTimeZone);
+	}
+}

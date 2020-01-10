@@ -1,0 +1,11 @@
+plugin:
+  groupName: mybatisLombok
+  name: serviceInterface
+  description: serviceInterface生成插件
+  generator: com.qxs.plugin.generator.mybatis.lombok.service.MybatisLombokServiceGenerator
+  templatePath: template.ftl
+  fileRelativeDir: mybatisLombok/service
+  fileSuffix: .java
+  prefix: I
+  suffix: Service
+  dependencies: entity #依赖的插件,以英文逗号(,)分割

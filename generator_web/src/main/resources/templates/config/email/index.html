@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta http-equiv="Expires" content="0" />
+
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+
+<title>代码生成器</title>
+<style type="text/css">
+	span.notice{
+		color: red;
+		vertical-align: middle;
+	}
+</style>
+</head>
+<body>
+	<div class="error" style="padding: 10px;height: auto;display: none;">
+		<div class="alert alert-warning" style="display: none;">
+            <a href="#" class="close" data-dismiss="alert">
+		        &times;
+		    </a>
+			<strong>错误！</strong><span class="alertMsg" style="display: inline;"></span>
+        </div>
+	</div>
+	<div class="success" style="padding: 10px;height: 72px;display: none;">
+        <div id="success" class="alert alert-success">
+		    <a href="#" class="close" data-dismiss="alert">&times;</a>
+		    <strong>提示！</strong><span class="successMsg" style="display: inline;"></span>
+		</div>
+	</div>
+	<div style="height: 100%;margin-top: 50px;">
+		<form id="emailForm" autocomplete="off">
+			<input name="_csrf" type="hidden" th:value="${_csrf.token}">
+			<input name="_method" type="hidden" value="POST">
+			<input name="email.id" type="hidden" th:value="${email.id}">
+			<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;">
+				<label class="col-sm-2 control-label" style="text-align: right;" title="账号">账号：</label>
+				<div class="col-sm-4">
+					<input type="text" name="email.emailFrom" class="form-control" th:value="${email.emailFrom}" placeholder="请输入账号"/>
+				</div>
+				<span class="notice">*</span>
+			</div>
+			<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;">
+				<label class="col-sm-2 control-label" style="text-align: right;" title="密码">密码：</label>
+				<div class="col-sm-4">
+					<input type="password" name="email.password" class="form-control" th:value="${email.password}"  placeholder="请输入密码"/>
+				</div>
+				<span class="notice">*</span>
+			</div>
+			<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;">
+				<label class="col-sm-2 control-label" style="text-align: right;" title="发件服务器">发件服务器：</label>
+				<div class="col-sm-4" style="float: left;">
+					<input type="text" name="email.host" class="form-control" th:value="${email.host}"  placeholder="请输入发件服务器"/>
+				</div>
+				<span class="notice" style="float: left;">*</span>
+				<label style="width: 70px;margin-left: 20px;float: left;">
+					<span style="float: left;">SSL：</span>
+					<span><input type="checkbox" name="email.ssl" th:value="${email.ssl}"/></span>
+				</label>
+				<label class="col-sm-1 control-label" style="text-align: right;float: left;padding-right: 0;width: 57px;" title="端口">端口：</label>
+				<div class="col-sm-2" style="float: left;padding-left: 0;">
+					<input type="text" name="email.port" class="form-control" style="width: 110px;" th:value="${email.port}"  placeholder="请输入端口号"/>
+				</div>
+				<span class="notice">*</span>
+			</div>
+			<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;">
+				<label class="col-sm-2 control-label" style="text-align: right;" title="测试账号">测试账号：</label>
+				<div class="col-sm-4">
+					<input type="text" name="testMail" class="form-control" placeholder="请输入测试账号"/>
+				</div>
+			</div>
+			<div style="padding-top: 30px;">
+				<button type="button" id="save" style="margin-left: 200px;" class="btn btn-primary">保存</button>
+				<button type="button" id="rest" style="margin-left: 50px;" class="btn btn-primary">重置</button>
+			</div>
+		</form>
+	</div>
+</body>
+<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/plugins/bootstrap/confirm.js}"></script>
+<script type="text/javascript" th:src="@{/plugins/serialize.js}"></script>
+<script type="text/javascript" th:src="@{/plugins/regexp/regexp.js}"></script>
+<script type="text/javascript" th:src="@{/scripts/config/email/index.js}"></script>
+</html>

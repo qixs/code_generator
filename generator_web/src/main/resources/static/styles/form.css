@@ -1,0 +1,188 @@
+body{
+	font-family:"宋体";
+	font-size:12px;
+}
+.right{
+	text-align:right;
+}
+table.form{
+	background:#fff;
+	line-height:25px;
+	padding:9px 13px;
+}
+.form th, .form td{
+	padding:4px 0;
+	*+padding:3px 0;
+	white-space:nowrap;
+}
+.form tr td span{
+	text-align:left;
+	display: inline-block;
+	width:97px;
+	margin-right:-6px;
+	vertical-align:top;
+	padding-right:3px;
+	border-radius: 5px 5px 5px 5px;
+}
+.form tr td span.l-btn-icon{
+	width:16px;
+}
+.form tr td span.l-btn-text{
+	width:auto;
+}
+.form tr td span.l-btn-left{
+	width:auto;
+}
+.form tr td span.span1{
+	width:97px;
+}
+.form tr td span.span2{
+	width:197px;
+}
+.form tr td span.span3{
+	width:297px;
+}
+.form tr td span.span4{
+	width:397px;
+}
+.form tr td span.span5{
+	width:497px;
+}
+.form tr td span.span6{
+	width:597px;
+}
+.form tr td span.spanAuto span{
+	width:auto;
+	display:table-cell;
+}
+.form input{
+	height:21px;
+	line-height:21px;
+	font-family:"宋体";
+	font-size:12px;
+	padding:1px 3px 1px 3px;
+	border:1px solid #95B8E7;
+	width:93px;
+	margin:0;
+	border-radius: 5px 5px 5px 5px;
+}
+.form .input-tiny{
+	width:42px;
+}
+.form .input-small{
+	width:74px;
+}
+.form .input-1{
+	width:92px;
+}
+.form .input-2{
+	width:192px;
+}
+.form .input-3{
+	width:292px;
+}
+.form .input-4{
+	width:392px;
+}
+.form .input-5{
+	width:492px;
+}
+.form .input-6{
+	width:592px;
+}
+.form textarea{
+	width:493px;
+	height:126px;
+	padding:1px 3px 1px 3px;
+	border:1px solid #95B8E7;
+	line-height:21px;
+	font-family:"宋体";
+	font-size:12px;
+	margin-bottom: -9px;
+	border-radius: 5px 5px 5px 5px;
+}
+textarea.textarea3{
+	width:292px;
+}
+textarea.textarea4{
+	width:392px;
+}
+textarea.textarea5{
+	width:492px;
+}
+textarea.textarea6{
+	width:592px;
+}
+textarea.textarea7{
+	width:692px;
+}
+textarea.textarea8{
+	width:792px;
+}
+textarea.textarea9{
+	width:892px;
+}
+textarea.height2{ height:48px;}			/*3013-7-24 by wangxinyan*/
+textarea.height3{ height:72px;}			/*3013-7-24 by wangxinyan*/
+.form input[type="radio"],.form input[type="checkbox"]{	
+	padding:0;
+	border:0;
+	vertical-align: -2px;
+	*+vertical-align: 0;
+	margin:0 10px 0 0;
+	*+margin-top:6px;
+	width:13px;
+	height:13px;
+}
+.form label{ display:inline-block; *display:inline; *zoom:1;}   /*3013-7-24 by wangxinyan*/ 
+.form select{
+	margin:0;
+	padding:3px;
+	margin-top:-1px;
+	margin-top:0px\9;
+	*+margin-top:0px;
+	margin-right:0px;
+	border:1px solid #95B8E7;
+	border-radius: 5px 5px 5px 5px;
+	height: 25px;
+}
+select.select1{
+	width:100px;
+}
+select.select2{
+	width:200px;
+}
+select.select3{
+	width:300px;
+}
+
+.form tr td span.spanLeft{
+	text-align:left;
+}
+.form tr td span.spanRight{
+	text-align:right;
+}
+
+#msgDiv{
+	display:none;
+	position: fixed; 
+	z-index: 150; 
+	padding: 5px; 
+	right: 10px; 
+	border: 1px solid rgb(153, 153, 153); 
+ 	top: 90px; 
+ 	border-radius: 5px; 
+ 	right: 200px; 
+ 	height: auto; 
+ 	max-width: 150px; 
+ 	width:auto;
+ 	font-size: 12px; 
+ 	background-color: #cc9933;
+}
+.form .input_code{
+	width:150px;
+}
+
+.form tr td .combo .textbox-addon-right{
+	width:auto;
+}

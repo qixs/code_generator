@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta http-equiv="Expires" content="0" />
+
+<meta name="_csrf" th:content="${_csrf.token}" />
+<meta name="_csrf_header" th:content="${_csrf.headerName}" />
+
+<link rel="stylesheet" media="screen" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+
+<style type="text/css">
+body{
+	position:absolute;
+	width:100%;
+	height:100%;
+	margin: 0;
+	padding: 0;
+	font: 12px tahoma, Arial, Verdana, sans-serif;
+	color: #666666;
+}
+.buttonMouseOut{
+	width: 125px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    background: url(../../../images/install.png) -4px -3px no-repeat;
+    font: 12px tahoma, Arial, Verdana, sans-serif;
+	color: #666666;
+}
+
+.buttonMouseOver{
+	width: 125px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    background: url(../../../images/install.png) -4px -64px no-repeat;
+    font: 12px tahoma, Arial, Verdana, sans-serif;
+	color: #666666;
+}
+.form div{
+	height: 40px;
+	line-height:40px;
+	vertical-align:middle;
+}
+.form span{
+	width: 100px;
+	height: 40px;
+	float: left;
+	display: inline-block;
+}
+.form span input{
+	height: 20px;
+	line-height:20px;
+}
+.form span.spanRight{
+	text-align: right;
+	padding-right: 3px;
+}
+.form span.notice{
+	color: red;
+	width: 10px;
+}
+</style>
+
+<title>代码生成器</title>
+
+</head>
+<body>
+	<div class="error" style="padding: 10px;height: auto;display: none;">
+		<div class="alert alert-warning" style="display: none;">
+            <a href="#" class="close" data-dismiss="alert">
+		        &times;
+		    </a>
+			<strong>错误！</strong><span class="alertMsg" style="display: inline;"></span>
+        </div>
+	</div>
+	<div class="success" style="padding: 10px;height: 72px;display: none;">
+        <div id="success" class="alert alert-success">
+		    <a href="#" class="close" data-dismiss="alert">&times;</a>
+		    <strong>提示！</strong><span class="successMsg" style="display: inline;"></span>
+		</div>
+	</div>
+	
+	<div>
+		<form class="form" th:action="@{/generate}" method="post">
+			<input name="_csrf" type="hidden" th:value="${_csrf.token}" />
+			<input name="_csrf_header" type="hidden" th:value="${_csrf.headerName}" />
+			<input name="user.id" type="hidden" th:value="${user?.id}" />
+			<input name="user.name" type="hidden" value="超级管理员" />
+			
+			<div style="height: 160px;margin-top: 100px;margin-left: 60px;" >
+				<div>
+					<span class="spanRight">用户名：</span>
+					<span style="width: 145px;"><input type="text" name="user.username" th:value="${user?.username}" placeholder="请输入用户名" maxlength="200"/></span>
+					<span class="notice">*</span>
+					<span style="margin-left: 20px;"><button type="button" id="sendCaptcha" class="buttonMouseOut" onmousemove="this.className='buttonMouseOver'"onmouseout="this.className='buttonMouseOut'">发送验证码</button></span>
+				</div>
+				<div>
+					<span class="spanRight">邮箱验证码：</span>
+					<span style="width: 145px;"><input type="text" name="captcha" placeholder="请输入邮箱验证码" maxlength="10"/></span>
+					<span class="notice">*</span>
+				</div>
+				<div>
+					<span class="spanRight">密码：</span>
+					<span style="width: 145px;"><input type="password" name="user.password" placeholder="请输入密码" maxlength="18"/></span>
+					<span class="notice" th:if="${user == null || user?.id == null}">*</span>
+				</div>
+				<div>
+					<span class="spanRight">确认密码：</span>
+					<span style="width: 145px;"><input type="password" name="repeatPassword" placeholder="请输入确认密码" maxlength="18"/></span>
+					<span class="notice" th:if="${user == null || user?.id == null}">*</span>
+				</div>
+			</div>
+			
+		</form>
+	</div>
+</body>
+<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/plugins/regexp/regexp.js}"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("a.close").click(function(){
+		$(".error,.success").hide();
+	});
+	
+	//发送验证码
+	$("button#sendCaptcha").click(function(){
+		//校验用户名是否为空
+		var username = $("input[name='user.username']").val();
+		if(!username){
+			$("span.alertMsg").text("用户名不能为空");
+			$("div.error,div.alert").show();
+			$("input[name='user.username']").focus();
+			return;
+		}
+		var reg = new RegExp(regexp.constants.email);
+		if(!reg.test(username)){
+			$("span.alertMsg").text("用户名必须为邮箱");
+			$("div.error,div.alert").show();
+			$("input[name='user.username']").focus();
+			return false;
+		}
+		
+		$(".error").hide();
+		
+		//发送验证码邮件
+		$.post("/init/wizard/sendAdminCaptcha", {username : username},function(data){
+			$("div.success .successMsg").text("验证码发送成功，请到“" + username + "”邮箱查看，如果未收到请重新发送");
+			$("div.success").show();
+			
+			//设置发送验证码按钮倒计时为1分钟
+			$("button#sendCaptcha").attr("disabled","disabled").removeClass("buttonMouseOver").addClass("buttonMouseOut");
+			
+			var second = 59;
+			var i = setInterval(function(){
+				if(second <= 0){
+					//取消正在执行的周期任务
+					window.clearInterval(i);
+					$("button#sendCaptcha").removeAttr("disabled");
+					$("button#sendCaptcha").text("重新发送");
+					
+				}else{
+					$("button#sendCaptcha").text(second + " 秒后重新发送");
+					
+					second -- ;
+				}
+			},1000);
+		});
+	});
+});
+
+//保存方法
+function save(){
+	$(".error,.success").hide();
+	
+	//采用同步保存方式
+	var d = null;
+	$.ajax({
+		url: "/init/wizard/admin",
+		type: "POST",
+		data: $("form.form").serialize(),
+		async: false,
+		cache: false,
+		success: function(data){
+			$("span.alertMsg").text(data);
+			$("div.error,div.alert").show();
+			d = data;
+		},
+		error: function(xhr, textStatus, error){
+			$("span.alertMsg").text(error);
+			$("div.error,div.alert").show();
+			d = error;
+		}
+	});
+	return d;
+}
+
+//校验方法
+function valid(){
+	//用户名不能为空
+	var username = $("input[name='user.username']").val();
+	if(!username){
+		$("span.alertMsg").text("用户名不能为空");
+		$("div.error,div.alert").show();
+		$("input[name='user.username']").focus();
+		return false;
+	}
+	//用户名必须为邮箱
+	var reg = new RegExp(regexp.constants.email);
+	if(!reg.test(username)){
+		$("span.alertMsg").text("用户名必须为邮箱");
+		$("div.error,div.alert").show();
+		$("input[name='user.username']").focus();
+		return false;
+	}
+	
+	//验证码不能为空
+	var captcha = $("input[name='captcha']").val();
+	if(!captcha){
+		$("span.alertMsg").text("验证码不能为空");
+		$("div.error,div.alert").show();
+		$("input[name='captcha']").focus();
+		return false;
+	}
+	//验证码必须为数字
+	var captchaReg = new RegExp(regexp.constants.integer);
+	if(!captchaReg.test(captcha)){
+		$("span.alertMsg").text("验证码必须为数字");
+		$("div.error,div.alert").show();
+		$("input[name='captcha']").focus();
+		return false;
+	}
+	
+	//如果是新增状态则需要校验密码
+	//如果是修改状态录入了密码则需要校验密码长度及是否一致
+	var id = $("input[name='user.id']").val();
+	var password = $("input[name='user.password']").val();
+	if(!id || password){
+		//密码不能为空
+		if(!password){
+			$("span.alertMsg").text("密码不能为空");
+			$("div.error,div.alert").show();
+			$("input[name='user.password']").focus();
+			return false;
+		}
+		
+		//密码在8位到18位之间
+		if(password.length < 8 || password.length > 18){
+			$("span.alertMsg").text("密码长度必须在8位到18位之间");
+			$("div.error,div.alert").show();
+			$("input[name='user.password']").focus();
+			return false;
+		}
+		
+		//确认密码不能为空
+		var repeatPassword = $("input[name='repeatPassword']").val();
+		if(!repeatPassword){
+			$("span.alertMsg").text("确认密码不能为空");
+			$("div.error,div.alert").show();
+			$("input[name='repeatPassword']").focus();
+			return false;
+		}
+		
+		//确认密码和密码必须一致
+		if(password != repeatPassword){
+			$("span.alertMsg").text("确认密码和密码必须一致");
+			$("div.error,div.alert").show();
+			$("input[name='repeatPassword']").focus();
+			return false;
+		}
+		
+	}
+	
+	return true;
+}
+</script>
+</html>

@@ -1,0 +1,83 @@
+.title{
+	height: 43px;
+	line-height: 43px;
+    vertical-align: middle;
+    padding-left: 15px;
+	background: url(../../../images/install_x.gif) 0px 0px repeat-x;
+	font-size: 14px;
+    font-family: "Microsoft YaHei";
+}
+.bodyLeft{
+	width: 220px;
+	margin-top: 2px;
+	height: calc(100vh - 43px - 87px);
+	float: left;
+	background: #fafafe;
+	border: 1px solid #dfdfdf;
+}
+.bodyLeft ul{
+	list-style-type: none;
+	margin: 0px 0 0 -40px;
+}
+.bodyLeft li{
+	height: 60px;
+    line-height: 60px;
+    padding-left: 30px;
+    text-shadow: 1px 1px #dddddd;
+    background: url(../../../images/install.png)  -130px 10px no-repeat;
+    border-bottom: 1px solid #C7DFED;
+}
+.bodyLeft li.current{
+	height: 60px;
+    line-height: 60px;
+    padding-left: 30px;
+    text-shadow: 1px 1px #dddddd;
+    background: url(../../../images/install.png)  -130px -50px no-repeat;
+    border-bottom: 1px solid #C7DFED;
+}
+.bodyRight{
+	float: left;
+	width: calc(100% - 231px);
+	height: calc(100vh - 43px - 87px);
+}
+.bodyRight iframe{
+	float: left;
+	border: 1px solid #dfdfdf;
+	margin-left: 4px;
+	margin-top: 2px;
+	width: 100%;
+	height: calc(100vh - 130px);
+}
+.buttonArea{
+	clear: both;
+	height: 50px;
+	text-align: right;
+	padding-right: 10px;
+	padding-top: 15px;
+	background: url(../../../images/install_x.gif) 0px -60px repeat-x;
+}
+.buttonMouseOut{
+	width: 125px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    background: url(../../../images/install.png) -4px -3px no-repeat;
+    font: 12px tahoma, Arial, Verdana, sans-serif;
+	color: #666666;
+}
+
+.buttonMouseOver{
+	width: 125px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    background: url(../../../images/install.png) -4px -64px no-repeat;
+    font: 12px tahoma, Arial, Verdana, sans-serif;
+	color: #666666;
+}

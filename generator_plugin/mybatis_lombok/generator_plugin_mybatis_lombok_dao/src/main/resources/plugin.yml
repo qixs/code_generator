@@ -1,0 +1,11 @@
+plugin:
+  groupName: mybatisLombok
+  name: dao
+  description: dao生成插件
+  generator: com.qxs.plugin.generator.mybatis.lombok.dao.MybatisLombokDAOGenerator
+  templatePath: template.ftl
+  fileRelativeDir: mybatisLombok/dao
+  fileSuffix: .java
+  prefix: I
+  suffix: DAO
+  dependencies: entity #依赖的插件,以英文逗号(,)分割

@@ -1,0 +1,11 @@
+plugin:
+  groupName: mybatisPlus
+  name: mapper
+  description: mapper生成插件
+  generator: com.qxs.plugin.generator.mybatis.plus.mapper.MybatisPlusMapperGenerator
+  templatePath: template.ftl
+  fileRelativeDir: mybatisPlus/mapper
+  fileSuffix: .java
+  prefix: I
+  suffix: Mapper
+  dependencies: entity #依赖的插件,以英文逗号(,)分割

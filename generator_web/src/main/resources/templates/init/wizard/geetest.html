@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta http-equiv="Expires" content="0" />
+
+<meta name="_csrf" th:content="${_csrf.token}" />
+<meta name="_csrf_header" th:content="${_csrf.headerName}" />
+
+<link rel="stylesheet" media="screen" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+<link rel="stylesheet" media="screen" th:href="@{/webjars/bootstrap-table/dist/bootstrap-table.min.css}">
+
+<style type="text/css">
+body{
+	position:absolute;
+	width:100%;
+	height:100%;
+	margin: 0;
+	padding: 0;
+	font: 12px tahoma, Arial, Verdana, sans-serif;
+	color: #666666;
+}
+.buttonMouseOut{
+	width: 125px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    background: url(../../../images/install.png) -4px -3px no-repeat;
+    font: 12px tahoma, Arial, Verdana, sans-serif;
+	color: #666666;
+}
+
+.buttonMouseOver{
+	width: 125px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    background: url(../../../images/install.png) -4px -64px no-repeat;
+    font: 12px tahoma, Arial, Verdana, sans-serif;
+	color: #666666;
+}
+
+.smallButtonMouseOut{
+	width: 48px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    background: url(../../../images/button_small.png) -4px -3px no-repeat;
+    font: 12px tahoma, Arial, Verdana, sans-serif;
+	color: #666666;
+}
+
+.smallButtonMouseOver{
+	width: 48px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    background: url(../../../images/button_small.png) -4px -64px no-repeat;
+    font: 12px tahoma, Arial, Verdana, sans-serif;
+	color: #666666;
+}
+
+#geetestForm input{
+	height: 38px;
+	line-height: 38px;
+	border-radius: 5px;
+	border: 1px solid rgba(0,0,0,.15);
+	padding: 0 5px;
+	width: 205px;
+}
+
+#geetestForm a:link{
+	color: red;
+}
+#geetestForm a:visited{
+	color: red;
+}
+#geetestForm a:hover{
+	color: red;
+}
+#geetestForm a:active{
+	color: red;
+}
+</style>
+
+<title>代码生成器</title>
+
+</head>
+<body>
+	<div class="error" style="padding: 10px;height: auto;display: none;">
+		<div class="alert alert-warning" style="display: none;">
+            <a href="#" class="close" data-dismiss="alert">
+		        &times;
+		    </a>
+			<strong>错误！</strong><span class="alertMsg" style="display: inline;"></span>
+        </div>
+	</div>
+	<div class="success" style="padding: 10px;height: 72px;display: none;">
+        <div id="success" class="alert alert-success">
+		    <a href="#" class="close" data-dismiss="alert">&times;</a>
+		    <strong>提示！</strong><span class="successMsg" style="display: inline;"></span>
+		</div>
+	</div>
+	<div style="padding: 10px;">
+		<form id="geetestForm">
+			<div style="height: 38px;">
+				<div style="height: 38px;float: left;">
+					<span><input name="geetest.id" type="text" placeholder="请输入ID" /></span>
+					<span><input name="geetest.key" type="text" placeholder="请输入KEY" /></span>
+					<span><input name="geetest.weight" style="width: 75px;" type="text" placeholder="请输入权重" /></span>
+				</div>
+				<div style="float: left;margin-left: 10px;">
+					<button type="button" class="add buttonMouseOut" onmousemove="this.className='buttonMouseOver'"onmouseout="this.className='buttonMouseOut'">添加</button>
+				</div>
+			</div>
+			<div style="margin-top: 10px;"><span style="color: red;">Geetest注册地址：</span><a href="https://auth.geetest.com/register/" target="_blank">https://auth.geetest.com/register/</a></div>
+		</form>
+	</div>
+	<div style="padding: 10px;">
+		<table id="geetestTable"></table>
+	</div>
+</body>
+
+<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap-table/dist/bootstrap-table.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap-table/dist/locale/bootstrap-table-zh-CN.js}"></script>
+<script type="text/javascript" th:src="@{/plugins/regexp/regexp.js}"></script>
+<script type="text/javascript" th:src="@{/plugins/bootstrap/confirm.js}"></script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#geetestTable').bootstrapTable({
+			url: '/init/wizard/geetestList',
+		    columns: [
+		    	{field: '',title: '序号',formatter : function(value, row, index){return index + 1;}}, 
+		    	{field: 'id',title: 'ID'}, 
+		    	{field: 'key',title: 'KEY'}, 
+		    	{field: 'weight',title: '权重'},
+		    	{field: 'id',title: '操作',formatter : function(value, row, index){
+		    		return "<button type=\"button\" class=\"delete smallButtonMouseOut\" onmousemove=\"this.className='smallButtonMouseOver'\" onmouseout=\"this.className='smallButtonMouseOut'\" >删除</button>";
+		    	}},
+		    ],
+			onLoadSuccess: function(rows){
+				//删除
+				$("#geetestTable button.delete").each(function(index){
+					$(this).click(function(){
+						$("div.success,div.alert,div.error,div.alert").hide();
+						
+						$.confirm("确定要删除该配置信息？<br/>ID：" + rows[index].id + " <br/>KEY：" + rows[index].key + "<br/>权重：" + rows[index].weight,function(flag){
+							if(flag){
+								$.post("/init/wizard/deleteGeetest/" + rows[index].id,function(data){
+									if(data && data.errorMessage){
+										$("span.alertMsg").text("删除Geetest配置失败：" + data.errorMessage);
+										$("div.error,div.alert").show();
+									}else{
+										$("span.successMsg").text("删除Geetest配置成功");
+										$("div.success,div.alert").show();
+									}
+									//重新加载插件
+									$('#geetestTable').bootstrapTable('refresh', {silent: true});
+								});
+							}
+						});
+					});
+				});
+			}
+		});
+		
+		
+		//添加geetest配置信息
+		$("#geetestForm button.add").click(function(){
+			$("div.success,div.alert").hide();
+			//校验是否添加id
+			var id = $("form#geetestForm input[name='geetest.id']").val();
+			if(!id){
+				$("span.alertMsg").text("请先录入ID");
+				$("div.error,div.alert").show();
+				$("form#geetestForm input[name='geetest.id']").focus();
+				return;
+			}
+			//校验是否添加key
+			var key = $("form#geetestForm input[name='geetest.key']").val();
+			if(!key){
+				$("span.alertMsg").text("请先录入KEY");
+				$("div.error,div.alert").show();
+				$("form#geetestForm input[name='geetest.key']").focus();
+				return;
+			}
+			//校验是否添加权重
+			var weight = $("form#geetestForm input[name='geetest.weight']").val();
+			if(!weight){
+				$("span.alertMsg").text("请先录入权重");
+				$("div.error,div.alert").show();
+				$("form#geetestForm input[name='geetest.weight']").focus();
+				return;
+			}
+			//权重是否为正整数
+			var reg = new RegExp(regexp.constants.integer);
+			if(!reg.test(weight)){
+				$("span.alertMsg").text("权重必须为正整数");
+				$("div.error,div.alert").show();
+				$("form#geetestForm input[name='geetest.weight']").focus();
+				return;
+			}
+			
+			$("div.error,div.alert").hide();
+			
+			$.post("/init/wizard/addGeetest",$("form#geetestForm").serialize(),function(data){
+				//上传失败提示原因
+				if(data && data.errorMessage){
+					$("span.alertMsg").text("添加Geetest配置失败：" + data.errorMessage);
+					$("div.error,div.alert").show();
+				}else{
+					if(data){
+						$("span.successMsg").text("添加Geetest配置成功");
+						$("div.success,div.alert").show();
+						
+						//上传成功提示上传成功并刷新插件列表
+						document.getElementById("geetestForm").reset();
+						
+						//重新加载插件
+						$('#geetestTable').bootstrapTable('refresh', {silent: true});
+					}else{
+						$("span.alertMsg").text("添加Geetest配置失败");
+						$("div.error,div.alert").show();
+					}
+				}
+			});
+		});
+	});
+	
+function valid(){ return true; }
+function save(){}
+</script>
+</html>

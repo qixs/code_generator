@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace=".ITestDAO">
+	<resultMap type="test" id="testMap">
+		<id column="integer" property="integer" jdbcType="INTEGER"/><!--  -->
+		<result column="text" property="text" jdbcType="VARCHAR"/><!--  -->
+	</resultMap>
+
+    <!-- 新增 -->
+    <insert id="insert" parameterType="test"  useGeneratedKeys="true" keyProperty="integer">
+    <![CDATA[
+        INSERT INTO test (text) 
+		VALUES (#{text,jdbcType=VARCHAR}) 
+    ]]>
+    </insert>
+    <!-- 批量新增 -->
+    <insert id="batchInsert" parameterType="java.util.List" useGeneratedKeys="false">
+        INSERT INTO test (text)  values
+		<foreach collection="list" item="item" index="index" separator="," >
+            (
+			#{item.text,jdbcType=VARCHAR}			)
+        </foreach>
+    </insert>
+    <!-- 更新 -->
+    <update id="update" parameterType="test">
+    <![CDATA[
+	    UPDATE test SET text = #{text,jdbcType=VARCHAR} WHERE integer = #{integer,jdbcType=INTEGER} 
+    ]]>
+    </update>
+    <!-- 批量更新 -->
+    <update id="batchUpdate" parameterType="java.util.List">
+        update test
+        <trim prefix="set" suffixOverrides=",">
+            <trim prefix="text = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.text != null">
+                        when test.integer = #{item.integer} then #{item.text,jdbcType=VARCHAR}
+                    </if>
+                </foreach>
+            </trim>
+        </trim>
+        where integer in
+        <foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+        	#{item.integer,jdbcType=INTEGER}
+        </foreach>
+    </update>
+    <!-- 删除 -->
+    <delete id="deleteById" parameterType="java.lang.Integer">
+    <![CDATA[
+        delete from test where integer = #{integer,jdbcType=INTEGER}
+    ]]>
+    </delete>
+    <!-- 根据对象删除 -->
+    <delete id="delete" parameterType="test">
+        delete from test
+        <include refid="whereCondition"/>
+    </delete>
+    <!-- 根据id查询 -->
+    <select id="findById" parameterType="java.lang.Integer" resultMap="testMap" >
+    <![CDATA[
+	    SELECT 
+			test.integer, 
+			test.text
+		FROM test
+        where test.integer = #{integer,jdbcType=INTEGER}
+    ]]>
+    </select>
+    <!-- 根据对象查询 -->
+    <select id="find" parameterType="test" resultMap="testMap" >
+    <![CDATA[
+	    SELECT 
+			test.integer, 
+			test.text
+		FROM test
+    ]]>
+        <include refid="whereCondition"/>
+    </select>
+    <!-- 根据对象查询对象列表 -->
+    <select id="findList" parameterType="map" resultMap="testMap" >
+    <![CDATA[
+	    SELECT 
+			test.integer, 
+			test.text
+		FROM test
+    ]]>
+        <include refid="whereCondition"/>
+    </select>
+    <!-- 根据对象查询对象列表总数 -->
+    <select id="findCount" parameterType="test" resultType="long">
+    <![CDATA[
+        select count(*) from test
+    ]]>
+        <include refid="whereCondition"/>
+    </select>
+
+    <!-- 公用的where条件 -->
+    <sql id="whereCondition">
+        <where>
+             <if test="integer != null">
+             <![CDATA[
+                 AND test.integer = #{integer,jdbcType=INTEGER}
+             ]]>
+             </if>
+             <if test="text != null and text != ''">
+             <![CDATA[
+                 AND test.text = #{text,jdbcType=VARCHAR}
+             ]]>
+             </if>
+        </where>
+    </sql>
+</mapper>

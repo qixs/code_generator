@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta http-equiv="Expires" content="0" />
+
+<meta name="_csrf" th:content="${_csrf.token}" />
+<meta name="_csrf_header" th:content="${_csrf.headerName}" />
+
+<link rel="stylesheet" media="screen" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+
+<title>代码生成器</title>
+
+</head>
+<body>
+	<div class="error" style="padding: 10px;height: auto;display: none;">
+		<div class="alert alert-warning" >
+            <a href="#" class="close" data-dismiss="alert">
+		        &times;
+		    </a>
+			<strong>错误！</strong>请先勾选“我已经仔细阅读，并同意上述条款中的所有内容”。
+        </div>
+	</div>
+	<div class="content" style="height: calc(100vh - 53px);overflow: hidden;border: 1px solid #dfdfdf;">
+		<form style="word-break: break-all;height: 100%;overflow: hidden;">
+			<input name="_csrf" type="hidden" th:value="${_csrf.token}" />
+			<input name="_csrf_header" type="hidden" th:value="${_csrf.headerName}" />
+			<div class="license" style="height: 100%;overflow-y: auto;padding: 10px;" th:text="${license}">
+				
+			</div>
+		</form>
+	</div>
+	<div style="margin-top: 8px;margin-left: 10px;">
+		<label>
+			<span>
+				<input type="checkbox" name="agree">
+			</span>
+			<span style="font: 12px tahoma, Arial, Verdana, sans-serif;color: #666666;">我已经仔细阅读，并同意上述条款中的所有内容</span>
+		</label>
+	</div>
+	
+</body>
+
+<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+<script type="text/javascript">
+function save(){}
+
+function valid(){
+	var agree = $("input[name='agree']");
+	
+	if(!agree.is(":checked")){
+		if($(".error").is(":hidden")){
+			$(".error").show();
+			//重新计算协议内容div高度
+			var height = $(".content").height();
+			var errorHeight = $(".error").height();
+		
+			$(".content").height(height - errorHeight - 20);
+		}
+		return false;
+	}
+	return true;
+}
+
+$(document).ready(function(){
+	
+	$("a.close").click(function(){
+		$(".error").hide();
+		var height = $(".content").height();
+		var errorHeight = $(".error").height();
+		
+		//重新计算协议内容div高度
+		$(".content").height(height + errorHeight + 20);
+	});
+
+	$("div.license").html($("div.license").text());
+	$("div.license a").each(function () {
+		var href = $(this).attr("href");
+		$(this).click(function(){
+			window.top.open(href);
+		});
+		$(this).attr("href", "javascript:void(0)")
+	});
+});
+</script>
+</html>

@@ -1,0 +1,11 @@
+plugin:
+  groupName: mybatisPlusLombok
+  name: controller
+  description: controller生成插件
+  generator: com.qxs.plugin.generator.mybatis.plus.lombok.service.controller.MybatisPlusLombokControllerGenerator
+  templatePath: template.ftl
+  fileRelativeDir: mybatisPlusLombok/controller
+  fileSuffix: .java
+  prefix:
+  suffix: Controller
+  dependencies: entity,serviceInterface #依赖的插件,以英文逗号(,)分割

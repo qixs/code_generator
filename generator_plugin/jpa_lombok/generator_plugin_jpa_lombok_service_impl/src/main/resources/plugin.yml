@@ -1,0 +1,11 @@
+plugin:
+  groupName: jpaLombok
+  name: serviceImpl
+  description: serviceImpl生成插件
+  generator: com.qxs.plugin.generator.jpa.lombok.service.impl.JpaLombokServiceImplGenerator
+  templatePath: template.ftl
+  fileRelativeDir: jpaLombok/service/impl
+  fileSuffix: .java
+  prefix:
+  suffix: ServiceImpl
+  dependencies: entity,repository,serviceInterface #依赖的插件,以英文逗号(,)分割

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta http-equiv="Expires" content="0" />
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+
+<title>代码生成器</title>
+
+<style type="text/css">
+	body{
+		position:absolute;
+		width:100%;
+		height:100%;
+		margin: 0;
+		padding: 0;
+	}
+	.contioner{
+		text-align: center;
+		margin-top: calc(50vh - 200px);
+	}
+	form{
+		margin: 0 auto;
+    	max-width: 330px;
+    	padding: 15px;
+	}
+	form > div{
+		margin: 0 0 10px;
+	}
+	
+	.captcha{
+        width: 300px;
+        display: inline-block;
+    }
+        
+    .notice{
+        color: red;
+    }
+    .wait{
+        text-align: left;
+        color: #666;
+        margin: 0;
+    }
+    .show {
+    	display: block;
+    }
+    .hide {
+        display: none;
+    }
+</style>
+</head>
+<body>
+	<div class="contioner">
+		<div class="h2">代码生成器</div>
+		<form name="login" class="form-signin" th:action="@{/forgetPassword/sendMail}" method="post">
+			<input name="_csrf" type="hidden" th:value="${_csrf.token}" />
+			<input name="_csrf_header" type="hidden" th:value="${_csrf.headerName}" />
+			
+			<div><input class="form-control" name="username" value="" placeholder="用户名(邮箱)" maxlength="200"/></div>
+			<div>
+				<div>
+			        <div class="captcha">
+			            <p class="wait show" >正在加载验证码......</p>
+			        </div>
+			    </div>
+			</div>
+			
+			<div><p class="notice hide">请先完成验证</p></div>
+			
+			<div style="color: red;" th:if="${session.errorMessage}" th:text="${session.errorMessage}"></div>
+			
+			<input type="button" class="btn btn-primary submit" value="提交"/>
+		</form>
+	</div>
+</body>
+
+<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/plugins/geetest/geetest.js}"></script>
+<script type="text/javascript" th:src="@{/scripts/forgetPassword/index.js}"></script>
+</html>

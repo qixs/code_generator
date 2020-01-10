@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta http-equiv="Expires" content="0" />
+
+<title>代码生成器</title>
+
+<style type="text/css">
+html,body{
+	margin:0px;
+	padding:0px;
+	height: 100%;
+}
+</style>
+</head>
+<body style="overflow: hidden;">
+	<div style="border: 1px solid #ccc;height: 100%;overflow-y: auto;">
+		<input type="hidden" name="userCustomPluginTemp.userPluginId" th:value="${userCustomPluginTemp.userPluginId}"/>
+		<input type="hidden" name="userCustomPluginTemp.generatorSourceContent" th:value="${userCustomPluginTemp.generatorSourceContent}"/>
+		<input type="hidden" name="userCustomPluginTemp.templateContent" th:value="${userCustomPluginTemp.templateContent}"/>
+		<input type="hidden" name="userCustomPluginTemp.custom" th:value="${userCustomPluginTemp.custom}"/>
+		<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;">
+			<label class="col-sm-3 control-label" style="text-align: right;" title="插件组名">插件组名：</label>
+			<div class="col-sm-9">
+				<input type="text" name="userCustomPluginTemp.groupName" class="form-control" th:value="${userCustomPluginTemp.groupName}" maxlength="255" title="插件组名" placeholder="插件组名" th:readonly="${userCustomPluginTemp.custom == 0}" />
+				<span style="color: red;float: left;margin-left: 3px;">*</span>
+			</div>
+		</div>
+		<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;">
+			<label class="col-sm-3 control-label" style="text-align: right;" title="插件名">插件名：</label>
+			<div class="col-sm-9">
+				<input type="text" name="userCustomPluginTemp.name" class="form-control" th:value="${userCustomPluginTemp.name}" maxlength="255" title="插件名" placeholder="插件名" th:readonly="${userCustomPluginTemp.custom == 0}" />
+				<span style="color: red;float: left;margin-left: 3px;">*</span>
+			</div>
+		</div>
+		<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;">
+			<label class="col-sm-3 control-label" style="text-align: right;" title="插件描述">插件描述：</label>
+			<div class="col-sm-9">
+				<input type="text" name="userCustomPluginTemp.description" class="form-control" th:value="${userCustomPluginTemp.description}" maxlength="255" title="插件描述" placeholder="插件描述"/>
+				<span style="color: red;float: left;margin-left: 3px;">*</span>
+			</div>
+		</div>
+		<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;">
+			<label class="col-sm-3 control-label" style="text-align: right;" title="生成器全路径">生成器全路径：</label>
+			<div class="col-sm-9">
+				<input type="text" name="userCustomPluginTemp.generator" class="form-control" th:value="${userCustomPluginTemp.generator}" maxlength="255" title="生成器全路径" placeholder="生成器全路径" th:readonly="${userCustomPluginTemp.custom == 0}"/>
+				<span style="color: red;float: left;margin-left: 3px;">*</span>
+			</div>
+		</div>
+		<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;">
+			<label class="col-sm-3 control-label" style="text-align: right;" title="依赖插件">依赖插件：</label>
+			<div class="col-sm-9">
+				<input type="text" name="userCustomPluginTemp.dependencies" class="form-control" th:value="${userCustomPluginTemp.dependencies}" maxlength="255" title="依赖插件" placeholder="依赖插件,以英文逗号(,)分割" th:readonly="${userCustomPluginTemp.custom == 0}"/>
+			</div>
+		</div>
+		<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;">
+			<label class="col-sm-3 control-label" style="text-align: right;" title="生成的代码在zip文件中的相对目录(不包括生成的文件名)">代码相对目录：</label>
+			<div class="col-sm-9">
+				<input type="text" name="userCustomPluginTemp.fileRelativeDir" class="form-control" th:value="${userCustomPluginTemp.fileRelativeDir}" maxlength="255" title="生成的代码在zip文件中的相对目录(不包括生成的文件名)" placeholder="生成的代码在zip文件中的相对目录(不包括生成的文件名)"/>
+				<span style="color: red;float: left;margin-left: 3px;">*</span>
+			</div>
+		</div>
+		<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;">
+			<label class="col-sm-3 control-label" style="text-align: right;" title="生成的代码文件后缀名">代码文件后缀名：</label>
+			<div class="col-sm-9">
+				<input type="text" name="userCustomPluginTemp.fileSuffix" class="form-control" th:value="${userCustomPluginTemp.fileSuffix}" maxlength="255" title="生成的代码文件后缀名" placeholder="生成的代码文件后缀名"/>
+			</div>
+		</div>
+		<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;">
+			<label class="col-sm-3 control-label" style="text-align: right;" title="类和文件名前缀">类和文件名前缀：</label>
+			<div class="col-sm-9">
+				<input type="text" name="userCustomPluginTemp.prefix" class="form-control" th:value="${userCustomPluginTemp.prefix}" maxlength="255" title="类和文件名前缀" placeholder="类和文件名前缀"/>
+			</div>
+		</div>
+		<div class="form-group" style="margin-top: 10px;margin-bottom: 10px;height: 34px;line-height: 34px;">
+			<label class="col-sm-3 control-label" style="text-align: right;" title="类和文件名后缀">类和文件名后缀：</label>
+			<div class="col-sm-9">
+				<input type="text" name="userCustomPluginTemp.suffix" class="form-control" th:value="${userCustomPluginTemp.suffix}" maxlength="255" title="类和文件名后缀" placeholder="类和文件名后缀"/>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

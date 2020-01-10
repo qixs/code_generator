@@ -1,0 +1,817 @@
+
+import java.io.Serializable;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import java.math.BigDecimal;
+import java.sql.Time;
+import java.util.Date;
+import org.springframework.format.annotation.DateTimeFormat;
+
+/**
+ * t_t2_test实体类
+ *
+ * @Description 
+ * @author qixingshen
+ * @date 2018-04-03 01:58:28
+ * @version 1.0
+ */
+public class Test implements Serializable {
+	private static final long serialVersionUID = -6131576520471516708L;
+	
+	/**
+	 * bigint 主键 自增 非空 注释  (数据库字段名:cBigintColumn) 
+	 */
+	private Long bigintColumn;
+	
+	/**
+	 * binary 非空  (数据库字段名:c_binary_column) 
+	 */
+	private byte[] binaryColumn;
+	
+	/**
+	 * bit  (数据库字段名:c_bit_column) 
+	 */
+	private Boolean bitColumn;
+	
+	/**
+	 * blob  (数据库字段名:c_blob_column) 
+	 */
+	private byte[] blobColumn;
+	
+	/**
+	 * bool  (数据库字段名:c_bool_column) 
+	 */
+	private Integer boolColumn;
+	
+	/**
+	 * boolean  (数据库字段名:c_boolean_column) 
+	 */
+	private Integer booleanColumn;
+	
+	/**
+	 * char  (数据库字段名:c_char_column) 
+	 */
+	private String charColumn;
+	
+	/**
+	 * date  (数据库字段名:c_date_column) 
+	 */
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	private Date dateColumn;
+	
+	/**
+	 * datetime  (数据库字段名:c_datetime_column) 
+	 */
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	private Date datetimeColumn;
+	
+	/**
+	 * decimal 默认值1  (数据库字段名:c_decimal_column) (默认值:1)  
+	 */
+	private BigDecimal decimalColumn;
+	
+	/**
+	 * double  (数据库字段名:c_double_column) 
+	 */
+	private Double doubleColumn;
+	
+	/**
+	 * enum  (数据库字段名:c_enum_column) 
+	 */
+	private String enumColumn;
+	
+	/**
+	 * float  (数据库字段名:c_float_column) 
+	 */
+	private Float floatColumn;
+	
+	/**
+	 * int 默认值100  (数据库字段名:c_int_column) (默认值:100)  
+	 */
+	private Integer intColumn;
+	
+	/**
+	 * longblob  (数据库字段名:c_longblob_column) 
+	 */
+	private byte[] longblobColumn;
+	
+	/**
+	 * longtext  (数据库字段名:c_longtext_column) 
+	 */
+	private String longtextColumn;
+	
+	/**
+	 * mediumblob  (数据库字段名:c_mediumblob_column) 
+	 */
+	private byte[] mediumblobColumn;
+	
+	/**
+	 * mediumint  (数据库字段名:c_mediumint_column) 
+	 */
+	private Integer mediumintColumn;
+	
+	/**
+	 * mediumtext  (数据库字段名:c_mediumtext_column) 
+	 */
+	private String mediumtextColumn;
+	
+	/**
+	 * numeric  (数据库字段名:c_numeric_column) 
+	 */
+	private BigDecimal numericColumn;
+	
+	/**
+	 * real  (数据库字段名:c_real_column) 
+	 */
+	private Double realColumn;
+	
+	/**
+	 * set  (数据库字段名:c_set_column) 
+	 */
+	private String setColumn;
+	
+	/**
+	 * smallint  (数据库字段名:c_smallint_column) 
+	 */
+	private Integer smallintColumn;
+	
+	/**
+	 * text  (数据库字段名:c_text_column) 
+	 */
+	private String textColumn;
+	
+	/**
+	 * time  (数据库字段名:c_time_column) 
+	 */
+	private Time timeColumn;
+	
+	/**
+	 * timestamp 默认值:当前时间 注释  (数据库字段名:c_timestamp_column) (默认值:CURRENT_TIMESTAMP)  
+	 */
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	private Date timestampColumn;
+	
+	/**
+	 * tinyblob 注释  (数据库字段名:c_tinyblob_column) 
+	 */
+	private byte[] tinyblobColumn;
+	
+	/**
+	 * tinyint 注释  (数据库字段名:c_tinyint_column) 
+	 */
+	private Integer tinyintColumn;
+	
+	/**
+	 * tinytext 注释  (数据库字段名:c_tinytext_column) 
+	 */
+	private String tinytextColumn;
+	
+	/**
+	 * varbinary 注释  (数据库字段名:c_varbinary_column) 
+	 */
+	private byte[] varbinaryColumn;
+	
+	/**
+	 * varchar 注释  (数据库字段名:c_varchar_column) 
+	 */
+	private String varcharColumn;
+	
+	/**
+	 * year 注释  (数据库字段名:c_t2_year_column) 
+	 */
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	private Date yearColumn;
+	
+    
+    public Test(){}
+    
+    /***
+    * @param bigintColumn bigint 主键 自增 非空 注释
+    * @param binaryColumn binary 非空
+    * @param bitColumn bit
+    * @param blobColumn blob
+    * @param boolColumn bool
+    * @param booleanColumn boolean
+    * @param charColumn char
+    * @param dateColumn date
+    * @param datetimeColumn datetime
+    * @param decimalColumn decimal 默认值1
+    * @param doubleColumn double
+    * @param enumColumn enum
+    * @param floatColumn float
+    * @param intColumn int 默认值100
+    * @param longblobColumn longblob
+    * @param longtextColumn longtext
+    * @param mediumblobColumn mediumblob
+    * @param mediumintColumn mediumint
+    * @param mediumtextColumn mediumtext
+    * @param numericColumn numeric
+    * @param realColumn real
+    * @param setColumn set
+    * @param smallintColumn smallint
+    * @param textColumn text
+    * @param timeColumn time
+    * @param timestampColumn timestamp 默认值:当前时间 注释
+    * @param tinyblobColumn tinyblob 注释
+    * @param tinyintColumn tinyint 注释
+    * @param tinytextColumn tinytext 注释
+    * @param varbinaryColumn varbinary 注释
+    * @param varcharColumn varchar 注释
+    * @param yearColumn year 注释
+    **/
+    public Test(Long bigintColumn, byte[] binaryColumn, Boolean bitColumn, byte[] blobColumn, Integer boolColumn, Integer booleanColumn, String charColumn, Date dateColumn, Date datetimeColumn, BigDecimal decimalColumn, Double doubleColumn, String enumColumn, Float floatColumn, Integer intColumn, byte[] longblobColumn, String longtextColumn, byte[] mediumblobColumn, Integer mediumintColumn, String mediumtextColumn, BigDecimal numericColumn, Double realColumn, String setColumn, Integer smallintColumn, String textColumn, Time timeColumn, Date timestampColumn, byte[] tinyblobColumn, Integer tinyintColumn, String tinytextColumn, byte[] varbinaryColumn, String varcharColumn, Date yearColumn){
+    	this.bigintColumn = bigintColumn;
+    	this.binaryColumn = binaryColumn;
+    	this.bitColumn = bitColumn;
+    	this.blobColumn = blobColumn;
+    	this.boolColumn = boolColumn;
+    	this.booleanColumn = booleanColumn;
+    	this.charColumn = charColumn;
+    	this.dateColumn = dateColumn;
+    	this.datetimeColumn = datetimeColumn;
+    	this.decimalColumn = decimalColumn;
+    	this.doubleColumn = doubleColumn;
+    	this.enumColumn = enumColumn;
+    	this.floatColumn = floatColumn;
+    	this.intColumn = intColumn;
+    	this.longblobColumn = longblobColumn;
+    	this.longtextColumn = longtextColumn;
+    	this.mediumblobColumn = mediumblobColumn;
+    	this.mediumintColumn = mediumintColumn;
+    	this.mediumtextColumn = mediumtextColumn;
+    	this.numericColumn = numericColumn;
+    	this.realColumn = realColumn;
+    	this.setColumn = setColumn;
+    	this.smallintColumn = smallintColumn;
+    	this.textColumn = textColumn;
+    	this.timeColumn = timeColumn;
+    	this.timestampColumn = timestampColumn;
+    	this.tinyblobColumn = tinyblobColumn;
+    	this.tinyintColumn = tinyintColumn;
+    	this.tinytextColumn = tinytextColumn;
+    	this.varbinaryColumn = varbinaryColumn;
+    	this.varcharColumn = varcharColumn;
+    	this.yearColumn = yearColumn;
+    }
+    
+	/**
+	 * @param bigintColumn bigint 主键 自增 非空 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setBigintColumn(Long bigintColumn){
+    	this.bigintColumn = bigintColumn;
+    	return this;
+    }
+    
+	/**
+	 * @return Long bigint 主键 自增 非空 注释
+	 */
+    public Long getBigintColumn(){
+    	return bigintColumn;
+    }
+    
+	/**
+	 * @param binaryColumn binary 非空
+	 * 
+	 * returnTest
+	 */
+    public Test setBinaryColumn(byte[] binaryColumn){
+    	this.binaryColumn = binaryColumn;
+    	return this;
+    }
+    
+	/**
+	 * @return byte[] binary 非空
+	 */
+    public byte[] getBinaryColumn(){
+    	return binaryColumn;
+    }
+    
+	/**
+	 * @param bitColumn bit
+	 * 
+	 * returnTest
+	 */
+    public Test setBitColumn(Boolean bitColumn){
+    	this.bitColumn = bitColumn;
+    	return this;
+    }
+    
+	/**
+	 * @return Boolean bit
+	 */
+    public Boolean getBitColumn(){
+    	return bitColumn;
+    }
+    
+	/**
+	 * @param blobColumn blob
+	 * 
+	 * returnTest
+	 */
+    public Test setBlobColumn(byte[] blobColumn){
+    	this.blobColumn = blobColumn;
+    	return this;
+    }
+    
+	/**
+	 * @return byte[] blob
+	 */
+    public byte[] getBlobColumn(){
+    	return blobColumn;
+    }
+    
+	/**
+	 * @param boolColumn bool
+	 * 
+	 * returnTest
+	 */
+    public Test setBoolColumn(Integer boolColumn){
+    	this.boolColumn = boolColumn;
+    	return this;
+    }
+    
+	/**
+	 * @return Integer bool
+	 */
+    public Integer getBoolColumn(){
+    	return boolColumn;
+    }
+    
+	/**
+	 * @param booleanColumn boolean
+	 * 
+	 * returnTest
+	 */
+    public Test setBooleanColumn(Integer booleanColumn){
+    	this.booleanColumn = booleanColumn;
+    	return this;
+    }
+    
+	/**
+	 * @return Integer boolean
+	 */
+    public Integer getBooleanColumn(){
+    	return booleanColumn;
+    }
+    
+	/**
+	 * @param charColumn char
+	 * 
+	 * returnTest
+	 */
+    public Test setCharColumn(String charColumn){
+    	this.charColumn = charColumn;
+    	return this;
+    }
+    
+	/**
+	 * @return String char
+	 */
+    public String getCharColumn(){
+    	return charColumn;
+    }
+    
+	/**
+	 * @param dateColumn date
+	 * 
+	 * returnTest
+	 */
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    public Test setDateColumn(Date dateColumn){
+    	this.dateColumn = dateColumn;
+    	return this;
+    }
+    
+	/**
+	 * @return Date date
+	 */
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    public Date getDateColumn(){
+    	return dateColumn;
+    }
+    
+	/**
+	 * @param datetimeColumn datetime
+	 * 
+	 * returnTest
+	 */
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    public Test setDatetimeColumn(Date datetimeColumn){
+    	this.datetimeColumn = datetimeColumn;
+    	return this;
+    }
+    
+	/**
+	 * @return Date datetime
+	 */
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    public Date getDatetimeColumn(){
+    	return datetimeColumn;
+    }
+    
+	/**
+	 * @param decimalColumn decimal 默认值1
+	 * 
+	 * returnTest
+	 */
+    public Test setDecimalColumn(BigDecimal decimalColumn){
+    	this.decimalColumn = decimalColumn;
+    	return this;
+    }
+    
+	/**
+	 * @return BigDecimal decimal 默认值1
+	 */
+    public BigDecimal getDecimalColumn(){
+    	return decimalColumn;
+    }
+    
+	/**
+	 * @param doubleColumn double
+	 * 
+	 * returnTest
+	 */
+    public Test setDoubleColumn(Double doubleColumn){
+    	this.doubleColumn = doubleColumn;
+    	return this;
+    }
+    
+	/**
+	 * @return Double double
+	 */
+    public Double getDoubleColumn(){
+    	return doubleColumn;
+    }
+    
+	/**
+	 * @param enumColumn enum
+	 * 
+	 * returnTest
+	 */
+    public Test setEnumColumn(String enumColumn){
+    	this.enumColumn = enumColumn;
+    	return this;
+    }
+    
+	/**
+	 * @return String enum
+	 */
+    public String getEnumColumn(){
+    	return enumColumn;
+    }
+    
+	/**
+	 * @param floatColumn float
+	 * 
+	 * returnTest
+	 */
+    public Test setFloatColumn(Float floatColumn){
+    	this.floatColumn = floatColumn;
+    	return this;
+    }
+    
+	/**
+	 * @return Float float
+	 */
+    public Float getFloatColumn(){
+    	return floatColumn;
+    }
+    
+	/**
+	 * @param intColumn int 默认值100
+	 * 
+	 * returnTest
+	 */
+    public Test setIntColumn(Integer intColumn){
+    	this.intColumn = intColumn;
+    	return this;
+    }
+    
+	/**
+	 * @return Integer int 默认值100
+	 */
+    public Integer getIntColumn(){
+    	return intColumn;
+    }
+    
+	/**
+	 * @param longblobColumn longblob
+	 * 
+	 * returnTest
+	 */
+    public Test setLongblobColumn(byte[] longblobColumn){
+    	this.longblobColumn = longblobColumn;
+    	return this;
+    }
+    
+	/**
+	 * @return byte[] longblob
+	 */
+    public byte[] getLongblobColumn(){
+    	return longblobColumn;
+    }
+    
+	/**
+	 * @param longtextColumn longtext
+	 * 
+	 * returnTest
+	 */
+    public Test setLongtextColumn(String longtextColumn){
+    	this.longtextColumn = longtextColumn;
+    	return this;
+    }
+    
+	/**
+	 * @return String longtext
+	 */
+    public String getLongtextColumn(){
+    	return longtextColumn;
+    }
+    
+	/**
+	 * @param mediumblobColumn mediumblob
+	 * 
+	 * returnTest
+	 */
+    public Test setMediumblobColumn(byte[] mediumblobColumn){
+    	this.mediumblobColumn = mediumblobColumn;
+    	return this;
+    }
+    
+	/**
+	 * @return byte[] mediumblob
+	 */
+    public byte[] getMediumblobColumn(){
+    	return mediumblobColumn;
+    }
+    
+	/**
+	 * @param mediumintColumn mediumint
+	 * 
+	 * returnTest
+	 */
+    public Test setMediumintColumn(Integer mediumintColumn){
+    	this.mediumintColumn = mediumintColumn;
+    	return this;
+    }
+    
+	/**
+	 * @return Integer mediumint
+	 */
+    public Integer getMediumintColumn(){
+    	return mediumintColumn;
+    }
+    
+	/**
+	 * @param mediumtextColumn mediumtext
+	 * 
+	 * returnTest
+	 */
+    public Test setMediumtextColumn(String mediumtextColumn){
+    	this.mediumtextColumn = mediumtextColumn;
+    	return this;
+    }
+    
+	/**
+	 * @return String mediumtext
+	 */
+    public String getMediumtextColumn(){
+    	return mediumtextColumn;
+    }
+    
+	/**
+	 * @param numericColumn numeric
+	 * 
+	 * returnTest
+	 */
+    public Test setNumericColumn(BigDecimal numericColumn){
+    	this.numericColumn = numericColumn;
+    	return this;
+    }
+    
+	/**
+	 * @return BigDecimal numeric
+	 */
+    public BigDecimal getNumericColumn(){
+    	return numericColumn;
+    }
+    
+	/**
+	 * @param realColumn real
+	 * 
+	 * returnTest
+	 */
+    public Test setRealColumn(Double realColumn){
+    	this.realColumn = realColumn;
+    	return this;
+    }
+    
+	/**
+	 * @return Double real
+	 */
+    public Double getRealColumn(){
+    	return realColumn;
+    }
+    
+	/**
+	 * @param setColumn set
+	 * 
+	 * returnTest
+	 */
+    public Test setSetColumn(String setColumn){
+    	this.setColumn = setColumn;
+    	return this;
+    }
+    
+	/**
+	 * @return String set
+	 */
+    public String getSetColumn(){
+    	return setColumn;
+    }
+    
+	/**
+	 * @param smallintColumn smallint
+	 * 
+	 * returnTest
+	 */
+    public Test setSmallintColumn(Integer smallintColumn){
+    	this.smallintColumn = smallintColumn;
+    	return this;
+    }
+    
+	/**
+	 * @return Integer smallint
+	 */
+    public Integer getSmallintColumn(){
+    	return smallintColumn;
+    }
+    
+	/**
+	 * @param textColumn text
+	 * 
+	 * returnTest
+	 */
+    public Test setTextColumn(String textColumn){
+    	this.textColumn = textColumn;
+    	return this;
+    }
+    
+	/**
+	 * @return String text
+	 */
+    public String getTextColumn(){
+    	return textColumn;
+    }
+    
+	/**
+	 * @param timeColumn time
+	 * 
+	 * returnTest
+	 */
+    public Test setTimeColumn(Time timeColumn){
+    	this.timeColumn = timeColumn;
+    	return this;
+    }
+    
+	/**
+	 * @return Time time
+	 */
+    public Time getTimeColumn(){
+    	return timeColumn;
+    }
+    
+	/**
+	 * @param timestampColumn timestamp 默认值:当前时间 注释
+	 * 
+	 * returnTest
+	 */
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    public Test setTimestampColumn(Date timestampColumn){
+    	this.timestampColumn = timestampColumn;
+    	return this;
+    }
+    
+	/**
+	 * @return Date timestamp 默认值:当前时间 注释
+	 */
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    public Date getTimestampColumn(){
+    	return timestampColumn;
+    }
+    
+	/**
+	 * @param tinyblobColumn tinyblob 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setTinyblobColumn(byte[] tinyblobColumn){
+    	this.tinyblobColumn = tinyblobColumn;
+    	return this;
+    }
+    
+	/**
+	 * @return byte[] tinyblob 注释
+	 */
+    public byte[] getTinyblobColumn(){
+    	return tinyblobColumn;
+    }
+    
+	/**
+	 * @param tinyintColumn tinyint 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setTinyintColumn(Integer tinyintColumn){
+    	this.tinyintColumn = tinyintColumn;
+    	return this;
+    }
+    
+	/**
+	 * @return Integer tinyint 注释
+	 */
+    public Integer getTinyintColumn(){
+    	return tinyintColumn;
+    }
+    
+	/**
+	 * @param tinytextColumn tinytext 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setTinytextColumn(String tinytextColumn){
+    	this.tinytextColumn = tinytextColumn;
+    	return this;
+    }
+    
+	/**
+	 * @return String tinytext 注释
+	 */
+    public String getTinytextColumn(){
+    	return tinytextColumn;
+    }
+    
+	/**
+	 * @param varbinaryColumn varbinary 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setVarbinaryColumn(byte[] varbinaryColumn){
+    	this.varbinaryColumn = varbinaryColumn;
+    	return this;
+    }
+    
+	/**
+	 * @return byte[] varbinary 注释
+	 */
+    public byte[] getVarbinaryColumn(){
+    	return varbinaryColumn;
+    }
+    
+	/**
+	 * @param varcharColumn varchar 注释
+	 * 
+	 * returnTest
+	 */
+    public Test setVarcharColumn(String varcharColumn){
+    	this.varcharColumn = varcharColumn;
+    	return this;
+    }
+    
+	/**
+	 * @return String varchar 注释
+	 */
+    public String getVarcharColumn(){
+    	return varcharColumn;
+    }
+    
+	/**
+	 * @param yearColumn year 注释
+	 * 
+	 * returnTest
+	 */
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    public Test setYearColumn(Date yearColumn){
+    	this.yearColumn = yearColumn;
+    	return this;
+    }
+    
+	/**
+	 * @return Date year 注释
+	 */
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    public Date getYearColumn(){
+    	return yearColumn;
+    }
+    
+    @Override
+	public String toString() {
+		return String.format("Test={bigintColumn = %s, binaryColumn = %s, bitColumn = %s, blobColumn = %s, boolColumn = %s, booleanColumn = %s, charColumn = %s, dateColumn = %s, datetimeColumn = %s, decimalColumn = %s, doubleColumn = %s, enumColumn = %s, floatColumn = %s, intColumn = %s, longblobColumn = %s, longtextColumn = %s, mediumblobColumn = %s, mediumintColumn = %s, mediumtextColumn = %s, numericColumn = %s, realColumn = %s, setColumn = %s, smallintColumn = %s, textColumn = %s, timeColumn = %s, timestampColumn = %s, tinyblobColumn = %s, tinyintColumn = %s, tinytextColumn = %s, varbinaryColumn = %s, varcharColumn = %s, yearColumn = %s}", bigintColumn, binaryColumn, bitColumn, blobColumn, boolColumn, booleanColumn, charColumn, dateColumn, datetimeColumn, decimalColumn, doubleColumn, enumColumn, floatColumn, intColumn, longblobColumn, longtextColumn, mediumblobColumn, mediumintColumn, mediumtextColumn, numericColumn, realColumn, setColumn, smallintColumn, textColumn, timeColumn, timestampColumn, tinyblobColumn, tinyintColumn, tinytextColumn, varbinaryColumn, varcharColumn, yearColumn);
+	}
+}

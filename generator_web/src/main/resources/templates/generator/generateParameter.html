@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta http-equiv="Expires" content="0" />
+
+<link rel="stylesheet" th:href="@{/webjars/bootstrap-table/dist/bootstrap-table.min.css}"/>
+
+<title>代码生成器</title>
+
+</head>
+<body>
+	<input name="generateParameter.id" type="hidden" th:value="${generateParameter?.id}"/>
+	<input id="tableNames" type="hidden" th:value="${generateParameter?.tableNames}"/>
+	<input id="pluginNames" type="hidden" th:value="${generateParameter?.pluginNames}"/>
+	<div style="padding: 10px;">
+		<div style="float: left;width: 370px;">
+			<div class="col-sm-15" style="margin-bottom: 3px;">
+				<input name="generateParameter.removePrefixs" class="form-control" th:value="${generateParameter?.removePrefixs}" maxlength="10000" placeholder="要移除的前缀,多个以英文逗号(,)分隔"/>
+			</div>
+			<table id="pluginTable"></table>
+		</div>
+		<div style="float: left;width: 451px;margin-left: 10px;" class="selectTableNameTable">
+			<table id="selectTableNameTable"></table>
+		</div>
+	</div>
+</body>
+
+<script type="text/javascript" th:src="@{/scripts/generator/generateParameter.js}"></script>
+</html>

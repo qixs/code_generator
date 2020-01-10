@@ -1,0 +1,11 @@
+plugin:
+  groupName: jpa
+  name: controller
+  description: controller生成插件
+  generator: com.qxs.plugin.generator.jpa.service.controller.JpaControllerGenerator
+  templatePath: template.ftl
+  fileRelativeDir: jpa/controller
+  fileSuffix: .java
+  prefix:
+  suffix: Controller
+  dependencies: entity,serviceInterface #依赖的插件,以英文逗号(,)分割

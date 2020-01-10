@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta http-equiv="Expires" content="0" />
+
+<meta name="_csrf" th:content="${_csrf.token}" />
+<meta name="_csrf_header" th:content="${_csrf.headerName}" />
+
+<link rel="stylesheet" media="screen" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+
+<style type="text/css">
+body{
+	position:absolute;
+	width:100%;
+	height:100%;
+	margin: 0;
+	padding: 0;
+	font: 12px tahoma, Arial, Verdana, sans-serif;
+	color: #666666;
+}
+.buttonMouseOut{
+	width: 125px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    background: url(../../../images/install.png) -4px -3px no-repeat;
+    font: 12px tahoma, Arial, Verdana, sans-serif;
+	color: #666666;
+}
+
+.buttonMouseOver{
+	width: 125px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    background: url(../../../images/install.png) -4px -64px no-repeat;
+    font: 12px tahoma, Arial, Verdana, sans-serif;
+	color: #666666;
+}
+.form div{
+	height: 40px;
+	line-height:40px;
+	vertical-align:middle;
+}
+.form span{
+	width: 100px;
+	height: 40px;
+	float: left;
+	display: inline-block;
+}
+.form span input{
+	height: 20px;
+	line-height:20px;
+}
+.form span.spanRight{
+	text-align: right;
+	padding-right: 3px;
+}
+.form span.notice{
+	color: red;
+	width: 10px;
+}
+</style>
+
+<title>代码生成器</title>
+
+</head>
+<body>
+	<div class="error" style="padding: 10px;height: auto;display: none;">
+		<div class="alert alert-warning" style="display: none;">
+            <a href="#" class="close" data-dismiss="alert">
+		        &times;
+		    </a>
+			<strong>错误！</strong><span class="alertMsg" style="display: inline;"></span>
+        </div>
+	</div>
+	<div class="success" style="padding: 10px;height: 72px;display: none;">
+        <div id="success" class="alert alert-success">
+		    <a href="#" class="close" data-dismiss="alert">&times;</a>
+		    <strong>提示！</strong><span class="successMsg" style="display: inline;"></span>
+		</div>
+	</div>
+	<div>
+		<form class="form" style="height: 160px;" >
+			<input name="_csrf" type="hidden" th:value="${_csrf.token}" />
+			<input name="_csrf_header" type="hidden" th:value="${_csrf.headerName}" />
+			<input name="email.id" type="hidden" th:value="${email.id}" />
+			
+			<div style="height: 160px;margin-top: 100px;margin-left: 60px;" >
+				<div>
+					<span class="spanRight">账号：</span>
+					<span style="width: 145px;"><input type="text" name="email.emailFrom" th:value="${email.emailFrom}" placeholder="请输入账号" maxlength="200"/></span>
+					<span class="notice">*</span>
+				</div>
+				<div>
+					<span class="spanRight">密码：</span>
+					<span style="width: 145px;"><input type="password" name="email.password" th:value="${email.password}" placeholder="请输入密码" maxlength="50"/></span>
+					<span class="notice">*</span>
+				</div>
+				<div>
+					<span class="spanRight">发件服务器：</span>
+					<span style="width: 145px;"><input type="text" name="email.host" th:value="${email.host}" placeholder="请输入发件服务器" maxlength="200"/></span>
+					<span class="notice">*</span>
+					<span style="width: 30px;margin-left: 20px;">SSL：</span>
+					<span style="width: 30px;padding-top: 6px;height: 34px;"><input type="checkbox" name="email.ssl" th:value="${email.ssl}"/></span>
+					<span style="width: 40px;">端口：</span>
+					<span style="width: 42px"><input type="text" style="width: 40px;" name="email.port" th:value="${email.port}" maxlength="6"/></span>
+					<span class="notice">*</span>
+				</div>
+				<div>
+					<input type="hidden" id="validMailConfig"/>
+					<span class="spanRight">测试账号：</span>
+					<span style="width: 145px;"><input type="text" name="testMail" placeholder="请输入测试邮箱" maxlength="200"/></span>
+					<span class="notice">*</span>
+					<span style="margin-left: 20px;"><button type="button" id="sendMail" class="buttonMouseOut" onmousemove="this.className='buttonMouseOver'"onmouseout="this.className='buttonMouseOut'">发送邮件</button></span>
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/plugins/regexp/regexp.js}"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("a.close").click(function(){
+		$(".error,.success").hide();
+	});
+	var ssl = $("input[type='checkbox'][name='email.ssl']");
+	if(ssl.val() == '0'){
+		ssl.attr("checked",false);
+	}else{
+		ssl.attr("checked",true);
+	}
+	
+	$("input[type='checkbox'][name='email.ssl']").change(function(){
+		var sslCheckBox = $(this);
+		if(sslCheckBox.is(":checked")){
+			sslCheckBox.val("1");
+			$("input[name='email.port']").val(465);
+		}else{
+			sslCheckBox.val("0");
+			$("input[name='email.port']").val(25);
+		}
+	});
+	
+	//发送邮件测试按钮
+	$("button#sendMail").click(function(){
+		if(!valid()){
+			return;
+		}
+		//校验邮箱地址是否为空
+		var testMail = $("input[name='testMail']").val();
+		if(!testMail){
+			$("span.alertMsg").text("测试账号不能为空");
+			$("div.error,div.alert").show();
+			$("input[name='testMail']").focus();
+			return;
+		}
+		var reg = new RegExp(regexp.constants.email);
+		if(!reg.test(testMail)){
+			$("span.alertMsg").text("测试账号必须为邮箱");
+			$("div.error,div.alert").show();
+			$("input[name='testMail']").focus();
+			return false;
+		}
+		
+		$(".error").hide();
+		
+		//发送测试邮件
+		$.post("/init/wizard/sendValidMail", $("form.form").serialize(),function(data){
+			if(data && data.errorMessage){
+				$("span.alertMsg").text(data.errorMessage);
+				$("div.error,div.alert").show();
+			}else{
+				$("input#validMailConfig").val(1);
+				$("div.success .successMsg").text("邮件发送成功，请到“" + testMail + "”邮箱查看邮件");
+				$("div.success").show();
+			}
+		});
+	});
+});
+
+//保存方法
+function save(){
+	if(!valid()){
+		return;
+	}
+	
+	//必须点击发送邮件按钮成功之后才能执行下一步
+	if(!$("input#validMailConfig").val()){
+		$("span.alertMsg").text("请先点击发送邮件按钮发送测试邮件");
+		$("div.error,div.alert").show();
+		throw "error";
+	}
+	
+	$(".error").hide();
+	
+	//采用同步保存方式
+	var d = null;
+	$.ajax({
+		url: "/init/wizard/mail",
+		type: "POST",
+		data: $("form.form").serialize(),
+		async: false,
+		cache: false,
+		success: function(data){
+			$("span.alertMsg").text(data);
+			$("div.error,div.alert").show();
+			d = data;
+		},
+		error: function(xhr, textStatus, error){
+			$("span.alertMsg").text(error);
+			$("div.error,div.alert").show();
+			d = error;
+		}
+	});
+	return d;
+}
+
+//校验方法
+function valid(){
+	//校验账号是否为空
+	var emailFrom = $("input[name='email.emailFrom']").val();
+	if(!emailFrom){
+		$("span.alertMsg").text("账号不能为空");
+		$("div.error,div.alert").show();
+		$("input[name='email.emailFrom']").focus();
+		return false;
+	}
+	//校验账号是否是邮箱
+	var reg = new RegExp(regexp.constants.email);
+	if(!reg.test(emailFrom)){
+		$("span.alertMsg").text("账号必须为邮箱");
+		$("div.error,div.alert").show();
+		$("input[name='email.emailFrom']").focus();
+		return false;
+	}
+	
+	//校验密码是否为空
+	var password = $("input[name='email.password']").val();
+	if(!password){
+		$("span.alertMsg").text("密码不能为空");
+		$("div.error,div.alert").show();
+		$("input[name='email.password']").focus();
+		return false;
+	}
+	
+	//校验发件服务器是否为空
+	var host = $("input[name='email.host']").val();
+	if(!host){
+		$("span.alertMsg").text("发件服务器不能为空");
+		$("div.error,div.alert").show();
+		$("input[name='email.host']").focus();
+		return false;
+	}
+	
+	//校验发件服务器端口是否为空
+	var port = $("input[name='email.port']").val();
+	if(!port){
+		$("span.alertMsg").text("发件服务器端口不能为空");
+		$("div.error,div.alert").show();
+		$("input[name='email.port']").focus();
+		return false;
+	}
+	
+	//检查发件服务器端口是否是数字
+	var reg = new RegExp(regexp.constants.integer);
+	if(!reg.test(port)){
+		$("span.alertMsg").text("发件服务器端口必须为数字");
+		$("div.error,div.alert").show();
+		$("input[name='email.port']").focus();
+		return false;
+	}
+	
+	//检查发件服务器端口是否超过限制(1至65535)
+	var port = parseInt(port);
+	if(port < 1 || port > 65535){
+		$("span.alertMsg").text("发件服务器端口必须在1至65535之间");
+		$("div.error,div.alert").show();
+		$("input[name='email.port']").focus();
+		return false;
+	}
+	
+	return true;
+}
+</script>
+</html>

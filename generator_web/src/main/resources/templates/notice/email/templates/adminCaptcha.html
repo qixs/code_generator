@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta http-equiv="Expires" content="0" />
+
+<title>代码生成器</title>
+
+</head>
+<body class="code_generator_mail">
+	<div style="background-color: #F0F2F4;padding: 40px 0;">
+		<div style="text-align: center;color: #2D8CFF;font-weight: 900;font-size: 24px;padding-bottom: 20px;">代码生成器</div>
+		<div style="width: 600px;margin: 0 auto;background: white;padding: 60px 40px 40px;">
+			<div>您好 <span encrypt:email="${to}"></span>，</div>
+			<div style="padding-top: 12px;">验证码：<span style="color:#090;" th:text="${captcha}"></span></div>
+			<div style="padding-top: 22px;">验证码有效时间：<span th:text="${validateMinutes}"></span>分钟</div>
+			<div style="padding-top: 12px;">请确认是您本人操作，如若不是请忽略！</div>
+			<div style="padding-top: 12px;">ip地址：<span th:text="${ip}"></span> <span th:if="${ipAddress}" th:text="'归属地：' + ${ipAddress}"></span></div>
+			<div style="padding-top: 12px;">要获取额外的帮助，请访问我们的支持中心 <a th:href="${helpUrl}" th:text="${helpUrl}"></a>。</div>
+			<div style="padding-top: 12px;">祝您使用代码生成器愉快！</div>
+		</div>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,667 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace=".ITestDAO">
+	<resultMap type="test" id="testMap">
+		<id column="c_bigint_col" property="bigintCol" jdbcType="BIGINT"/><!-- 注释 -->
+		<result column="c_binary_col" property="binaryCol" jdbcType="BINARY"/><!-- 注释 -->
+		<result column="c_bit_col" property="bitCol" jdbcType="BIT"/><!-- 注释 -->
+		<result column="c_char_col" property="charCol" jdbcType="CHAR"/><!-- 注释 -->
+		<result column="c_date_col" property="dateCol" jdbcType="DATE"/><!-- 注释 -->
+		<result column="c_datetime_col" property="datetimeCol" jdbcType="DATE"/><!-- 注释 -->
+		<result column="c_datetime2_col" property="datetime2Col" jdbcType="DATE"/><!-- 注释 -->
+		<result column="c_datetimeoffset_col" property="datetimeoffsetCol" jdbcType="DATE"/><!-- 注释 -->
+		<result column="c_decimal_col" property="decimalCol" jdbcType="NUMERIC"/><!-- 注释 -->
+		<result column="c_float_col" property="floatCol" jdbcType="NUMERIC"/><!-- 注释 -->
+		<result column="c_int_col" property="intCol" jdbcType="INTEGER"/><!-- 注释 -->
+		<result column="c_money_col" property="moneyCol" jdbcType="NUMERIC"/><!-- 注释 -->
+		<result column="c_nchar_col" property="ncharCol" jdbcType="VARCHAR"/><!-- 注释 -->
+		<result column="c_numeric_col" property="numericCol" jdbcType="NUMERIC"/><!-- 注释 -->
+		<result column="c_nvarchar_col" property="nvarcharCol" jdbcType="VARCHAR"/><!-- 注释 -->
+		<result column="c_nvarchar_max_col" property="nvarcharMaxCol" jdbcType="VARCHAR"/><!-- 注释 -->
+		<result column="c_real_col" property="realCol" jdbcType="REAL"/><!-- 注释 -->
+		<result column="c_smalldatetime_col" property="smalldatetimeCol" jdbcType="DATE"/><!-- 注释 -->
+		<result column="c_smallint_col" property="smallintCol" jdbcType="INTEGER"/><!-- 注释 -->
+		<result column="c_smallmoney_col" property="smallmoneyCol" jdbcType="NUMERIC"/><!-- 注释 -->
+		<result column="c_sysname_col" property="sysnameCol" jdbcType="VARCHAR"/><!-- 注释 -->
+		<result column="c_tinyint_col" property="tinyintCol" jdbcType="INTEGER"/><!-- 注释 -->
+		<result column="c_uniqueidentifier_col" property="uniqueidentifierCol"/><!-- 注释 -->
+		<result column="c_varbinary_col" property="varbinaryCol" jdbcType="VARBINARY"/><!-- 注释 -->
+		<result column="c_varbinary_max_col" property="varbinaryMaxCol" jdbcType="VARBINARY"/><!-- 注释 -->
+		<result column="c_varchar_col" property="varcharCol" jdbcType="VARCHAR"/><!-- 注释 -->
+		<result column="c_varchar_max" property="varcharMax" jdbcType="VARCHAR"/><!-- 注释 -->
+		<result column="c_xml_col" property="xmlCol" jdbcType="SQLXML"/><!-- 注释 -->
+	</resultMap>
+
+    <!-- 新增 -->
+    <insert id="insert" parameterType="test"  useGeneratedKeys="true" keyProperty="bigintCol">
+    <![CDATA[
+        INSERT INTO t_test (
+			c_binary_col,
+			c_bit_col,
+			c_char_col,
+			c_date_col,
+			c_datetime_col,
+			c_datetime2_col,
+			c_datetimeoffset_col,
+			c_decimal_col,
+			c_float_col,
+			c_int_col,
+			c_money_col,
+			c_nchar_col,
+			c_numeric_col,
+			c_nvarchar_col,
+			c_nvarchar_max_col,
+			c_real_col,
+			c_smalldatetime_col,
+			c_smallint_col,
+			c_smallmoney_col,
+			c_sysname_col,
+			c_tinyint_col,
+			c_uniqueidentifier_col,
+			c_varbinary_col,
+			c_varbinary_max_col,
+			c_varchar_col,
+			c_varchar_max,
+			c_xml_col
+		) 
+		VALUES (
+			#{binaryCol,jdbcType=BINARY},
+			#{bitCol,jdbcType=BIT},
+			#{charCol,jdbcType=CHAR},
+			#{dateCol,jdbcType=DATE},
+			#{datetimeCol,jdbcType=DATE},
+			#{datetime2Col,jdbcType=DATE},
+			#{datetimeoffsetCol,jdbcType=DATE},
+			#{decimalCol,jdbcType=NUMERIC},
+			#{floatCol,jdbcType=NUMERIC},
+			#{intCol,jdbcType=INTEGER},
+			#{moneyCol,jdbcType=NUMERIC},
+			#{ncharCol,jdbcType=VARCHAR},
+			#{numericCol,jdbcType=NUMERIC},
+			#{nvarcharCol,jdbcType=VARCHAR},
+			#{nvarcharMaxCol,jdbcType=VARCHAR},
+			#{realCol,jdbcType=REAL},
+			#{smalldatetimeCol,jdbcType=DATE},
+			#{smallintCol,jdbcType=INTEGER},
+			#{smallmoneyCol,jdbcType=NUMERIC},
+			#{sysnameCol,jdbcType=VARCHAR},
+			#{tinyintCol,jdbcType=INTEGER},
+			#{uniqueidentifierCol},
+			#{varbinaryCol,jdbcType=VARBINARY},
+			#{varbinaryMaxCol,jdbcType=VARBINARY},
+			#{varcharCol,jdbcType=VARCHAR},
+			#{varcharMax,jdbcType=VARCHAR},
+			#{xmlCol,jdbcType=SQLXML}
+		) 
+    ]]>
+    </insert>
+    <!-- 批量新增 -->
+    <insert id="batchInsert" parameterType="java.util.List" useGeneratedKeys="false">
+        INSERT INTO t_test (
+			c_binary_col,
+			c_bit_col,
+			c_char_col,
+			c_date_col,
+			c_datetime_col,
+			c_datetime2_col,
+			c_datetimeoffset_col,
+			c_decimal_col,
+			c_float_col,
+			c_int_col,
+			c_money_col,
+			c_nchar_col,
+			c_numeric_col,
+			c_nvarchar_col,
+			c_nvarchar_max_col,
+			c_real_col,
+			c_smalldatetime_col,
+			c_smallint_col,
+			c_smallmoney_col,
+			c_sysname_col,
+			c_tinyint_col,
+			c_uniqueidentifier_col,
+			c_varbinary_col,
+			c_varbinary_max_col,
+			c_varchar_col,
+			c_varchar_max,
+			c_xml_col
+		)  values
+		<foreach collection="list" item="item" index="index" separator="," >
+            (
+			#{item.binaryCol,jdbcType=BINARY},
+			#{item.bitCol,jdbcType=BIT},
+			#{item.charCol,jdbcType=CHAR},
+			#{item.dateCol,jdbcType=DATE},
+			#{item.datetimeCol,jdbcType=DATE},
+			#{item.datetime2Col,jdbcType=DATE},
+			#{item.datetimeoffsetCol,jdbcType=DATE},
+			#{item.decimalCol,jdbcType=NUMERIC},
+			#{item.floatCol,jdbcType=NUMERIC},
+			#{item.intCol,jdbcType=INTEGER},
+			#{item.moneyCol,jdbcType=NUMERIC},
+			#{item.ncharCol,jdbcType=VARCHAR},
+			#{item.numericCol,jdbcType=NUMERIC},
+			#{item.nvarcharCol,jdbcType=VARCHAR},
+			#{item.nvarcharMaxCol,jdbcType=VARCHAR},
+			#{item.realCol,jdbcType=REAL},
+			#{item.smalldatetimeCol,jdbcType=DATE},
+			#{item.smallintCol,jdbcType=INTEGER},
+			#{item.smallmoneyCol,jdbcType=NUMERIC},
+			#{item.sysnameCol,jdbcType=VARCHAR},
+			#{item.tinyintCol,jdbcType=INTEGER},
+			#{item.uniqueidentifierCol},
+			#{item.varbinaryCol,jdbcType=VARBINARY},
+			#{item.varbinaryMaxCol,jdbcType=VARBINARY},
+			#{item.varcharCol,jdbcType=VARCHAR},
+			#{item.varcharMax,jdbcType=VARCHAR},
+			#{item.xmlCol,jdbcType=SQLXML}
+			)
+        </foreach>
+    </insert>
+    <!-- 更新 -->
+    <update id="update" parameterType="test">
+    <![CDATA[
+	    UPDATE t_test SET 
+			c_binary_col = #{binaryCol,jdbcType=BINARY},
+			c_bit_col = #{bitCol,jdbcType=BIT},
+			c_char_col = #{charCol,jdbcType=CHAR},
+			c_date_col = #{dateCol,jdbcType=DATE},
+			c_datetime_col = #{datetimeCol,jdbcType=DATE},
+			c_datetime2_col = #{datetime2Col,jdbcType=DATE},
+			c_datetimeoffset_col = #{datetimeoffsetCol,jdbcType=DATE},
+			c_decimal_col = #{decimalCol,jdbcType=NUMERIC},
+			c_float_col = #{floatCol,jdbcType=NUMERIC},
+			c_int_col = #{intCol,jdbcType=INTEGER},
+			c_money_col = #{moneyCol,jdbcType=NUMERIC},
+			c_nchar_col = #{ncharCol,jdbcType=VARCHAR},
+			c_numeric_col = #{numericCol,jdbcType=NUMERIC},
+			c_nvarchar_col = #{nvarcharCol,jdbcType=VARCHAR},
+			c_nvarchar_max_col = #{nvarcharMaxCol,jdbcType=VARCHAR},
+			c_real_col = #{realCol,jdbcType=REAL},
+			c_smalldatetime_col = #{smalldatetimeCol,jdbcType=DATE},
+			c_smallint_col = #{smallintCol,jdbcType=INTEGER},
+			c_smallmoney_col = #{smallmoneyCol,jdbcType=NUMERIC},
+			c_sysname_col = #{sysnameCol,jdbcType=VARCHAR},
+			c_tinyint_col = #{tinyintCol,jdbcType=INTEGER},
+			c_uniqueidentifier_col = #{uniqueidentifierCol},
+			c_varbinary_col = #{varbinaryCol,jdbcType=VARBINARY},
+			c_varbinary_max_col = #{varbinaryMaxCol,jdbcType=VARBINARY},
+			c_varchar_col = #{varcharCol,jdbcType=VARCHAR},
+			c_varchar_max = #{varcharMax,jdbcType=VARCHAR},
+			c_xml_col = #{xmlCol,jdbcType=SQLXML}
+		WHERE c_bigint_col = #{bigintCol,jdbcType=BIGINT} 
+    ]]>
+    </update>
+    <!-- 批量更新 -->
+    <update id="batchUpdate" parameterType="java.util.List">
+        update t_test
+        <trim prefix="set" suffixOverrides=",">
+            <trim prefix="c_binary_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.binaryCol != null">
+                        when t_test.c_bigint_col = #{item.bigintCol} then #{item.binaryCol,jdbcType=BINARY}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_bit_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.bitCol != null">
+                        when t_test.c_bigint_col = #{item.bigintCol} then #{item.bitCol,jdbcType=BIT}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_char_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.charCol != null">
+                        when t_test.c_bigint_col = #{item.bigintCol} then #{item.charCol,jdbcType=CHAR}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_date_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.dateCol != null">
+                        when t_test.c_bigint_col = #{item.bigintCol} then #{item.dateCol,jdbcType=DATE}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_datetime_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.datetimeCol != null">
+                        when t_test.c_bigint_col = #{item.bigintCol} then #{item.datetimeCol,jdbcType=DATE}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_datetime2_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.datetime2Col != null">
+                        when t_test.c_bigint_col = #{item.bigintCol} then #{item.datetime2Col,jdbcType=DATE}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_datetimeoffset_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.datetimeoffsetCol != null">
+                        when t_test.c_bigint_col = #{item.bigintCol} then #{item.datetimeoffsetCol,jdbcType=DATE}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_decimal_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.decimalCol != null">
+                        when t_test.c_bigint_col = #{item.bigintCol} then #{item.decimalCol,jdbcType=NUMERIC}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_float_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.floatCol != null">
+                        when t_test.c_bigint_col = #{item.bigintCol} then #{item.floatCol,jdbcType=NUMERIC}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_int_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.intCol != null">
+                        when t_test.c_bigint_col = #{item.bigintCol} then #{item.intCol,jdbcType=INTEGER}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_money_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.moneyCol != null">
+                        when t_test.c_bigint_col = #{item.bigintCol} then #{item.moneyCol,jdbcType=NUMERIC}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_nchar_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.ncharCol != null">
+                        when t_test.c_bigint_col = #{item.bigintCol} then #{item.ncharCol,jdbcType=VARCHAR}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_numeric_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.numericCol != null">
+                        when t_test.c_bigint_col = #{item.bigintCol} then #{item.numericCol,jdbcType=NUMERIC}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_nvarchar_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.nvarcharCol != null">
+                        when t_test.c_bigint_col = #{item.bigintCol} then #{item.nvarcharCol,jdbcType=VARCHAR}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_nvarchar_max_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.nvarcharMaxCol != null">
+                        when t_test.c_bigint_col = #{item.bigintCol} then #{item.nvarcharMaxCol,jdbcType=VARCHAR}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_real_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.realCol != null">
+                        when t_test.c_bigint_col = #{item.bigintCol} then #{item.realCol,jdbcType=REAL}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_smalldatetime_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.smalldatetimeCol != null">
+                        when t_test.c_bigint_col = #{item.bigintCol} then #{item.smalldatetimeCol,jdbcType=DATE}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_smallint_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.smallintCol != null">
+                        when t_test.c_bigint_col = #{item.bigintCol} then #{item.smallintCol,jdbcType=INTEGER}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_smallmoney_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.smallmoneyCol != null">
+                        when t_test.c_bigint_col = #{item.bigintCol} then #{item.smallmoneyCol,jdbcType=NUMERIC}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_sysname_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.sysnameCol != null">
+                        when t_test.c_bigint_col = #{item.bigintCol} then #{item.sysnameCol,jdbcType=VARCHAR}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_tinyint_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.tinyintCol != null">
+                        when t_test.c_bigint_col = #{item.bigintCol} then #{item.tinyintCol,jdbcType=INTEGER}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_uniqueidentifier_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.uniqueidentifierCol != null">
+                        when t_test.c_bigint_col = #{item.bigintCol} then #{item.uniqueidentifierCol}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_varbinary_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.varbinaryCol != null">
+                        when t_test.c_bigint_col = #{item.bigintCol} then #{item.varbinaryCol,jdbcType=VARBINARY}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_varbinary_max_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.varbinaryMaxCol != null">
+                        when t_test.c_bigint_col = #{item.bigintCol} then #{item.varbinaryMaxCol,jdbcType=VARBINARY}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_varchar_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.varcharCol != null">
+                        when t_test.c_bigint_col = #{item.bigintCol} then #{item.varcharCol,jdbcType=VARCHAR}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_varchar_max = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.varcharMax != null">
+                        when t_test.c_bigint_col = #{item.bigintCol} then #{item.varcharMax,jdbcType=VARCHAR}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="c_xml_col = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.xmlCol != null">
+                        when t_test.c_bigint_col = #{item.bigintCol} then #{item.xmlCol,jdbcType=SQLXML}
+                    </if>
+                </foreach>
+            </trim>
+        </trim>
+        where c_bigint_col in
+        <foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+        	#{item.bigintCol,jdbcType=BIGINT}
+        </foreach>
+    </update>
+    <!-- 删除 -->
+    <delete id="deleteById" parameterType="java.lang.Long">
+    <![CDATA[
+        delete from t_test where c_bigint_col = #{bigintCol,jdbcType=BIGINT}
+    ]]>
+    </delete>
+    <!-- 根据对象删除 -->
+    <delete id="delete" parameterType="test">
+        delete from t_test
+        <include refid="whereCondition"/>
+    </delete>
+    <!-- 根据id查询 -->
+    <select id="findById" parameterType="java.lang.Long" resultMap="testMap" >
+    <![CDATA[
+	    SELECT 
+			t_test.c_bigint_col, 
+			t_test.c_binary_col, 
+			t_test.c_bit_col, 
+			t_test.c_char_col, 
+			t_test.c_date_col, 
+			t_test.c_datetime_col, 
+			t_test.c_datetime2_col, 
+			t_test.c_datetimeoffset_col, 
+			t_test.c_decimal_col, 
+			t_test.c_float_col, 
+			t_test.c_int_col, 
+			t_test.c_money_col, 
+			t_test.c_nchar_col, 
+			t_test.c_numeric_col, 
+			t_test.c_nvarchar_col, 
+			t_test.c_nvarchar_max_col, 
+			t_test.c_real_col, 
+			t_test.c_smalldatetime_col, 
+			t_test.c_smallint_col, 
+			t_test.c_smallmoney_col, 
+			t_test.c_sysname_col, 
+			t_test.c_tinyint_col, 
+			t_test.c_uniqueidentifier_col, 
+			t_test.c_varbinary_col, 
+			t_test.c_varbinary_max_col, 
+			t_test.c_varchar_col, 
+			t_test.c_varchar_max, 
+			t_test.c_xml_col
+		FROM t_test
+        where t_test.c_bigint_col = #{bigintCol,jdbcType=BIGINT}
+    ]]>
+    </select>
+    <!-- 根据对象查询 -->
+    <select id="find" parameterType="test" resultMap="testMap" >
+    <![CDATA[
+	    SELECT 
+			t_test.c_bigint_col, 
+			t_test.c_binary_col, 
+			t_test.c_bit_col, 
+			t_test.c_char_col, 
+			t_test.c_date_col, 
+			t_test.c_datetime_col, 
+			t_test.c_datetime2_col, 
+			t_test.c_datetimeoffset_col, 
+			t_test.c_decimal_col, 
+			t_test.c_float_col, 
+			t_test.c_int_col, 
+			t_test.c_money_col, 
+			t_test.c_nchar_col, 
+			t_test.c_numeric_col, 
+			t_test.c_nvarchar_col, 
+			t_test.c_nvarchar_max_col, 
+			t_test.c_real_col, 
+			t_test.c_smalldatetime_col, 
+			t_test.c_smallint_col, 
+			t_test.c_smallmoney_col, 
+			t_test.c_sysname_col, 
+			t_test.c_tinyint_col, 
+			t_test.c_uniqueidentifier_col, 
+			t_test.c_varbinary_col, 
+			t_test.c_varbinary_max_col, 
+			t_test.c_varchar_col, 
+			t_test.c_varchar_max, 
+			t_test.c_xml_col
+		FROM t_test
+    ]]>
+        <include refid="whereCondition"/>
+    </select>
+    <!-- 根据对象查询对象列表 -->
+    <select id="findList" parameterType="map" resultMap="testMap" >
+    <![CDATA[
+	    SELECT 
+			t_test.c_bigint_col, 
+			t_test.c_binary_col, 
+			t_test.c_bit_col, 
+			t_test.c_char_col, 
+			t_test.c_date_col, 
+			t_test.c_datetime_col, 
+			t_test.c_datetime2_col, 
+			t_test.c_datetimeoffset_col, 
+			t_test.c_decimal_col, 
+			t_test.c_float_col, 
+			t_test.c_int_col, 
+			t_test.c_money_col, 
+			t_test.c_nchar_col, 
+			t_test.c_numeric_col, 
+			t_test.c_nvarchar_col, 
+			t_test.c_nvarchar_max_col, 
+			t_test.c_real_col, 
+			t_test.c_smalldatetime_col, 
+			t_test.c_smallint_col, 
+			t_test.c_smallmoney_col, 
+			t_test.c_sysname_col, 
+			t_test.c_tinyint_col, 
+			t_test.c_uniqueidentifier_col, 
+			t_test.c_varbinary_col, 
+			t_test.c_varbinary_max_col, 
+			t_test.c_varchar_col, 
+			t_test.c_varchar_max, 
+			t_test.c_xml_col
+		FROM t_test
+    ]]>
+        <include refid="whereCondition"/>
+    </select>
+    <!-- 根据对象查询对象列表总数 -->
+    <select id="findCount" parameterType="test" resultType="long">
+    <![CDATA[
+        select count(*) from t_test
+    ]]>
+        <include refid="whereCondition"/>
+    </select>
+
+    <!-- 公用的where条件 -->
+    <sql id="whereCondition">
+        <where>
+             <if test="bigintCol != null">
+             <![CDATA[
+                 AND t_test.c_bigint_col = #{bigintCol,jdbcType=BIGINT}
+             ]]>
+             </if>
+             <if test="binaryCol != null">
+             <![CDATA[
+                 AND t_test.c_binary_col = #{binaryCol,jdbcType=BINARY}
+             ]]>
+             </if>
+             <if test="bitCol != null">
+             <![CDATA[
+                 AND t_test.c_bit_col = #{bitCol,jdbcType=BIT}
+             ]]>
+             </if>
+             <if test="charCol != null and charCol != ''">
+             <![CDATA[
+                 AND t_test.c_char_col = #{charCol,jdbcType=CHAR}
+             ]]>
+             </if>
+             <if test="dateCol != null">
+             <![CDATA[
+                 AND t_test.c_date_col = #{dateCol,jdbcType=DATE}
+             ]]>
+             </if>
+             <if test="datetimeCol != null">
+             <![CDATA[
+                 AND t_test.c_datetime_col = #{datetimeCol,jdbcType=DATE}
+             ]]>
+             </if>
+             <if test="datetime2Col != null">
+             <![CDATA[
+                 AND t_test.c_datetime2_col = #{datetime2Col,jdbcType=DATE}
+             ]]>
+             </if>
+             <if test="datetimeoffsetCol != null">
+             <![CDATA[
+                 AND t_test.c_datetimeoffset_col = #{datetimeoffsetCol,jdbcType=DATE}
+             ]]>
+             </if>
+             <if test="decimalCol != null">
+             <![CDATA[
+                 AND t_test.c_decimal_col = #{decimalCol,jdbcType=NUMERIC}
+             ]]>
+             </if>
+             <if test="floatCol != null">
+             <![CDATA[
+                 AND t_test.c_float_col = #{floatCol,jdbcType=NUMERIC}
+             ]]>
+             </if>
+             <if test="intCol != null">
+             <![CDATA[
+                 AND t_test.c_int_col = #{intCol,jdbcType=INTEGER}
+             ]]>
+             </if>
+             <if test="moneyCol != null">
+             <![CDATA[
+                 AND t_test.c_money_col = #{moneyCol,jdbcType=NUMERIC}
+             ]]>
+             </if>
+             <if test="ncharCol != null and ncharCol != ''">
+             <![CDATA[
+                 AND t_test.c_nchar_col = #{ncharCol,jdbcType=VARCHAR}
+             ]]>
+             </if>
+             <if test="numericCol != null">
+             <![CDATA[
+                 AND t_test.c_numeric_col = #{numericCol,jdbcType=NUMERIC}
+             ]]>
+             </if>
+             <if test="nvarcharCol != null and nvarcharCol != ''">
+             <![CDATA[
+                 AND t_test.c_nvarchar_col = #{nvarcharCol,jdbcType=VARCHAR}
+             ]]>
+             </if>
+             <if test="nvarcharMaxCol != null and nvarcharMaxCol != ''">
+             <![CDATA[
+                 AND t_test.c_nvarchar_max_col = #{nvarcharMaxCol,jdbcType=VARCHAR}
+             ]]>
+             </if>
+             <if test="realCol != null">
+             <![CDATA[
+                 AND t_test.c_real_col = #{realCol,jdbcType=REAL}
+             ]]>
+             </if>
+             <if test="smalldatetimeCol != null">
+             <![CDATA[
+                 AND t_test.c_smalldatetime_col = #{smalldatetimeCol,jdbcType=DATE}
+             ]]>
+             </if>
+             <if test="smallintCol != null">
+             <![CDATA[
+                 AND t_test.c_smallint_col = #{smallintCol,jdbcType=INTEGER}
+             ]]>
+             </if>
+             <if test="smallmoneyCol != null">
+             <![CDATA[
+                 AND t_test.c_smallmoney_col = #{smallmoneyCol,jdbcType=NUMERIC}
+             ]]>
+             </if>
+             <if test="sysnameCol != null and sysnameCol != ''">
+             <![CDATA[
+                 AND t_test.c_sysname_col = #{sysnameCol,jdbcType=VARCHAR}
+             ]]>
+             </if>
+             <if test="tinyintCol != null">
+             <![CDATA[
+                 AND t_test.c_tinyint_col = #{tinyintCol,jdbcType=INTEGER}
+             ]]>
+             </if>
+             <if test="uniqueidentifierCol != null">
+             <![CDATA[
+                 AND t_test.c_uniqueidentifier_col = #{uniqueidentifierCol}
+             ]]>
+             </if>
+             <if test="varbinaryCol != null">
+             <![CDATA[
+                 AND t_test.c_varbinary_col = #{varbinaryCol,jdbcType=VARBINARY}
+             ]]>
+             </if>
+             <if test="varbinaryMaxCol != null">
+             <![CDATA[
+                 AND t_test.c_varbinary_max_col = #{varbinaryMaxCol,jdbcType=VARBINARY}
+             ]]>
+             </if>
+             <if test="varcharCol != null and varcharCol != ''">
+             <![CDATA[
+                 AND t_test.c_varchar_col = #{varcharCol,jdbcType=VARCHAR}
+             ]]>
+             </if>
+             <if test="varcharMax != null and varcharMax != ''">
+             <![CDATA[
+                 AND t_test.c_varchar_max = #{varcharMax,jdbcType=VARCHAR}
+             ]]>
+             </if>
+             <if test="xmlCol != null and xmlCol != ''">
+             <![CDATA[
+                 AND t_test.c_xml_col = #{xmlCol,jdbcType=SQLXML}
+             ]]>
+             </if>
+        </where>
+    </sql>
+</mapper>
